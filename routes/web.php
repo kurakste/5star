@@ -23,7 +23,7 @@ Route::post('/bill/store', 'BillController@store')->middleware('auth');
 Route::get('/bill/details', 'BillController@billDetails')->middleware('auth');
 Route::post('/downloadQR', 'ObjectController@downloadQR')->middleware('auth');
 Route::get('/showtariffs','TariffController@showTariffs')->middleware('auth');
-Route::get('/',function () {return view('phpinfo');});
+//Route::get('/',function () {return view('phpinfo');});
 
 
 Auth::routes();
