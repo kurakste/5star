@@ -14,7 +14,7 @@ class ObjectController extends Controller
     public function del (Request $request) {
 
 
-        $user_id = $request->session()->get('user_id');
+        //$user_id = $request->session()->get('user_id');
         $obj = Object::where('id',$request->input('id'))->firstorFail();
         return view ('delobject',['object' => $obj]);
     }
@@ -30,12 +30,12 @@ class ObjectController extends Controller
         return redirect("/home");
     }
 
-    public function updateQRCode ($obj_id) {
+    public function updateQRCode ($request, $obj_id) {
 
         $object = Object::where('id', $obj_id)->firstorFail();
         $publicNick = $object->user_id.'-'.$object->nick;
         $filename = self::_PATH.$publicNick.'.png';
-        $url = URL::base();
+        $url = $request()->root();
         QrCode::format('png')->size(400)->generate($url.$publicNick,$filename);
         $object->QRfilename = $filename;
         $object->save();
@@ -69,7 +69,7 @@ class ObjectController extends Controller
         // id объекта используется для уникальности кодов среди всех клиентов;
         $object->QRfilename = '';
         $object->save();
-        $this->updateQRCode($object->id);
+        $this->updateQRCode($request, $object->id);
 
         
         //Для нового объекта нужно создать вопросы. Потом можно добавить новые.
