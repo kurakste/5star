@@ -23,7 +23,8 @@ class ObjectController extends Controller
         $obj = Object::where('id',$request->input('id'))->firstorFail();
         //сначала удаляем QR код из папки  _PATH
         $name = $obj->QRfilename;
-        unlink($name);
+
+        if (file_exists($name)) unlink($name);
         $obj->delete();
         
         return redirect("/home");
