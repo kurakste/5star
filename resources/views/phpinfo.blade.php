@@ -1,13 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: kurakste
- * Date: 16.01.2018
- * Time: 21:54
- */
-
-@extends('layouts.app')
-
 @section('content')
     <div class="container">
         <div class="row">
