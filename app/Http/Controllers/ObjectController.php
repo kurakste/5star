@@ -35,8 +35,8 @@ class ObjectController extends Controller
         $object = Object::where('id', $obj_id)->firstorFail();
         $publicNick = $object->user_id.'-'.$object->nick;
         $filename = self::_PATH.$publicNick.'.png';
-
-        QrCode::format('png')->size(400)->generate('http://localhost/'.$publicNick,$filename);
+        $url = URL::base();
+        QrCode::format('png')->size(400)->generate($url.$publicNick,$filename);
         $object->QRfilename = $filename;
         $object->save();
     }
