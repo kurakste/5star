@@ -30,6 +30,9 @@ class BillController extends Controller
         //за тем пополнение баланса.
         // object_id в этой таблице не испрользуется!!!
 
+        $validateDate = $request->validate([
+           'sum'=>'integer|min:0|max:10000'
+        ]);
         $user_id=$request->session()->get('user_id');
 
         $bill= new Bill;

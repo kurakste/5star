@@ -26,6 +26,7 @@ class Object extends Model
     return $out;
     }
 
+
     public function getFeedBackList () {
     
         $out = Feedback::where('object_id',$this->id)->get();

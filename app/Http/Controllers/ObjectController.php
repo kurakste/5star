@@ -13,17 +13,19 @@ class ObjectController extends Controller
 
     public function del (Request $request) {
 
-
-        //$user_id = $request->session()->get('user_id');
         $obj = Object::where('id',$request->input('id'))->firstorFail();
         return view ('delobject',['object' => $obj]);
     }
 
     public function finishdel (Request $request) {
+
+        // Получив доступ к этой ссылке злодей может удалить все объекты
+        // перебирая числа. Нужно подумать над защитой.
+
         $obj = Object::where('id',$request->input('id'))->firstorFail();
+
         //сначала удаляем QR код из папки  _PATH
         $name = $obj->QRfilename;
-
         if (file_exists($name)) unlink($name);
         $obj->delete();
         
@@ -51,7 +53,7 @@ class ObjectController extends Controller
 
         // Нужно проверить изменил ли пользователь никнейм объекта. Если да,
         // то мы должны удалить файл со QR кодом.
-        if ($object->nick != $request->input('fnicknsme')) {
+        if ($object->nick != $request->input('fnicknаme')) {
                 $publicNick = $object->id.'-'.$object->nick;
                 $filename = self::_PATH.$publicNick.'.png';
                 if (file_exists($filename)) {
@@ -66,7 +68,7 @@ class ObjectController extends Controller
         $object->city = $request->input('fcity');
         $object->addr = $request->input('faddr');
         // Сейчас нельзя создавать QR код. Для нового объкте не известен id;
-        // id объекта используется для уникальности кодов среди всех клиентов;
+        // id юзера используется для уникальности кодов среди всех клиентов;
         $object->QRfilename = '';
         $object->save();
         $this->updateQRCode($request, $object->id);
@@ -90,12 +92,13 @@ class ObjectController extends Controller
     }
 
     public function downloadQR (Request $request) {
-    
+        // Находит QRCode объекта и отдает его на скачивание.
+
         $object = Object::where('id',$request->input('id'))->firstorFail();
 
         return response()->file($object->QRfilename);
+    }
 
-    } 
     public function add (Request $request) {
         $user_id=$request->session()->get('user_id');
 

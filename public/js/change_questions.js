@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    countOfQuestion = 2;
+    countOfQuestion = $('#count_of_question').val();
 
     $('#bAddQuestion').click(addNewQuestion);
     $('.btn_del').click(removeQuestion);
@@ -35,7 +35,7 @@ $(document).ready(function () {
         newElement = `
          <div class="form-group" id="fg-${countOfQuestion}">
             <label for="question_${countOfQuestion}" id="label-${countOfQuestion}">Вопрос ${countOfQuestion}</label>
-            <input type="text" name="question_${countOfQuestion}" value=""  class="form-control" id="FNickname" aria-describedby="HNickname" placeholder="Введите ваш вопрос." required pattern="^[0-9a-zA-Zа-яА-Я\\s.,:;!?]+$">
+            <input type="text" name="question_${countOfQuestion}" value=""  class="form-control"  placeholder="Введите ваш вопрос.">
             <a class="btn btn-primary btn-sm btn_del" id="bRemoveQuestion-${countOfQuestion}" data-question="${countOfQuestion}" href="#" role="button">X</a>
         </div>`;
         $('div.form-group:last').after(newElement);

@@ -132,6 +132,10 @@
     <input type="hidden" name="id" value="{{$object->id}}" >
     <button type="subbmit" class="btn btn-primary btn-sm">QRCode</button>
  {!! Form::close() !!}
+ {!! Form::open(['url'=>'_posters','method'=>'POST'])  !!}
+    <input type="hidden" name="id" value="{{$object->id}}" >
+    <button type="subbmit" class="btn btn-primary btn-sm">Постеры</button>
+ {!! Form::close() !!}
 
         </div>
     @endforeach
