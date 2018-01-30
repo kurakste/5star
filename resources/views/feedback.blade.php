@@ -30,10 +30,13 @@
         }
         .card   {
             padding:0;
-            padding-top: 10px;
             width:100%; /* vw */
             height:100%; /* vh */
             display:none;
+        }
+
+        .card-header {
+            padding-top: 30px;
         }
 
         .active {
@@ -42,13 +45,13 @@
         .backward {
             position:absolute;
             bottom: 35px;
-            left: 15px;
+            left: 30px;
         }
 
         .forward {
             position:absolute;
             bottom: 35px;
-            right: 120px;
+            right: 30px;
         }
 
         .questions {
@@ -82,8 +85,8 @@
                     Мы спросим у вас номер телефона. Возможно нам понадобится что-то уточнить. Заполните
                     пожалуйсата это поле. Спасибо.
                 </p>
-                <a href="#" class="btn btn btn-outline-success disabled backward" id = 'bBackward_{{$page}}'>Назад</a>
-                <a href="#" class="btn btn-outline-success forward" id = 'bForward_{{$page}}'>Вперед</a>
+                <a href="#" class="btn btn-lg btn-outline-success disabled backward" id = 'bBackward_{{$page}}'>Назад</a>
+                <a href="#" class="btn btn-lg btn-outline-success forward" id = 'bForward_{{$page}}'>Вперед</a>
             </div>
         </div>
         <?php $page++; ?>
