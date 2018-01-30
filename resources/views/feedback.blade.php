@@ -46,7 +46,7 @@
 
         .forward {
             position:absolute;
-            bottom: 25px;
+            bottom: 35px;
             left: 120px;
         }
 
