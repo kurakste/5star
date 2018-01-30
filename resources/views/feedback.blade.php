@@ -1,7 +1,6 @@
-@extends('layouts.master')
+@extends('layouts.fbmaster')
 @section('title', '5StarService')
 @section('content')
-
 
     @if (count($errors) > 0)
         <div class="alert alert-danger">
@@ -12,40 +11,162 @@
             </ul>
         </div>
     @endif
+    <style>
+        .body {
+            width:100%;
+            height:100%;
+        }
+        .container {
+            margin: 0;
+            padding: 0;
+        }
 
-    <form action="/fb/store" method="post">
+        .btn-block {
+            margin-top: 20px;
+        }
+        .card   {
+            padding:0;
+            width:100vw;
+            height:100vh;
+            display:none;
+        }
+
+        .active {
+            display:block;
+        }
+        .backward {
+            position:absolute;
+            bottom: 15px;
+            left: 15px;
+        }
+
+        .forward {
+            position:absolute;
+            bottom: 15px;
+            left: 120px;
+        }
+
+        .questions {
+            margin-top:50px;
+            margin-bottom: 50px;
+        }
+
+        #fnotes {
+            width:90%
+        }
+
+    </style>
+    <?php $page=1; ?>
+    <form action="/fb/store" method="post" id="qForm">
      {{ csrf_field() }}
 
-    <input type="hidden" name="id"  value="{{$object_id}}"> <!--передаем id ОБЪЕКТА для которого составлен отзыв. -->
+        <input type="hidden" name="id"  value="{{$object_id}}"> <!--передаем id ОБЪЕКТА для которого составлен отзыв. -->
+        <input type="hidden" id ="countOfQuestions" name="countOfQuestions" value="{{count($questions)}}"> <!--передаем кол-во вопросов в анкете. -->
 
-    <input type="hidden" name="countofquestions"  value="{{count($questions)}}"> <!--передаем кол-во вопросов в анкете. -->
-  <div class="form-group">
-    <label for="fname">Введите удобное для вас обращение:</label> 
-    <input type="text" name="fname" value=""class="form-control" id="fname" aria-describedby="HManager" placeholder="Как к вам удобно обратиться?" >
-  </div>
-  <div class="form-group">
-    <label for="fphone">Телефон:</label> 
-    <input type="text" name="fphone" value="" class="form-control" id="fphone" aria-describedby="HPhone" placeholder="Введите номер вашего телефона." >
-    <small id="hphone" class="form-text text-muted">Введите ваш номер телефона с кодом (89176450029) (11-ть цифр номера. Например: 89869347745)</small>
-  </div>
+        <div class="card active" id="card_{{$page}}">
+            <div class="card-header text-center">
+                Помогите нам стать лучше для вас.
+            </div>
+            <div class="card-block">
+                <h4 class="card-title">Отзыв на сервис "Горячая линия"</h4>
+                <p class="card-text">Здравствуйте. Мы рады что вы хотите высказать нам
+                    Ваше мение о нашей работе. Мы обязательно используем его для того, что бы
+                    быть лучшим сервисом для вас.
+                </p>
+                <p> Мы зададим вам несколько вопосов, ответы на которые можно дать в виде баллов от 0 до 5-ти.
+                    В последнее поле впиши все, что сочтете нужным. Мы правда хотим стать лучше!
+                </p>
+                <p>
+                    Мы спросим у вас номер телефона. Возможно нам понадобится что-то уточнить. Заполните
+                    пожалуйсата это поле. Спасибо.
+                </p>
+                <a href="#" class="btn btn btn-outline-success disabled backward" id = 'bBackward_{{$page}}'>Назад</a>
+                <a href="#" class="btn btn-outline-success forward" id = 'bForward_{{$page}}'>Вперед</a>
+            </div>
+        </div>
+        <?php $page++; ?>
+        <div class="card" id="card_{{$page}}">
+            <div class="card-header text-center">
+                Помогите нам стать лучше для вас.
+            </div>
+            <div class="card-block">
+                <h4 class="card-title">Отзыв на сервис "Горячая линия"</h4>
+                <div class="form-group">
+                    <label for="fphone">Телефон:</label>
+                    <input type="text" name="fphone" value="+7" class="form-control validated required"
+                           data-my-pattern="\+?7\d+" data-max-lenght="12" data-must = '1' data-ok="1"
+                           id="fphone" aria-describedby="HPhone">
+                    <small id="hphone" class="form-text text-muted"
+                    >Введите ваш номер телефона 11 цифр номера. Например: +79869347745.</small>
+                </div>
+                <div class="form-group">
+                    <label for="fname">Введите удобное для вас обращение:</label>
+                    <input type="text" name="fname" value="" class="form-control validated required" id="fname"
+                           aria-describedby="HManager" placeholder="Как к вам удобно обратиться?"
+                           data-my-pattern="[a-zA-Zа-яА-Я\s]+" data-must ='1' data-ok="1">
+                </div>
+
+                <a href="#" class="btn btn-outline-success backward" id = 'bBackward_{{$page}}'>Назад</a>
+                <a href="#" class="btn btn-outline-success forward" id = 'bForward_{{$page}}'>Вперед</a>
+            </div>
+        </div>
+
 
     @foreach ($questions as $question)
-  <div class="form-group">
-        
-        <input type="hidden" name="question_id_{{$loop->index}}"  value="{{$question->id}}"> <!--передаем id ВОПРОСА -->
-        <label for="{{$name='fquestion_'.$loop->index}}">{{$question->question}}</label> 
-    <input type="number" name="{{$name}}" value="" class="form-control" id="{{$name}}" placeholder="Введите вашу оценку" required>
-  </div>
-    @endforeach
-    
+            <?php $page++; ?>
+            <div class="card" id="card_{{$page}}">
+                <div class="card-header text-center">
+                    Помогите нам стать лучше для вас.
+                </div>
+                <div class="card-block">
+                    <h4 class="card-title">Отзыв на сервис "Горячая линия"</h4>
+                    <p class="questions">{{$question->question}}</p>  <!-- Выводим вопрос. -->
+                    <input type="hidden" name="question_id_{{$loop->index}}"  value="{{$question->id}}"> <!--передаем id Вопроса.
+                     он нужен для сохранения ответов. -->
+                        <div class="form-group">
+                            <select class="custom-select" name="fanswer_{{$loop->index}}">
+                                <option value="0" selected>Дайте нам оценку!</option>
+                                <option value="1">Отвратительно</option>
+                                <option value="2">Плохо</option>
+                                <option value="3">Пойдет</option>
+                                <option value="4">Хорошо</option>
+                                <option value="5">Отлично</option>
+                            </select>
+                        </div>
 
-  <div class="form-group">
-    <label for="fnotes">Примечания:</label> 
-    <input type="text" class="form-control" name="fnotes" value="" id="fnotes" aria-describedby="hnotes" placeholder="Расскажите нам о ваших впечатлениях." >
+                    <a href="#" class="btn btn-outline-success backward" id = 'bBackward_{{$page}}'>Назад</a>
+                    <a href="#" class="btn btn-outline-success forward" id = 'bForward_{{$page}}'>Вперед</a>
+                </div>
+            </div>
+        @endforeach
+        <?php $page++; ?>
+        <div class="card" id="card_{{$page}}">
+            <div class="card-header text-center">
+                Помогите нам стать лучше для вас.
+            </div>
+            <div class="card-block">
+                <h4 class="card-title">Отзыв на сервис "Горячая линия"</h4>
+                <p class="questions">Расскажите нам, что бы вы сделать лучше для вас в нашем заведении. Спасибо!</p>
 
-    <small id="hnotes" class="form-text text-muted">Расскажите нам, что бы вы улучшели в нашем заведении. Спасибо!</small>
-  </div>
+                <div class="form-group">
+                    <textarea class='validated' name="fnotes" id="fnotes" data-my-pattern="[a-zA-Zа-яА-Я\s.,:;!?№]*" data-ok="1"></textarea>
+                </div>
+                <a href="#" class="btn btn-outline-success backward" id = 'bBackward_{{$page}}'>Назад</a>
+                <a href="#" class="btn btn-outline-success forward disabled" id = 'bForward_{{$page}}'>Вперед</a>
 
-     <button type="submit" class="btn btn-primary btn-block">Отправить отзыв.</button>
-</form>
+
+                <button type="submit" class="btn btn-outline-success btn-block" id = 'bSend'>Отправить отзыв.</button>
+                </form>
+            </div>
+        </div>
+
 @endsection
+
+@section('script')
+    <script src="/js/fb.js"></script>
+    <script src="/js/parsley.min.js"></script>
+    <script>
+        $('#qForm').parsley();
+    </script>
+@endsection
+

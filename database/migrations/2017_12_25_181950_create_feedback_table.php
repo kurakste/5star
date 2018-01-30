@@ -19,7 +19,7 @@ class CreateFeedbackTable extends Migration
             $table->unsignedInteger('object_id');
             $table->String('phone');
             $table->String('name');
-            $table->String('comment');
+            $table->String('comment')->nullable();;
             $table->foreign('object_id')->references('id')->on('objects')->onDelete('cascade')->onUpdate('cascade');
         });
     }

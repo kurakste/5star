@@ -21,5 +21,11 @@ class User extends Model implements Authenticatable
         $sum=Bill::where('user_id',$this->id)->sum('sum');
         return $sum;
     }
+
+    public function settings ()
+    {
+        return $this->hasOne('App\Usersetting');
+
+    }
     //
 }

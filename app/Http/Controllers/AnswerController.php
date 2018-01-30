@@ -9,7 +9,7 @@ use App\Feedback;
 
 class AnswerController extends Controller
 {
-    //
+    //`
     public function show (Request $request) {
 
        $validateDate=$request->validate(['fb_id'=>'integer','obj_id'=>'integer']);

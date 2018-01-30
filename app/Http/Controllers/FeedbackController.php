@@ -15,9 +15,10 @@ class FeedbackController extends Controller
         //Никнейм придет в формате: user_id-nickname;
         $splitedNick = explode('-', $nickname);
 
-        //dd($splitedNick[0]);
+        //dd($splitedNick[1]);
         $obj = Object::where([['nick',$splitedNick[1]],['user_id', $splitedNick[0]]])->first();
         $Q = Question::where([['object_id',$obj->id],['activ',true]])->get();
+
 //!! Нужно продумть как поступать с клиентами у кого не активный статус.
 //!! Проверку нужно исправить. 
 //
@@ -35,14 +36,14 @@ class FeedbackController extends Controller
     public function store(Request $request) {
         // Проверка данных, пришедших из формы.
         $rules = [
-            'fname'=>array('required', 'regex:/[А-Яа-яЁё]/u'),
-            'fphone'=>array('required','regex:/^[0-9]{11}$/u'),
-            'fnotes'=>array('required','regex:/[0-9a-zA-Zа-яА-Я\s.,:;!?-№]+/u') ];
-
-        for ($i=0; $i<$request->input('countofquestions'); $i++) {
-            $name_q="fquestion_".$i;
-            $rules[$name_q]=array('required', 'integer', 'min:0', 'max:5');
-        };
+            'fname'=>array('required', 'regex:/[a-zA-ZА-Яа-яЁё\s]/u'),
+            'fphone'=>array('required','regex:/^\+7[0-9]{10}$/u'),
+            'fnotes'=>array('regex:/[0-9a-zA-Zа-яА-Я\s.,:;!?№]*/u')];
+       for ($i= 0; $i<$request->input('countOfQuestions'); $i++) {
+           $nanswer="fanswer_".$i;
+           $rules[$nanswer]=array('required', 'integer', 'min:0', 'max:5');
+       };
+       //dd($request);
 
         $validateDate = $request->validate($rules);
 
@@ -52,13 +53,14 @@ class FeedbackController extends Controller
        $fb->phone = $request->input('fphone');
        $fb->comment = $request->input('fnotes');
        $fb->save();
-       for ($i=0; $i<$request->input('countofquestions'); $i++) {
-           $name_q="fquestion_".$i;
-           $name_i="question_id_".$i;
+       for ($i=0; $i<$request->input('countOfQuestions'); $i++) {
+           $nanswer="fanswer_".$i;
+           $question_id="question_id_".$i;
            $answers= new Answer;
            $answers->feedback_id = $fb->id;
-           $answers->question_id = $request->input($name_i);
-           $answers->Answer = $request->input($name_q);
+           $answers->question_id = $request->input($question_id);
+           $answers->Answer = $request->input($nanswer);
+           //dd($fb);
            $answers->save();
        }
        return view ('thanks');
