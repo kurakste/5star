@@ -10,6 +10,7 @@ $(document).ready(function () {
     currentCard = '#card_'+ currentCounter.toString();
     colorWasChanged =0;
     allIsOk = 1;
+    mayWeGoForward = 1;
     allDataInFileldsAreCorrect = 1; // метод doValidate будет сбрасывать этот флаг в ноль
     // если валидация не пройдена и возварщать 1 когда валидация будет корректна
     allDataInFileldsAreFull =  1; // Метод doValidate будет сбрасывыть это флаг в ноль в
@@ -28,33 +29,40 @@ $(document).ready(function () {
 
     function goForward() {
         // запускаем принудительную проверку полей на этой странице.
-        // дело в том, что пользователь можен не заполняя ничего нажать
-        // кнопку дальше.
-        console.log($(currentCard).find('.validated'));
+        // дело в том, что пользователь может не заполняя ничего нажать
+        // кнопку дальше. Т.е. нсучится события keyup.
+
+   //     console.log($(currentCard).find('.validated'));
 
         $(currentCard).find('.validated').each(function (item, i, arr) {
             var event = new Event('keyup');
-            console.log((this).dispatchEvent(event));
-            console.log($(this));
+            (this).dispatchEvent(event);
         });
-      //     console.log($(this));
-      //     var event = new Event('keyup');
-      //     console.log ($(this).dispatchEvent(event)); });
 
-        checkRequired ();
+        mayWeGoForward = 1;
+        $(currentCard).find('.validated').each(function (item, i, arr) {
+            console.log ($(this).attr('data-ok'));
+            mayWeGoForward = $(this).attr('data-ok')*mayWeGoForward;
+
+        });
+
+        if (!mayWeGoForward) return;
+
+
+       // checkRequired ();
         //сначало проверяем правильно ли пользователь заполнил поля.
         //используем флаг allDataInFileldsAreCorrect
 
-        if (!allDataInFileldsAreCorrect) {
+        //if (!allDataInFileldsAreCorrect) {
 
             //console.log('error');
-            return;
-        }
+          //  return;
+       // }
 
-        if (!allRequiredDataIsSet) {
-            allRequiredDataIsSet = 1;
-            return
-        }
+        //if (!allRequiredDataIsSet) {
+         //   allRequiredDataIsSet = 1;
+          //  return
+        //}
         $(currentCard).removeClass('active');
         currentCounter++;
         currentCard = '#card_'+ currentCounter.toString();
@@ -97,10 +105,11 @@ $(document).ready(function () {
     }
     function checkRequired () {
         // проверяем все поля где задан класс required
+        allRequiredDataIsSet = 1; //Сначало выставляем поле в 1. А если хоть одно поле не Ок - сбросим в ноль.
         var required = $(currentCard).find('.required'); // Получаем все обязательные поля
 
         required.each(function () {
-            allRequiredDataIsSet = ($(this).val()==0) ? 0 : 1;
+            allRequiredDataIsSet = ($(this).val()==0) ? 0 : allRequiredDataIsSet*1;
         });
        // console.log(required);
 
@@ -124,11 +133,12 @@ $(document).ready(function () {
         }
 
         if (maxlenght) {
-            if (sample.length > maxlenght) flag = 0
+            if (sample.length !== +maxlenght) flag = 0
+            console.log('maxlength:', +maxlenght,':',sample.length,':',flag);
         }
 
 
-        if (maxlenght) allDataInFileldsAreFull = (sample.length==maxlenght) ? 1:0; // проверяем только в том
+       // if (maxlenght) allDataInFileldsAreFull = (sample.length==maxlenght) ? 1:0; // проверяем только в том
         // случае если параметр в this установлен.
 
         // Если введены не кректные данные, то делаем три вещи.
@@ -136,7 +146,8 @@ $(document).ready(function () {
         // 2. Выставляем флаг allDataInFileldsAreCorrect в ноль
         // 2. Водим сообщение под полем.
 
-        if (!flag) {
+
+        if (!flag ) {
             //$(this).css('color','red');
             $(this).css('background','#F2DEDE');
             $(this).attr('data-ok',0);
