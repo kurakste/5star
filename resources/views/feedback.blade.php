@@ -40,13 +40,13 @@
         }
         .backward {
             position:absolute;
-            bottom: 15px;
+            bottom: 25px;
             left: 15px;
         }
 
         .forward {
             position:absolute;
-            bottom: 15px;
+            bottom: 25px;
             left: 120px;
         }
 
