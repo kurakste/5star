@@ -22,7 +22,7 @@
         }
         #qForm {
             width:100vw; /* vw */
-            height:80vh;
+            height:90vh;
         }
 
         .btn-block {
