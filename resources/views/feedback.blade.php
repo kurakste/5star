@@ -111,8 +111,8 @@
                            data-my-pattern="[a-zA-Zа-яА-Я\s]+" data-must ='1' data-ok="1">
                 </div>
 
-                <a href="#" class="btn btn-outline-success backward" id = 'bBackward_{{$page}}'>Назад</a>
-                <a href="#" class="btn btn-outline-success forward" id = 'bForward_{{$page}}'>Вперед</a>
+                <a href="#" class="btn btn-lg btn-outline-success backward" id = 'bBackward_{{$page}}'>Назад</a>
+                <a href="#" class="btn btn-lg btn-outline-success forward" id = 'bForward_{{$page}}'>Вперед</a>
             </div>
         </div>
 
