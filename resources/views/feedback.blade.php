@@ -30,6 +30,7 @@
         }
         .card   {
             padding:0;
+            padding-top: 10px;
             width:100%; /* vw */
             height:100%; /* vh */
             display:none;
@@ -40,14 +41,14 @@
         }
         .backward {
             position:absolute;
-            bottom: 25px;
+            bottom: 35px;
             left: 15px;
         }
 
         .forward {
             position:absolute;
             bottom: 35px;
-            left: 120px;
+            right: 120px;
         }
 
         .questions {
