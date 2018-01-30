@@ -92,10 +92,10 @@
         <?php $page++; ?>
         <div class="card" id="card_{{$page}}">
             <div class="card-header text-center">
-                Помогите нам стать лучше для вас.
+                ИЗМЕНИМ МИР К ЛУЧШЕМУ
             </div>
             <div class="card-block">
-                <h4 class="card-title">Отзыв на сервис "Горячая линия"</h4>
+                <h4 class="card-title  text-center">Отзыв для сервиса "Горячая линия"</h4>
                 <div class="form-group">
                     <label for="fphone">Телефон:</label>
                     <input type="text" name="fphone" value="+7" class="form-control validated required"
@@ -121,10 +121,10 @@
             <?php $page++; ?>
             <div class="card" id="card_{{$page}}">
                 <div class="card-header text-center">
-                    Помогите нам стать лучше для вас.
+                    ИЗМЕНИМ МИР К ЛУЧШЕМУ
                 </div>
                 <div class="card-block">
-                    <h4 class="card-title">Отзыв на сервис "Горячая линия"</h4>
+                    <h4 class="card-title text-center">Отзыв для сервиса "Горячая линия"</h4>
                     <p class="questions">{{$question->question}}</p>  <!-- Выводим вопрос. -->
                     <input type="hidden" name="question_id_{{$loop->index}}"  value="{{$question->id}}"> <!--передаем id Вопроса.
                      он нужен для сохранения ответов. -->
@@ -147,10 +147,10 @@
         <?php $page++; ?>
         <div class="card" id="card_{{$page}}">
             <div class="card-header text-center">
-                Помогите нам стать лучше для вас.
+                ИЗМЕНИМ МИР К ЛУЧШЕМУ
             </div>
             <div class="card-block">
-                <h4 class="card-title">Отзыв на сервис "Горячая линия"</h4>
+                <h4 class="card-title  text-center">Отзыв для сервиса "Горячая линия"</h4>
                 <p class="questions">Расскажите нам, что бы вы сделать лучше для вас в нашем заведении. Спасибо!</p>
 
                 <div class="form-group">
