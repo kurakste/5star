@@ -20,14 +20,18 @@
             margin: 0;
             padding: 0;
         }
+        #qForm {
+            width:100vw; /* vw */
+            height:100vh;
+        }
 
         .btn-block {
             margin-top: 20px;
         }
         .card   {
             padding:0;
-            width:100vw;
-            height:100vh;
+            width:100%; /* vw */
+            height:100%; /* vh */
             display:none;
         }
 
@@ -164,9 +168,5 @@
 
 @section('script')
     <script src="/js/fb.js"></script>
-    <script src="/js/parsley.min.js"></script>
-    <script>
-        $('#qForm').parsley();
-    </script>
 @endsection
 
