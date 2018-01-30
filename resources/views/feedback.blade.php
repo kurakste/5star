@@ -139,8 +139,8 @@
                             </select>
                         </div>
 
-                    <a href="#" class="btn btn-outline-success backward" id = 'bBackward_{{$page}}'>Назад</a>
-                    <a href="#" class="btn btn-outline-success forward" id = 'bForward_{{$page}}'>Вперед</a>
+                    <a href="#" class="btn btn-lg btn-outline-success backward" id = 'bBackward_{{$page}}'>Назад</a>
+                    <a href="#" class="btn btn-lg btn-outline-success forward" id = 'bForward_{{$page}}'>Вперед</a>
                 </div>
             </div>
         @endforeach
@@ -156,8 +156,8 @@
                 <div class="form-group">
                     <textarea class='validated' name="fnotes" id="fnotes" data-my-pattern="[a-zA-Zа-яА-Я\s.,:;!?№]*" data-ok="1"></textarea>
                 </div>
-                <a href="#" class="btn btn-outline-success backward" id = 'bBackward_{{$page}}'>Назад</a>
-                <a href="#" class="btn btn-outline-success forward disabled" id = 'bForward_{{$page}}'>Вперед</a>
+                <a href="#" class="btn btn-lg btn-outline-success backward" id = 'bBackward_{{$page}}'>Назад</a>
+                <a href="#" class="btn btn-lg btn-outline-success forward disabled" id = 'bForward_{{$page}}'>Вперед</a>
 
 
                 <button type="submit" class="btn btn-outline-success btn-block" id = 'bSend'>Отправить отзыв.</button>
