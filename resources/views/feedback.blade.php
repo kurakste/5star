@@ -3,11 +3,11 @@
 @section('content')
     <style>
         html {
-            height: 101vh;
+            height: 120vh;
             width: 100vw;
         }
         body, .container, .card   {
-            height: 101vh;
+            height: 120vh;
             width: 100vw;
         }
 
