@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Usettings extends Migration
+class CreateUsersettings extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,6 @@ class Usettings extends Migration
      */
     public function up()
     {
-        //
         Schema::create('usersettings', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
@@ -22,6 +21,7 @@ class Usettings extends Migration
             $table->boolean('send_daily_report')->default(false);;
             $table->boolean('send_weekly_report')->default(false);;
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+
         });
     }
 
@@ -32,7 +32,6 @@ class Usettings extends Migration
      */
     public function down()
     {
-        //
         Schema::dropIfExists('usersettings');
     }
 }
