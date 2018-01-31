@@ -39,13 +39,13 @@
         }
         .backward {
             position:absolute;
-            bottom: 7%;
+            bottom: 10%;
             left: 25px;
         }
 
         .forward {
             position:absolute;
-            bottom: 7%;
+            bottom: 10%;
             right: 25px;
         }
 
@@ -84,13 +84,13 @@
 
             .backward {
                 position:absolute;
-                bottom: 4%;
+                bottom: 7%;
                 left: 25px;
             }
 
             .forward {
                 position:absolute;
-                bottom: 4%;
+                bottom: 7%;
                 right: 25px;
             }
 
@@ -98,7 +98,7 @@
                 position:absolute;
                 width:150px;
                 height: 51px;
-                bottom: 4%;
+                bottom: 7%;
                 right: 25px;
             }
 
