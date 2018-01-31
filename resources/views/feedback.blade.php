@@ -78,13 +78,13 @@
 
             .backward {
                 position:absolute;
-                bottom: 9%;
+                bottom: 12%;
                 left: 25px;
             }
 
             .forward {
                 position:absolute;
-                bottom: 9%;
+                bottom: 12%;
                 right: 25px;
             }
 
@@ -92,7 +92,7 @@
                 position:absolute;
                 width:150px;
                 height: 51px;
-                bottom: 9%;
+                bottom: 12%;
                 right: 25px;
             }
 
