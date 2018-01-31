@@ -12,17 +12,22 @@
         </div>
     @endif
     <style>
-        .body {
-            width:100%;
-            height:100%;
+        html {
+            height: 100vh;
+            width: 100vw;
         }
+         body, .container, .card   {
+             height: 100vh;
+             width: 100vw;
+         }
+
         .container {
             margin: 0;
             padding: 0;
         }
         #qForm {
-            width:100vw; /* vw */
-            height:90vh;
+            width:100%; /* vw */
+            height:100%;
         }
 
         .btn-block {
@@ -30,13 +35,13 @@
         }
         .card   {
             padding:0;
-            width:100%; /* vw */
-            height:100%; /* vh */
+            width: 100vw; /* vw */
+            height:100 vh; /* vh */
             display:none;
         }
 
         .card-header {
-            padding-top: 30px;
+            padding-top: 5%;
         }
 
         .active {
@@ -44,19 +49,19 @@
         }
         .backward {
             position:absolute;
-            bottom: 35px;
-            left: 30px;
+            bottom: 5%;
+            left: 25px;
         }
 
         .forward {
             position:absolute;
-            bottom: 35px;
-            right: 30px;
+            bottom: 5%;
+            right: 25px;
         }
 
         .questions {
-            margin-top:50px;
-            margin-bottom: 50px;
+            margin-top:5%;
+            margin-bottom: 5%;
         }
 
         #fnotes {
@@ -158,7 +163,7 @@
                 <p class="questions">Расскажите нам, что  мы можем сделать лучше для вас в нашем заведении.</p>
 
                 <div class="form-group">
-                    <textarea cols ='' rows='5' class='validated' name="fnotes" id="fnotes" data-my-pattern="[a-zA-Zа-яА-Я\s.,:;!?№]*" data-ok="1"></textarea>
+                    <textarea cols ='' rows='8' class='validated' name="fnotes" id="fnotes" data-my-pattern="[a-zA-Zа-яА-Я\s.,:;!?№]*" data-ok="1"></textarea>
                 </div>
                 <a href="#" class="btn btn-lg btn-outline-success backward" id = 'bBackward_{{$page}}'>Назад</a>
                 <a href="#" class="btn btn-lg btn-outline-success forward disabled" id = 'bForward_{{$page}}'>Вперед</a>
