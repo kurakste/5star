@@ -39,13 +39,13 @@
         }
         .backward {
             position:absolute;
-            bottom: 13%;
+            bottom: 15%;
             left: 25px;
         }
 
         .forward {
             position:absolute;
-            bottom: 13%;
+            bottom: 15%;
             right: 25px;
         }
 
