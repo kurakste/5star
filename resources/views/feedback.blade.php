@@ -178,6 +178,7 @@
                 </div> <!--fright -->
                 <div class="fright">
                     <div class="form-group">
+                        <br>
                         <label id='lphone' for="fphone">Введите ваш номер телефона:</label>
                         <input type="text" name="fphone" value="+7" class="form-control validated required"
                         data-my-pattern="\+?7\d+" data-max-lenght="12" data-must = '1' data-ok="1">
