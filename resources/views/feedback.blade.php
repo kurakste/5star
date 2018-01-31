@@ -26,7 +26,7 @@
         }
 
         .btn-block {
-            margin-top: 20px;
+            margin-top: 5%;
         }
         .card   {
             padding:0;
@@ -60,7 +60,11 @@
         }
 
         #fnotes {
-            width:90%
+            width: 100%;
+        }
+
+        .answerSelector {
+            width:100%;
         }
 
     </style>
@@ -129,7 +133,7 @@
                     <input type="hidden" name="question_id_{{$loop->index}}"  value="{{$question->id}}"> <!--передаем id Вопроса.
                      он нужен для сохранения ответов. -->
                         <div class="form-group">
-                            <select class="custom-select" name="fanswer_{{$loop->index}}">
+                            <select class="custom-select answerSelector" name="fanswer_{{$loop->index}}">
                                 <option value="0" selected>Дайте нам оценку!</option>
                                 <option value="1">Отвратительно</option>
                                 <option value="2">Плохо</option>
@@ -151,10 +155,10 @@
             </div>
             <div class="card-block">
                 <h4 class="card-title  text-center">Отзыв для сервиса "Горячая линия"</h4>
-                <p class="questions">Расскажите нам, что бы вы сделать лучше для вас в нашем заведении. Спасибо!</p>
+                <p class="questions">Расскажите нам, что  мы можем сделать лучше для вас в нашем заведении.</p>
 
                 <div class="form-group">
-                    <textarea class='validated' name="fnotes" id="fnotes" data-my-pattern="[a-zA-Zа-яА-Я\s.,:;!?№]*" data-ok="1"></textarea>
+                    <textarea cols ='' rows='5' class='validated' name="fnotes" id="fnotes" data-my-pattern="[a-zA-Zа-яА-Я\s.,:;!?№]*" data-ok="1"></textarea>
                 </div>
                 <a href="#" class="btn btn-lg btn-outline-success backward" id = 'bBackward_{{$page}}'>Назад</a>
                 <a href="#" class="btn btn-lg btn-outline-success forward disabled" id = 'bForward_{{$page}}'>Вперед</a>
