@@ -241,6 +241,8 @@
 @endsection
 
 @section('script')
+    <script src="/js/bugfixer.js"></script>
     <script src="/js/fb.js"></script>
+
 @endsection
 
