@@ -3,11 +3,11 @@
 @section('content')
     <style>
         html {
-            height: 100vh;
+            height: 101vh;
             width: 100vw;
         }
         body, .container, .card   {
-            height: 100vh;
+            height: 101vh;
             width: 100vw;
         }
 
@@ -48,12 +48,6 @@
             bottom: 15%;
             right: 25px;
         }
-
-       /* #bSend {
-            position:absolute;
-            bottom: 7%;
-            right: 25px;
-        } */
 
         .questions {
             margin-top:5%;
