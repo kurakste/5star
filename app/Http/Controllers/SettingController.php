@@ -16,7 +16,6 @@ class SettingController extends Controller
     }
 
     public function storeSettings(Request $request) {
-
         $user_id = $request->session()->get('user_id');
         $user = User::where('id',$user_id)->firstorFail();
         $user->name = $request->input('name');
