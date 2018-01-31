@@ -1,25 +1,15 @@
 @extends('layouts.fbmaster')
 @section('title', '5StarService')
 @section('content')
-
-    @if (count($errors) > 0)
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
     <style>
         html {
             height: 100vh;
             width: 100vw;
         }
-         body, .container, .card   {
-             height: 100vh;
-             width: 100vw;
-         }
+        body, .container, .card   {
+            height: 100vh;
+            width: 100vw;
+        }
 
         .container {
             margin: 0;
@@ -59,6 +49,12 @@
             right: 25px;
         }
 
+        #bSend {
+            position:absolute;
+            bottom: 7%;
+            right: 25px;
+        }
+
         .questions {
             margin-top:5%;
             margin-bottom: 5%;
@@ -72,7 +68,80 @@
             width:100%;
         }
 
+        #bSend {
+            position: absolute;
+            width: 150px;
+            height: 51px;
+            bottom: 7%;
+            right: 25px;
+        }
+
+        @media (orientation: landscape) {
+
+            .card-header {
+                padding-top: 2%;
+            }
+
+            .backward {
+                position:absolute;
+                bottom: 4%;
+                left: 25px;
+            }
+
+            .forward {
+                position:absolute;
+                bottom: 4%;
+                right: 25px;
+            }
+
+            #bSend {
+                position:absolute;
+                width:150px;
+                height: 51px;
+                bottom: 4%;
+                right: 25px;
+            }
+
+            .card-header {
+                padding-top: 1%;
+            }
+
+
+            #fnotes {
+                height:5%;
+            }
+            .questions {
+                margin-top:5%;
+                margin-bottom: 5%;
+            }
+
+
+            .card-block {
+                overflow: hidden;
+            }
+
+            .fright {
+                width:40%;
+                float:right;
+            }
+            .fleft {
+                width:40%;
+                float:left;
+            }
+
+        }
+
     </style>
+
+    @if (count($errors) > 0)
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <?php $page=1; ?>
     <form action="/fb/store" method="post" id="qForm">
      {{ csrf_field() }}
@@ -105,25 +174,26 @@
             </div>
             <div class="card-block">
                 <h4 class="card-title  text-center">Отзыв для сервиса "Горячая линия"</h4>
-                <div class="form-group">
-                    <label for="fphone">Телефон:</label>
-                    <input type="text" name="fphone" value="+7" class="form-control validated required"
-                           data-my-pattern="\+?7\d+" data-max-lenght="12" data-must = '1' data-ok="1"
-                           id="fphone" aria-describedby="HPhone">
-                    <small id="hphone" class="form-text text-muted"
-                    >Введите ваш номер телефона 11 цифр номера. Например: +79869347745.</small>
-                </div>
-                <div class="form-group">
-                    <label for="fname">Введите удобное для вас обращение:</label>
-                    <input type="text" name="fname" value="" class="form-control validated required" id="fname"
-                           aria-describedby="HManager" placeholder="Как к вам удобно обратиться?"
-                           data-my-pattern="[a-zA-Zа-яА-Я\s]+" data-must ='1' data-ok="1">
-                </div>
-
+                <div class="fleft">
+                    <div class="form-group">
+                        <label id='lname' for="fname">Введите удобное для вас обращение:</label>
+                        <input type="text" name="fname" value="" class="form-control validated required" id="fname"
+                               aria-describedby="HManager" placeholder="Как к вам обратиться?"
+                               data-my-pattern="[a-zA-Zа-яА-Я\s]+" data-must ='1' data-ok="1">
+                    </div> <!--form-group -->
+                </div> <!--fright -->
+                <div class="fright">
+                    <div class="form-group">
+                        <label id='lphone' for="fphone">Введите ваш номер телефона:</label>
+                        <input type="text" name="fphone" value="+7" class="form-control validated required"
+                        data-my-pattern="\+?7\d+" data-max-lenght="12" data-must = '1' data-ok="1">
+                        <p class="text-muted"> Например +79869347745 </p>
+                    </div> <!-- form-group -->
+                </div><!-- fleft -->
                 <a href="#" class="btn btn-lg btn-outline-success backward" id = 'bBackward_{{$page}}'>Назад</a>
                 <a href="#" class="btn btn-lg btn-outline-success forward" id = 'bForward_{{$page}}'>Вперед</a>
-            </div>
-        </div>
+            </div> <!-- card-block -->
+        </div> <!--card -->
 
 
     @foreach ($questions as $question)
@@ -163,13 +233,13 @@
                 <p class="questions">Расскажите нам, что  мы можем сделать лучше для вас в нашем заведении.</p>
 
                 <div class="form-group">
-                    <textarea cols ='' rows='8' class='validated' name="fnotes" id="fnotes" data-my-pattern="[a-zA-Zа-яА-Я\s.,:;!?№]*" data-ok="1"></textarea>
+                    <textarea cols ='' rows='' class='validated' name="fnotes" id="fnotes" data-my-pattern="[a-zA-Zа-яА-Я\s.,:;!?№]*" data-ok="1"></textarea>
                 </div>
                 <a href="#" class="btn btn-lg btn-outline-success backward" id = 'bBackward_{{$page}}'>Назад</a>
-                <a href="#" class="btn btn-lg btn-outline-success forward disabled" id = 'bForward_{{$page}}'>Вперед</a>
 
 
-                <button type="submit" class="btn btn-outline-success btn-block" id = 'bSend'>Отправить отзыв.</button>
+
+                <button type="submit" class="btn btn-lg btn-outline-success" id = 'bSend'>Отправить</button>
                 </form>
             </div>
         </div>

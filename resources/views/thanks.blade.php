@@ -16,6 +16,12 @@
             margin-right:10%;
             text-align: center;
         }
+
+        @media (orientation: landscape) {
+            h1 {
+                margin-top: 22%;
+            }
+        }
     </style>
     <div class="wrapper">
         <h1> Огромное спасибо за вашу помощь </h1>
