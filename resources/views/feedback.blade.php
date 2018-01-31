@@ -3,11 +3,11 @@
 @section('content')
     <style>
         html {
-            height: 120vh;
+            height: 100vh;
             width: 100vw;
         }
         body, .container, .card   {
-            height: 120vh;
+            height: 100vh;
             width: 100vw;
         }
 
@@ -241,7 +241,6 @@
 @endsection
 
 @section('script')
-    <script src="/js/bugfixer.js"></script>
     <script src="/js/fb.js"></script>
 
 @endsection
