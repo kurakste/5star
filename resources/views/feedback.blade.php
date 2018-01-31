@@ -49,11 +49,11 @@
             right: 25px;
         }
 
-        #bSend {
+       /* #bSend {
             position:absolute;
             bottom: 7%;
             right: 25px;
-        }
+        } */
 
         .questions {
             margin-top:5%;
@@ -72,7 +72,7 @@
             position: absolute;
             width: 150px;
             height: 51px;
-            bottom: 7%;
+            bottom: 15%;
             right: 25px;
         }
 
