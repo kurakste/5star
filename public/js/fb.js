@@ -1,4 +1,14 @@
 $(document).ready(function () {
+    // ---
+    window.addEventListener("load",function() {
+        // Set a timeout...
+        setTimeout(function(){
+            // Hide the address bar!
+            window.scrollTo(0, 1);
+        }, 0);
+    });
+
+
     // кл-во вопросов определяет сколько будет страниц в анкете.
     // одна дые странички на приветствие одна на прощание. Остальное - вопросы.
     // т.е. кол-во страниц = кол-во вопросов + 2
