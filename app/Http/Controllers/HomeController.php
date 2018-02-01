@@ -27,15 +27,24 @@ class HomeController extends Controller
         return view('home');
     }
 
-    public function dashboard () {
+    public function getHomeScreen()
+    {
         $user = Auth::user();
 
-        if (session('user_id')==null) {
-            session(['user_id'=>$user->id]);}
+        if (session('user_id') == null) {
+            session(['user_id' => $user->id]);
+        }
 
-            //dd($user->balance());
+        //dd($user->balance());
 
-            return view ('main',['user'=>$user]);
+        return view('main', ['user' => $user]);
 
+    }
+
+    public function getInfo(Request $request)
+    {
+        $user = Auth::user();
+
+        return view('info', ['user' => $user]);
     }
 }

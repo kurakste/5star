@@ -22,6 +22,7 @@ Route::post('/storesettings','SettingController@storeSettings')->middleware('aut
 Route::post('/banner','BannerController@showBanner')->middleware('auth');
 Route::get('/banner/change','BannerController@changeBanner')->middleware('auth');
 Route::post('/banner/doUpload','BannerController@storeBanner')->middleware('auth');
+route::get('/info','HomeController@getInfo')->middleware('auth');
 
 Auth::routes();
-Route::get('/home', 'HomeController@dashboard')->name('home');
+Route::get('/home', 'HomeController@getHomeScreen')->name('home');

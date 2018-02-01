@@ -18,6 +18,17 @@
         background-color: #fbfbfb;
     }
 
+    .links {
+        display:block;
+        padding-top: 7vh;
+        position: absolute;
+        top:1.7vh;
+        left: 2vw;
+        border: solid #aa9e72 1px;
+        height: 90%;
+        width:90%;
+    }
+
     .border {
         padding-top: 7vh;
         position: absolute;
@@ -93,7 +104,7 @@
 
         <div class="row header">
             <div class="col-12 text-center banner">
-                <p>Helow, {{$user->name}}.</p>
+                <p>Hellow, {{$user->name}}.</p>
             </div>
         </div>
 
@@ -106,6 +117,7 @@
                             <i class="fas fa-info-circle"></i>
                         </div>
                     </div>
+                    <a href="/info" class="links"></a>
                 </div>
             </div>
             <div class="col-6">
