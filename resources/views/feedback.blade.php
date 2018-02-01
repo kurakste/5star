@@ -6,15 +6,11 @@
             height: 100vh;
             width: 100vw;
         }
-        body, .container, .card   {
+        body, .card   {
             height: 100vh;
             width: 100vw;
         }
 
-        .container {
-            margin: 0;
-            padding: 0;
-        }
         #qForm {
             width:100%; /* vw */
             height:100%;

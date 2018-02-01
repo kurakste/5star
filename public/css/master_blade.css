@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css?family=Fredoka+One|Montserrat|Shadows+Into+Light');body {
+    background-color: #c8d7d4;
+}
+.navbar {
+    background-color: #879999;
+}
+
+#brend {
+    color: #FFFFFF;
+}
+
+ul {
+
+}
+.n-icon{
+    font-size: 28px;
+    color: #ffffff;
+}
+
+#logo-head {
+    font-size: 1.7 rem;
+
+    font-family: 'Fredoka One', cursive;
+
+}
+
+#logo-tail {
+    font-family: 'Shadows Into Light', cursive;
+
+}
