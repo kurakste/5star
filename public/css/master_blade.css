@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Fredoka+One|Montserrat|Shadows+Into+Light');body {
     background-color: #c8d7d4;
 }
+
+
 .navbar {
     background-color: #879999;
 }
@@ -27,4 +29,17 @@ ul {
 #logo-tail {
     font-family: 'Shadows Into Light', cursive;
 
+}
+
+.footer {
+    position: fixed;
+    left:0px;
+    bottom:0px;
+    padding-top: 1vh;
+    font-size: 0.7rem;
+    margin-left: -0px;
+    width:100vw;
+    height: 8vh;
+    background-color:#27282d ;
+    color:#ececec;
 }

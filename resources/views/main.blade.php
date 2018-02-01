@@ -56,15 +56,7 @@
         font-size: 60px;
     }
 
-    .footer {
-        padding-top: 1vh;
-        font-size: 0.7rem;
-        margin-left: -13px;
-        width:100vw;
-        height: 6vh;
-        background-color:#27282d ;
-        color:#ececec;
-    }
+
 
     @media (orientation: landscape) {
         .bricks {
@@ -101,7 +93,7 @@
 
         <div class="row header">
             <div class="col-12 text-center banner">
-                <p>Название организации</p>
+                <p>Helow, {{$user->name}}.</p>
             </div>
         </div>
 
@@ -148,9 +140,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="footer text-center">
-            WE DO CARE
         </div>
 
 
