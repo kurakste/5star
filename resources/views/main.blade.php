@@ -22,7 +22,7 @@
         padding-top: 7vh;
         position: absolute;
         top:1.7vh;
-        left: 2.3vw;
+        left: 2vw;
         border: solid #aa9e72 1px;
         height: 90%;
         width:90%;
