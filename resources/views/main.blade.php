@@ -109,7 +109,7 @@
             <div class="col-6">
                 <div class="bricks">
                     <div class="text-center border">
-                        <i class="menu-item">Информация</i>
+                        <i class="menu-item">Инфо</i>
                         <div class="icon">
                             <i class="fas fa-info-circle"></i>
                         </div>
