@@ -12,7 +12,7 @@
         font-weight: bold;
         position: relative;
         margin: 5px;
-        height: 32vh;
+        height: 30vh;
         text-transform: uppercase;
         color: #27282d;
         background-color: #fbfbfb;
