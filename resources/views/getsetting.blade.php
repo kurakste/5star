@@ -26,14 +26,11 @@
         width: 50px;
         height: 50px;
         margin-top: 5vh;
-
     }
+
     .bBack:hover {
         box-shadow: 0 0 10px #686868;
     }
-
-
-
 
      input.form-control {
         max-width: 90%;
@@ -41,7 +38,6 @@
     .left {
         width:50%;
         float:left;
-
     }
 
     .right {
@@ -52,7 +48,7 @@
     @media (orientation: landscape) {
         .wrapper {
 
-        height: 30vh;
+        height: 60vh;
     }
 
         .border {
@@ -69,9 +65,6 @@
 
     <div class="wrapper">
         <div class="border">
-
-            <h2>настройки</h2>
-            <hr/>
 
             {!! Form::open(['url'=>'/storesettings'])  !!}
             {{ csrf_field() }}
@@ -97,19 +90,19 @@
                 </div>
             </div>
 
-
+            <p>Отправлять на почту:</p>
             <div class="form-group">
-                {!! Form::label('leach_fb_checkbox','Отправлять каждый отзыв на почту:') !!}
+                {!! Form::label('leach_fb_checkbox','каждый отзыв:') !!}
                 {!! Form::checkbox('send_each_fb','send_each_fb',$user->settings['send_each_fb']) !!}
             </div>
 
             <div class="form-group">
-                {!! Form::label('lw_checkbox','Отправлять ежедневный отчет на почту:') !!}
+                {!! Form::label('lw_checkbox','ежедневный отчет:') !!}
                 {!! Form::checkbox('send_daily_report','send_daily_report',$user->settings['send_daily_report']) !!}
             </div>
 
             <div class="form-group">
-                {!! Form::label('wrcheckbox','Отправлять еженедельный отчет на почту:') !!}
+                {!! Form::label('wrcheckbox','еженедельный отчет:') !!}
                 {!! Form::checkbox('send_weekly_report','send_weekly_report', $user->settings['send_weekly_report']) !!}
             </div>
 
