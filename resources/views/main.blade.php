@@ -128,6 +128,7 @@
                             <i class="fas fa-cog"></i>
                         </div>
                     </div>
+                    <a href="/getsettings" class="links"></a>
                 </div>
             </div>
         </div>

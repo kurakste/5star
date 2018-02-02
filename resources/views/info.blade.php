@@ -57,6 +57,16 @@
             width:95%;
         }
 
+        .bBack {
+            width: 50px;
+            height: 50px;
+            margin-top: 5vh;
+
+        }
+        .bBack:hover {
+            box-shadow: 0 0 10px #686868;
+        }
+
         @media (orientation: landscape) {
             .wrapper {
 
@@ -98,6 +108,11 @@
                 </li>
             </ul>
         </div>
+    </div>
+    <div class="row">
+        <div class="col-1 offset-4"></div>
+        <a href="/home" id="home"><img class='bBack' src="/icons/back.png" alt=""></a>
+
     </div>
 
 
