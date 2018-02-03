@@ -36,10 +36,30 @@
             bottom:1vh;
             left:22%;
         }
+
+
         @media (orientation: landscape) {
+
+
+
+            }
+
+            .right {
+                width:50%;
+                position: absolute;
+                top: 5px;
+                right: 0px;
+            }
+
+            .left {
+                width:50%;
+                position: absolute;
+                top: 5px;
+                left: 20px;
+            }
             .wrapper {
 
-                height: 60vh;
+                height: 80vh;
             }
 
             .border {
@@ -58,23 +78,28 @@
             {{ csrf_field() }}
 
             <div id="card_1">
-                <div class="form-group">
-                    {!! Form::label('name', 'пользователь') !!}
-                    {!! Form::text('name',$user->name,['class'=>'form-control col-11', 'id'=>'fname']) !!}
+                <div class="left">
+                    <div class="form-group">
+                        {!! Form::label('name', 'пользователь') !!}
+                        {!! Form::text('name',$user->name,['class'=>'form-control col-11', 'id'=>'fname']) !!}
+                    </div>
+                    <div class="form-group">
+                        {!! Form::label('city','Город:') !!}
+                        {!! Form::text('city',$user->city,['class'=>'form-control col-11', 'id'=>'fcity']) !!}
+                    </div>
                 </div>
-                <div class="form-group">
-                    {!! Form::label('city','Город:') !!}
-                    {!! Form::text('city',$user->city,['class'=>'form-control col-11', 'id'=>'fcity']) !!}
+
+                <div class="right">
+                    <div class="form-group">
+                        {!! Form::label('phone','телефон') !!}
+                        {!! Form::text('phone',$user->phone,['class'=>'form-control col-11', 'id'=>'fphone']) !!}
+                    </div>
+                    <div class="form-group">
+                        {!! Form::label('email','email:') !!}
+                        {!! Form::text('email',$user->email,['class'=>'form-control col-11', 'id'=>'fmail']) !!}
+                    </div>
                 </div>
-                <div class="form-group">
-                    {!! Form::label('phone','телефон') !!}
-                    {!! Form::text('phone',$user->phone,['class'=>'form-control col-11', 'id'=>'fphone']) !!}
-                </div>
-                <div class="form-group">
-                    {!! Form::label('email','email:') !!}
-                    {!! Form::text('email',$user->email,['class'=>'form-control col-11', 'id'=>'fmail']) !!}
-                </div>
-                <div class = 'button-group'>
+                <div class = 'button-group '>
                     <a href='#' class="btn bPrev"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>
                     <a href="/home" class="btn bCancel"><i class="fa fa-times" aria-hidden="true"></i></a>
                     <a href="#" class="btn bOk" ><i class="fa fa-check" aria-hidden="true"></i></a>
