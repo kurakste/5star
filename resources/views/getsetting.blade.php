@@ -29,6 +29,7 @@
 
         .bPrev, .bNext, .bOk, .bCancel {
             background-color:#afa376;
+            background-color: red;
             color:white;
         }
         .button-group {
