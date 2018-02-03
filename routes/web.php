@@ -1,4 +1,5 @@
 <?php
+Route::get('/gitpull', 'GitController@pull');
 Route::post('/fb/store', 'FeedbackController@store');
 Route::get('/fb/{nickname}', 'FeedbackController@create');
 Route::post('/showfb', 'FeedbackController@show')->middleware('auth');
