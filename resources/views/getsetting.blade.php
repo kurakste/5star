@@ -27,11 +27,15 @@
             width:95%;
         }
 
-        btn btn-lg {
-            font-size: 10px;
+        .bPrev, .bNext, .bOk, .bCancel {
+            background-color:#afa376;
+            color:white;
         }
-
-
+        .button-group {
+            position: absolute;
+            bottom:1vh;
+            left:22%;
+        }
         @media (orientation: landscape) {
             .wrapper {
 
@@ -70,11 +74,12 @@
                     {!! Form::label('email','email:') !!}
                     {!! Form::text('email',$user->email,['class'=>'form-control col-11', 'id'=>'fmail']) !!}
                 </div>
-
-                <a href='#' class="btn btn-lg bPrev"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>
-                <a href="/home" class="btn btl-lg bCancel"><i class="fa fa-times" aria-hidden="true"></i></a>
-                <a href="#" class="btn btn-lg" id="bOk"><i class="fa fa-check" aria-hidden="true"></i></input>
-                <a href='#' class="btn btn-lg bNext" ><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                <div class = 'button-group'>
+                    <a href='#' class="btn bPrev"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>
+                    <a href="/home" class="btn bCancel"><i class="fa fa-times" aria-hidden="true"></i></a>
+                    <a href="#" class="btn bOk" ><i class="fa fa-check" aria-hidden="true"></i></a>
+                    <a href='#' class="btn bNext" ><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                </div>
 
             </div> <!-- page-1 -->
             <div id="card_2" style="display: none;">
@@ -92,10 +97,12 @@
                     {!! Form::label('wrcheckbox','еженедельный отчет:') !!}
                     {!! Form::checkbox('send_weekly_report','send_weekly_report', $user->settings['send_weekly_report']) !!}
                 </div>
-                <a href='#' class="btn btn-lg" id="bPrev"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>
-                <a href="/home" class="btn btl-lg" id="bCancel"><i class="fa fa-times" aria-hidden="true"></i></a>
-                <a href="#" class="btn btn-lg" id="bOk"><i class="fa fa-check" aria-hidden="true"></i></input>
-                <a href='#' class="btn btn-lg bNext"><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                <div class = 'button-group'>
+                     <a href='#' class="btn bPrev"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>
+                     <a href="/home" class="btn bCancel" ><i class="fa fa-times" aria-hidden="true"></i></a>
+                     <a href="#" class="btn bOk"><i class="fa fa-check" aria-hidden="true"></i></a>
+                     <a href='#' class="btn bNext"><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                </div>
                 {!! Form::close() !!}
             </div>
         </div>

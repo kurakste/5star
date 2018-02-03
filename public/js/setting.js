@@ -7,7 +7,7 @@ $(document).ready(function () {
 
     $('#bOk').each(function () {$(this).click(subbmitForm);});
     $(".bNext").each(function () {$(this).click(nextPage);});
-    $('#bPrev').each(function () {$(this).click (prevPage);});
+    $('.bPrev').each(function () {$(this).click (prevPage);});
 
     function subbmitForm() {
         $('#settingForm').submit();
@@ -20,7 +20,6 @@ $(document).ready(function () {
             currentPageNumber++;
             currentCardName = '#card_' + currentPageNumber;
             $(currentCardName).css('display','block');
-            console.log(currentCardName );
         }
 
     }
@@ -31,7 +30,6 @@ $(document).ready(function () {
             currentPageNumber--;
             currentCardName = '#card_' + currentPageNumber;
             $(currentCardName).css('display','block');
-            console.log(currentCardName );
         }
 
     }
