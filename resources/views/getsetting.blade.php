@@ -33,7 +33,7 @@
         }
         .button-group {
             position: absolute;
-            bottom:1vh;
+            bottom:4vh;
             left:22%;
         }
 
@@ -59,7 +59,7 @@
             }
             .wrapper {
 
-                height: 80vh;
+                height: 74vh;
             }
 
             .border {
