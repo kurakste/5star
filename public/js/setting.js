@@ -5,7 +5,7 @@ $(document).ready(function () {
     maxCardNumber = 2;
 
 
-    $('#bOk').each(function () {$(this).click(subbmitForm);});
+    $('.bOk').each(function () {$(this).click(subbmitForm);});
     $(".bNext").each(function () {$(this).click(nextPage);});
     $('.bPrev').each(function () {$(this).click (prevPage);});
 
