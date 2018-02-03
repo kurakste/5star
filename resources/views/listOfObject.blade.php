@@ -71,6 +71,9 @@
     .btn_cl, .btn_obj {margin:2px;}
 </style>
 
+
+
+
 @section('title', 'HotLine')
 @section('content')
 <div class="container-fluid">
@@ -149,4 +152,14 @@
     </div> <!-- wrapper -->
 @endforeach
 </div> <!-- container fluid -->
+@endsection
+
+@section('script')
+    <script>
+        $(document).ready(function () {
+            window.scrollBy(0,30) ;
+        });
+
+    </script>
+
 @endsection
