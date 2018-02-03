@@ -10,7 +10,7 @@
             font-weight: bold;
             position: relative;
             margin: 5px;
-            height: 80vh;
+            height: 75vh;
             text-transform: uppercase;
             color: #27282d;
             background-color: #fbfbfb;
@@ -29,7 +29,6 @@
 
         .bPrev, .bNext, .bOk, .bCancel {
             background-color:#afa376;
-            background-color: red;
             color:white;
         }
         .button-group {
