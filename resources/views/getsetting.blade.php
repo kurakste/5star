@@ -37,12 +37,7 @@
             left:22%;
         }
 
-
         @media (orientation: landscape) {
-
-
-
-
 
             .right {
                 width:50%;

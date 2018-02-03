@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Object;
+use Auth;
 use App\Question;
 use Illuminate\Http\Request;
 use QrCode;
@@ -110,5 +111,11 @@ class ObjectController extends Controller
         
         return view ('editobjects',['object' => $obj]);
     }
-    //
+
+    public function getListOfObject() {
+        $user = Auth::user();
+
+        return view('listOfObject',['user'=>$user]);
+
+    }
 }

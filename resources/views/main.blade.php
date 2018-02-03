@@ -141,6 +141,7 @@
                             <i class="far fa-address-card"></i>
                         </div>
                     </div>
+                    <a href="/objects" class="links"></a>
                 </div>
             </div>
             <div class="col-6">
