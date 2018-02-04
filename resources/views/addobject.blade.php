@@ -53,7 +53,6 @@
 
         <div class="addModule">
             <div><a href="/objects" class="btn btn-outline-success float-btn"><i class="fas fa-angle-left"></i></a></div>
-            <div><a href="/object/add" class="btn btn-outline-success float-btn"><i class="fas fa-plus-circle"></i></a></div>
             <button type="submit" form ="mainForm" class="btn btn-outline-success float-btn"><i class="far fa-save"></i></button>
 
 
