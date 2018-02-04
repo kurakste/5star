@@ -1,15 +1,19 @@
 @extends('layouts.master')
-@section('title', '5StarService')
+@section('title', '  HotLine')
 @section('content')
 
     <style type="text/css">
+    .container-fluid {
+
+        height: 800px;
+    }
     .wrapper  {
             font-size: 0.7rem;
             font-family: 'Montserrat', sans-serif;
             font-weight: bold;
             position: relative;
             margin: 5px;
-            height: 30vh;
+            height: 750px;
             text-transform: uppercase;
             color: #27282d;
             background-color: #fbfbfb;
@@ -17,47 +21,44 @@
 
         .border {
             padding-top: 2vh;
-            padding-left: 4vh;
+            padding-left: 2vh;
+            padding-right: 2vh;
             position: absolute;
             top:1.7vh;
             left: 2vw;
             border: solid #aa9e72 1px;
-            height: 90%;
+            height: 730px;
             width:95%;
         }
 
-        .bBack {
-            width: 50px;
-            height: 50px;
-            margin-top: 5vh;
+    .addModule {
+        position: absolute;
+        top: 20px;
+        right : 10px;
+        z-index: 100;
+    }
 
-        }
-        .bBack:hover {
-            box-shadow: 0 0 10px #686868;
-        }
-
-        #FNickname {
-            width:50vw;
-        }
+    .float-btn {
+        margin:5px;
+        width: 50px;
+    }
 
         @media (orientation: landscape) {
-            .wrapper {
 
-                height: 40vh;
-            }
-
-            .border {
-                padding-top: 2vh;
-            }
         }
 
     </style>
-
+    <div class="container-fluid">
     <!--<div class="row" id='clientData'> -->
+        <div class="addModule">
+            <div><a href="/objects" class="btn btn-outline-success float-btn"><i class="fas fa-angle-left"></i></a></div>
+            <button type="submit" form ="mainForm" class="btn btn-outline-success float-btn"><i class="far fa-save"></i></button>
+        </div>
+
 
     <div class="wrapper">
         <div class="border">
-            <form action="/object/store" method="post">
+            <form action="/object/store" id="mainForm" method="post">
                 {{ csrf_field() }}
 
                 <input type="hidden" name="id"  value="{{$object->id}}">
@@ -66,7 +67,7 @@
                 <div class="form-group">
                     <label for="FNickname">Никнейм:</label>
                     <input type="text" name="fnickname" value="{{$object->nick}}"  class="form-control" id="FNickname" aria-describedby="HNickname" placeholder="Введите никнейм вашего объекта." required pattern="^[A-Za-z0-9]+$">
-                    <small id="HNickname" class="form-text text-muted">Никнеймы объекта будут помогать вам найти нужный объект среди ваших объектов. Он должен быть уникальным, если никнейм который вы вводите уже существует то мы предложим создать новый. Он должен состоять из цифр и букв латинского алфавита.</small>
+                    <small id="HNickname" class="form-text text-muted text-justify">Никнеймы объекта будут помогать вам найти нужный объект среди ваших объектов. Он должен быть уникальным, если никнейм который вы вводите уже существует то мы предложим создать новый. Он должен состоять из цифр и букв латинского алфавита.</small>
                 </div>
                 <div class="form-group">
                     <label for="FNotes">Город:</label>
@@ -94,16 +95,11 @@
 
                     <small id="HNotes" class="form-text text-muted">Здесь можно ввести любые примечания для вашего объекта.</small>
                 </div>
-
-                <button type="submit" class="btn btn-primary btn-block">Сохранить</button>
             </form>
         </div>
     </div>
-    <div class="row">
-        <div class="col-1 offset-4"></div>
-        <a href="/home" id="home"><img class='bBack' src="/icons/back.png" alt=""></a>
 
-    </div>
+    </div> <!--container-fluid -->
 
 
 

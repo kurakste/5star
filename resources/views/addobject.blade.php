@@ -1,5 +1,5 @@
 @extends('layouts.master')
-
+@section('title', '  HotLine')
 @section('content')
     <style type="text/css">
 
@@ -54,8 +54,6 @@
         <div class="addModule">
             <div><a href="/objects" class="btn btn-outline-success float-btn"><i class="fas fa-angle-left"></i></a></div>
             <button type="submit" form ="mainForm" class="btn btn-outline-success float-btn"><i class="far fa-save"></i></button>
-
-
         </div>
 
         <div class="wrapper">

@@ -1,91 +1,87 @@
 @extends('layouts.master')
-@section('title', '5StarService')
+@section('title', 'HotLine')
 @section('content')
 
-
     <style type="text/css">
-        #clientData {
-            padding-bottom:5%;
-            border-bottom:solid gray 3px;
-            margin-bottom:6%;
+        .container-fluid {
+            min-height: 600px;
         }
-        #objectsData {
-            padding-bottom:5%;
-            border-bottom:solid gray 3px;
-            margin-bottom:6%;
+        .wrapper  {
+            font-size: 0.7rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: bold;
+            position: relative;
+            margin: 5px;
+            height: 220px;
+            text-transform: uppercase;
+            color: #27282d;
+            background-color: #fbfbfb;
         }
-
-        #clientData ul, #objectsData ul{
-            list-style-type:none;
-            width:98%;
+        .border {
+            padding-top: 2vh;
+            padding-left: 2vh;
+            padding-right: 2vh;
+            position: absolute;
+            top:1.7vh;
+            left: 2vw;
+            border: solid #aa9e72 1px;
+            height: 200px;
+            width:95%;
         }
-
-        ul {
-            padding-left:3%;
-            padding-left:1%;
+        .addModule {
+            position: absolute;
+            top: 20px;
+            right : 10px;
+            z-index: 100;
         }
-        #clientData ul li, #objectsData ul li {
-            border-bottom: solid 1px black;
-
+        .float-btn {
+            margin:5px;
+            width: 50px;
         }
-        .FlRight  {
-            width:60%;
-            text-align:left;
-            overflow:hidden;
-            max-height:1.4em;
-        }
-        .btn-grp {
-            width:100%;
-            text-align:center;
-            margin:14%;
-        }
-        .btn {
+        .left {
             width:40%;
+            float:left;
         }
-
-        #clientData ul li:last-child, #objectsData ul li:last-child {
-            border-bottom: solid 0px gray;
-
-        }
-        .FlRight {
+        .right {
+            width:40%;
             float:right;
         }
-        .SpLeft {
+
+        .clearBlock {
+            clear:both;
         }
     </style>
 
-<!--<div class="row" id='clientData'> -->
-<ul>
-    <li><span class='SpLeft'>Nickname</span><div class='FlRight'>{{$object->nick}}</div></li>
-    <li><span class='SpLeft'>Менеджер</span><div class='FlRight'>{{$object->managername}}</div></li>
-    <li><span class='SpLeft'>Телефон</span><div class='FlRight'>{{$object->managerphone}}</div></li>
-    <li><span class='SpLeft'>Кол-во отзывов:</span><div class='FlRight'>{{$object->countOfFeedbacks()}}</div></li>
-    <li><span class='SpLeft'>Средний бал:</span><div class='FlRight'>{{$object->avrgOffAllAnswer()}}</div></li>
-</ul>
+<div class="container-fluid">
+    <div class="addModule">
+        <div><a href="/objects" class="btn btn-outline-success float-btn"><i class="fas fa-angle-left"></i></a></div>
+        <button type="submit" form ="mainForm" class="btn btn-outline-success float-btn"><i class="far fa-save"></i></button>
+    </div>
 
- <table class='table table-hover table-sm'>
-    <thead>
-        <tr>
-             <th>id</th>
-             <th>дата</th>
-             <th>Имя</th>
-             <th>Телефон</th>
-             <th>Комментарий</th>
-             <th>Средний бал</th>
-             <th>Ответы</th>
-        </tr>
-    </thead>
-     @foreach ($fbarray as $fb) 
-        <tr>
-            <td>{{$fb['id']}}</td>
-            <td>{{$fb['created_at']}}</td>
-            <td>{{$fb['Name']}}</td>
-            <td>{{$fb['Phone']}}</td>
-            <td>{{$fb['Comment']}}</td>
-            <td>{{$fb->avrgAnswer()}}</td>
-            <td><a href="/showanswer?fb_id={{$fb['id']}}&obj_id={{$object->id}}">анкета</a></td>
-        </tr>
-     @endforeach     
- </table>
+    @foreach ($fbarray as $fb)
+    <div class="wrapper">
+        <div class="border">
+                <div class='left'>
+                    <div class = 'rw'>дата</div>
+                    <div class = 'rw'>Имя</div>
+                    <div class = 'rw'>Телефон</div>
+                    <div class = 'rw'>Ср. бал</div>
+                    <div class = 'rw'>Ответы</div>
+                    <div class = 'rw'>Комментарий:</div>
+                </div>
+                <div class='right'>
+                    <div>{{Carbon\Carbon::parse($fb['created_at'])->format('d-m-y')}}</div>
+                    <div>{{$fb['name']}}</div>
+                    <div>{{$fb['phone']}}</div>
+                    <div>{{$fb->avrgAnswer()}}</div>
+                    <div><a href="/showanswer?fb_id={{$fb['id']}}&obj_id={{$object->id}}">анкета</a></div>
+                </div>
+                <div class="clearBlock"></div>
+                <div class="comment"><p>{{$fb['comment']}}</p></div>
+        </div>
+    </div>
+            @endforeach
+</div> <!-- container fluid -->
  @endsection
+
 

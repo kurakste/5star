@@ -30,7 +30,7 @@ class ObjectController extends Controller
         if (file_exists($name)) unlink($name);
         $obj->delete();
         
-        return redirect("/home");
+        return redirect("/objects");
     }
 
     public function updateQRCode ($request, $obj_id) {
@@ -89,7 +89,7 @@ class ObjectController extends Controller
                 }
         }
         
-        return redirect("/home");
+        return redirect("/objects");
     }
 
     public function downloadQR (Request $request) {

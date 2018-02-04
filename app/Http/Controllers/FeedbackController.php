@@ -15,8 +15,7 @@ class FeedbackController extends Controller
         //Никнейм придет в формате: user_id-nickname;
         $splitedNick = explode('-', $nickname);
 
-        //dd($splitedNick[1]);
-        $obj = Object::where([['nick',$splitedNick[1]],['user_id', $splitedNick[0]]])->first();
+        $obj = Object::where([['nick',$splitedNick[1]],['user_id', $splitedNick[0]]])->firstOrFail();
         $Q = Question::where([['object_id',$obj->id],['activ',true]])->get();
 
 //!! Нужно продумть как поступать с клиентами у кого не активный статус.
@@ -29,6 +28,7 @@ class FeedbackController extends Controller
 
         $object = Object::where('id', $request->input('id')) -> first();
         $fbarray = $object->getFeedBackList();
+        //dd($fbarray);
         return view ('showfb',['object'=>$object,'fbarray'=>$fbarray]);
     }
 
