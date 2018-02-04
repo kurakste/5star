@@ -43,7 +43,7 @@
         @media (orientation: landscape) {
             .wrapper  {
 
-                height: 240px;
+            
             }
 
         }
