@@ -1,5 +1,5 @@
 @extends('layouts.fbmaster')
-@section('title', '5StarService')
+@section('title', 'HotLine')
 @section('content')
     <style>
         html {
@@ -11,14 +11,16 @@
             width: 100vw;
         }
 
+        .container-fluid {
+            padding: 0px;
+        }
+
         #qForm {
             width:100%; /* vw */
             height:100%;
         }
 
-        .btn-block {
-            margin-top: 5%;
-        }
+
         .card   {
             padding:0;
             width: 100vw; /* vw */
@@ -121,6 +123,8 @@
 
         }
 
+
+
     </style>
 
     @if (count($errors) > 0)
@@ -132,7 +136,10 @@
             </ul>
         </div>
     @endif
+
     <?php $page=1; ?>
+
+<div class = 'container-fluid'>
     <form action="/fb/store" method="post" id="qForm">
      {{ csrf_field() }}
 
@@ -234,7 +241,7 @@
                 </form>
             </div>
         </div>
-
+    </div> <!-- container fluid -->
 @endsection
 
 @section('script')

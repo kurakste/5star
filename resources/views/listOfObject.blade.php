@@ -63,8 +63,8 @@
     }
 
     .addModule {
-        position: absolute;
-        top: 20px;
+        position: fixed;
+        top: 70px;
         right : 10px;
         z-index: 100;
     }
