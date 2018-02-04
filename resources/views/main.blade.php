@@ -1,103 +1,103 @@
 @extends('layouts.master')
-<style>
+        <style>
 
-    .container-fluid {
-        background-color:#c8d7d4;
-    }
-    .row {
-        padding: 2px;
-    }
-    .bricks {
-        font-family: 'Montserrat', sans-serif;
-        font-weight: bold;
-        position: relative;
-        margin: 5px;
-        height: 30vh;
-        text-transform: uppercase;
-        color: #27282d;
-        background-color: #fbfbfb;
-    }
+            .container-fluid {
+                background-color:#c8d7d4;
+            }
+            .row {
+                padding: 2px;
+            }
+            .bricks {
+                font-family: 'Montserrat', sans-serif;
+                font-weight: bold;
+                position: relative;
+                margin: 5px;
+                height: 30vh;
+                text-transform: uppercase;
+                color: #27282d;
+                background-color: #fbfbfb;
+            }
 
-    .links {
-        display:block;
-        padding-top: 7vh;
-        position: absolute;
-        top:1.7vh;
-        left: 2vw;
-        border: solid #aa9e72 1px;
-        height: 90%;
-        width:90%;
-    }
+            .links {
+                display:block;
+                padding-top: 7vh;
+                position: absolute;
+                top:1.7vh;
+                left: 2vw;
+                border: solid #aa9e72 1px;
+                height: 90%;
+                width:90%;
+            }
 
-    .border {
-        padding-top: 7vh;
-        position: absolute;
-        top:1.7vh;
-        left: 2vw;
-        border: solid #aa9e72 1px;
-        height: 90%;
-        width:90%;
-    }
+            .border {
+                padding-top: 7vh;
+                position: absolute;
+                top:1.7vh;
+                left: 2vw;
+                border: solid #aa9e72 1px;
+                height: 90%;
+                width:90%;
+            }
 
-    .bricks:hover {
-        background-color: #6b9dbb;
-    }
-    .header {
-        font-family: 'Montserrat', sans-serif;
-        font-weight: bold;
-        height: 28px;
-        margin-top:4px;
-        margin-bottom: 4px;
-    }
+            .bricks:hover {
+                background-color: #6b9dbb;
+            }
+            .header {
+                font-family: 'Montserrat', sans-serif;
+                font-weight: bold;
+                height: 28px;
+                margin-top:4px;
+                margin-bottom: 4px;
+            }
 
-    .col-6 {
-        padding-left: 2px;
-        padding-right: 2px;
-    }
+            .col-6 {
+                padding-left: 2px;
+                padding-right: 2px;
+            }
 
-    .banner {
-        font-size: 24px;
-        text-transform: uppercase;
-        color: #afa376;
-    }
-
-
-    .icon {
-        color:#afa376;
-        font-size: 60px;
-    }
+            .banner {
+                font-size: 24px;
+                text-transform: uppercase;
+                color: #afa376;
+            }
 
 
+            .icon {
+                color:#afa376;
+                font-size: 60px;
+            }
 
-    @media (orientation: landscape) {
-        .bricks {
 
-            height: 30vh;
-        }
 
-        .border {
-            padding-top: 2vh;
-        }
+            @media (orientation: landscape) {
+                .bricks {
 
-        .icon {
-            font-size: 50px;
-        }
+                    height: 30vh;
+                }
 
-        .header {
-            margin-top:4px;
-            margin-bottom: 9px;
-        }
+                .border {
+                    padding-top: 2vh;
+                }
 
-    }
+                .icon {
+                    font-size: 50px;
+                }
 
-    @media (max-width: 380px) {
-        .banner {
-            font-size: 18px;
-        }
+                .header {
+                    margin-top:4px;
+                    margin-bottom: 9px;
+                }
 
-    }
+            }
 
-</style>
+            @media (max-width: 380px) {
+                .banner {
+                    font-size: 18px;
+                }
+
+            }
+
+    </style>
 @section('title', 'HotLine')
 @section('content')
     <div class="container-fluid">
