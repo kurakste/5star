@@ -95,8 +95,6 @@
 <div class="container-fluid">
     <div class="addModule">
         <div><a href="home" class="btn btn-outline-success float-btn"><i class="fas fa-angle-left"></i></a></div>
-        <div><a href="object/add" class="btn btn-outline-success float-btn"><i class="fas fa-plus-circle"></i></a></div>
-
 
     </div>
 
@@ -164,7 +162,9 @@
                     {!! Form::open(['url'=>'/banner','method'=>'POST'])  !!}
                     <input type="hidden" name="id" value="{{$object->id}}" >
                     <button type="subbmit" class="btn btn-outline-success btn-sm btn_obj"><i class="far fa-newspaper"></i></button>
+                    <a href="/fb/{{$user->id}}-{{$object->nick}}" class="btn btn-outline-success btn-sm btn_obj"><i class="fa fa-link"></i></a>
                     {!! Form::close() !!}
+
                 </div> <!-- row -->
         </div> <!-- border -->
     </div> <!-- wrapper -->
