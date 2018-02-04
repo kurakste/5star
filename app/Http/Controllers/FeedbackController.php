@@ -7,6 +7,7 @@ use App\Feedback;
 use App\Object;
 use App\Question;
 use App\Answer;
+use Auth;
 
 class FeedbackController extends Controller
 {
@@ -25,7 +26,6 @@ class FeedbackController extends Controller
         } 
 
     public function show (Request $request) {
-
         $object = Object::where('id', $request->input('id')) -> first();
         $fbarray = $object->getFeedBackList();
         //dd($fbarray);

@@ -36,7 +36,7 @@ $(document).ready(function () {
          <div class="form-group" id="fg-${countOfQuestion}">
             <label for="question_${countOfQuestion}" id="label-${countOfQuestion}">Вопрос ${countOfQuestion}</label>
             <input type="text" name="question_${countOfQuestion}" value=""  class="form-control"  placeholder="Введите ваш вопрос.">
-            <a class="btn btn-primary btn-sm btn_del" id="bRemoveQuestion-${countOfQuestion}" data-question="${countOfQuestion}" href="#" role="button">X</a>
+            <a class="btn btn-outline-success btn-sm btn_del" id="bRemoveQuestion-${countOfQuestion}" data-question="${countOfQuestion}" href="#" role="button">X</a>
         </div>`;
         $('div.form-group:last').after(newElement);
         $(`#bRemoveQuestion-${countOfQuestion}`).click(removeQuestion);

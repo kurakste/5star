@@ -142,7 +142,6 @@
                     <button type="subbmit" class="btn btn-outline-success btn-sm btn_obj"><i class="fas fa-trash-alt"></i></button>
                     {!! Form::close() !!}
                     {!! Form::open(['url'=>'showfb','method'=>'POST'])  !!}
-                    <input type="hidden" name="fclient_id" value="{{$user->id}}" >
                     <input type="hidden" name="id" value="{{$object->id}}" >
                     <button type="subbmit" class="btn btn-outline-success btn-sm btn_obj"><i class="fas fa-search"></i></button>
                     {!! Form::close() !!}
