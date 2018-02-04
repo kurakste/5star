@@ -54,7 +54,7 @@
             <form action="/object/finishdel" method="post">
                 {{ csrf_field() }}
                 <h5 class="header text-center">Внимание!</h5>
-                <p class="text-justify">Вы удаляете объект. Все данные связанные с объектом будут утрачены.  Велючая все отзывы зоторые были оставленны
+                <p class="text-justify">Вы удаляете объект. Все данные связанные с объектом будут утрачены.  Включая все отзывы которые были оставленны
                     для этого объекта. Пролжаем?</p>
                 <input type="hidden" name="id"  value="{{$object->id}}">
                 <input type="hidden" name="fclient_id"  value="{{$object->user_id}}">
