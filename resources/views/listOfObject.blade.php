@@ -3,13 +3,14 @@
 <style type="text/css">
 
     .wrapper  {
+        max-width: 736px;
         font-size: 0.6rem;
         font-family: 'Montserrat', sans-serif;
         font-weight: bold;
         position: relative;
         margin: 2px;
         margin-bottom: 20px;
-        height: 45vh;
+        height: 270px;
         color: #27282d;
         background-color: #fbfbfb;
     }
@@ -75,6 +76,14 @@
 
 
     .btn_obj {margin:2px;}
+
+    @media (orientation: landscape) {
+        .wrapper  {
+
+            height: 240px;
+        }
+
+    }
 
 </style>
 
