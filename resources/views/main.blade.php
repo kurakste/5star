@@ -13,9 +13,11 @@
                 position: relative;
                 margin: 5px;
                 height: 30vh;
+                width: 45vw;
                 text-transform: uppercase;
                 color: #27282d;
                 background-color: #fbfbfb;
+                box-shadow: 10px 10px 5px rgba(0,0,0,0.5);
             }
 
             .links {
