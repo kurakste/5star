@@ -4,6 +4,8 @@
 
 @section('title', 'HotLine')
 @section('content')
+
+<!--
     <div class="container-fluid">
 
         <div class="row header">
@@ -61,7 +63,7 @@
         </div>
 
 
-    </div> <!--container -->
+    </div> container -->
 
 
 @endsection
