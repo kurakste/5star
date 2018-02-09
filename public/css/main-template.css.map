@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAGA,IAAI;EACF,IAAI,EAAE,0BAAgB;EACtB,KAAK,EAJS,IAAI;;AAOlB,MAAE;EACA,MAAM,EAAE,CAAC;EACT,OAAO,EAAE,CAAC;;AAQd,IAAI;EALF,qBAAqB,EAMN,IAAI;EALnB,kBAAkB,EAKH,IAAI;EAJnB,iBAAiB,EAIF,IAAI;EAHnB,aAAa,EAGE,IAAI",
+"sources": ["../../resources/sass/main-template.sass"],
+"names": [],
+"file": "main-template.css"
+}

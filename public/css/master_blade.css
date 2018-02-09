@@ -1,10 +1,12 @@
-@import url('https://fonts.googleapis.com/css?family=Fredoka+One|Montserrat|Shadows+Into+Light');body {
+@import url('https://fonts.googleapis.com/css?family=Fredoka+One|Montserrat|Shadows+Into+Light');
+
+body {
     background-color: #c8d7d4;
 }
 
 
 .navbar {
-    background-color: #879999;
+    background-color: #000;
 }
 
 #brend {
