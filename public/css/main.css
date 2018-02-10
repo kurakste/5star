@@ -1,8 +1,31 @@
+@charset "UTF-8";
+
+/* оформление главного меню */
+
 div#my-menu ul {
   list-style-type: none;
 }
 
 div#my-menu ul li a {
   text-decoration: none;
+}
+
+/* оформление home-screen */
+
+main {
+  background-color: #main-bg;
+}
+
+#homescreen {
+  padding-left: 5px;
+}
+
+.demo-card-square.mdl-card {
+  width: 100%;
+}
+
+.mdl-card__title-text {
+  font: 14px;
+  background-color: lightgrey;
 }
 

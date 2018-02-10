@@ -1,69 +1,65 @@
 @extends('layouts.master')
-
-<link rel="stylesheet" type="text/css" href="{{ asset('/css/main.css') }}" />
-
 @section('title', 'HotLine')
 @section('content')
 
-<!--
-    <div class="container-fluid">
+        <!-- контейнер находится в мастер шаблоне -->
+<main class = "mdl-layout__content">    
+    <div class = "mdl-grid">
+       <div class = "mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet 
+                                    mdl-cell--stretch  mdl-cell--2-col-phone graybox">
+    
+            <div class="demo-card-square mdl-card mdl-shadow--2dp">
+              <div class="mdl-card__title mdl-card--expand">
+                <h2 class="mdl-card__title-text">ИНФО</h2>
+              </div>
+              <div class="mdl-card__supporting-text">
+                Вся информация о ваших настройках.  
+              </div>
+              <div class="mdl-card__actions mdl-card--border">
+                <a href="/info" 
+                   class="mdl-button mdl-button--colored 
+                          mdl-js-button mdl-js-ripple-effect">
+                  ВПЕРЕД
+                </a>
+              </div>
+            </div>
+    </div>
 
-        <div class="row header">
-            <div class="col-12 text-center banner">
-                <p>Hellow, {{$user->name}}.</p>
+        <div class = "mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet 
+                                                mdl-cell--2-col-phone graybox">
+            
+            <div class="demo-card-square mdl-card mdl-shadow--2dp">
+              <div class="mdl-card__title mdl-card--expand">
+                <h6 class="mdl-card__title-text">НАСТРОЙКИ</h6>
+              </div>
+              <div class="mdl-card__supporting-text">
+                Вся информация о ваших настройках.  
+              </div>
+              <div class="mdl-card__actions mdl-card--border">
+                <a href="/info" 
+                   class="mdl-button mdl-button--colored 
+                          mdl-js-button mdl-js-ripple-effect">
+                  ВПЕРЕД
+                </a>
+              </div>
             </div>
         </div>
+    </div>
+            
+    <div class = "mdl-grid">
+        <div class = "mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet
+                                             mdl-cell--2-col-phone graybox">
 
-        <div class="row">
-            <div class="col-6">
-                <div class="bricks">
-                    <div class="text-center border">
-                        <i class="menu-item">Инфо</i>
-                        <div class="icon">
-                            <i class="fas fa-info-circle"></i>
-                        </div>
-                    </div>
-                    <a href="/info" class="links"></a>
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="bricks">
-                    <div class="text-center border">
-                        <i class="menu-item">Настройки</i>
-                        <div class="icon">
-                            <i class="fas fa-cog"></i>
-                        </div>
-                    </div>
-                    <a href="/getsettings" class="links"></a>
-                </div>
-            </div>
         </div>
-        <div class="row">
-            <div class="col-6">
-                <div class="text-center bricks">
-                    <div class="text-center border">
-                        <i class="menu-item">Оъекты</i>
-                        <div class="icon">
-                            <i class="far fa-address-card"></i>
-                        </div>
-                    </div>
-                    <a href="/objects" class="links"></a>
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="text-center bricks">
-                    <div class="text-center border">
-                        <i class="menu-item">Отзывы</i>
-                        <div class="icon">
-                            <i class="far fa-comments"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
+       <div class = "mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet 
+                                                mdl-cell--2-col-phone graybox">
         </div>
+    </div>
+         
+</main>
 
 
-    </div> container -->
 
 
 @endsection
+
