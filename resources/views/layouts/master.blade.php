@@ -16,25 +16,6 @@
           </button>
           <a id="brend" class="navbar-brand" href="/home"><span id = 'logo-head'>HOT</span><span id="logo-tail">Line</span></a>
 
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item active">
-                  <a class="nav-link" href="/home">Главная<span class="sr-only"></span></a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="/object/add">Добавить объект </a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="/bill/charge">Пополнить счет <span class="sr-only"></span></a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="/bill/details">Детали счета <span class="sr-only"></span></a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="/showtariffs">Тарифы <span class="sr-only"></span></a>
-              </li>
-            </ul>
-          </div>
         </nav>
 
 
@@ -47,39 +28,31 @@
       <!-- Title -->
       <span class="mdl-layout-title">HOTLine</span>
     </div>
-    <!-- Tabs -->
-    <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
-      <a href="#fixed-tab-1" class="mdl-layout__tab is-active">Информация</a>
-      <a href="#fixed-tab-2" class="mdl-layout__tab">Объекты</a>
-      <a href="#fixed-tab-3" class="mdl-layout__tab">Настройки</a>
-    </div>
   </header>
   <div class="mdl-layout__drawer">
     <span class="mdl-layout-title">HOTLine</span>
+          <div id="my-menu">
+            <ul> 
+              <li>
+                  <a href="/home">Главная</a>
+              </li>
+              <li>
+                  <a href="/object/add">Добавить объект </a>
+              </li>
+              <li>
+                  <a href="/bill/charge">Пополнить счет</a>
+              </li>
+              <li>
+                  <a href="/bill/details">Детали счета</a>
+              </li>
+              <li>
+                  <a href="/showtariffs">Тарифы </a>
+              </li>
+            </ul>
+          </div>
     <div>
-        что-то еще в панели!
     </div>
   </div>
-  <main class="mdl-layout__content">
-    <section class="mdl-layout__tab-panel is-active" id="fixed-tab-1">
-      <div class="page-content">1 Your content goes here </div>
-        <!-- Colored FAB button with ripple -->
-        <button id='myButton' class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
-          <i class="material-icons">arrow_back</i>
-        </button>
-    </section>
-    <section class="mdl-layout__tab-panel" id="fixed-tab-2">
-      <div class="page-content">2 Your content goes here</div>
-    </section>
-    <section class="mdl-layout__tab-panel" id="fixed-tab-3">
-      <div class="page-content">3 Your content goes here</div>
-            <!-- Colored raised button -->
-            <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
-              Button
-            </button>
-    </section>
-  </main>
-</div>
 
 @yield('content')
 
