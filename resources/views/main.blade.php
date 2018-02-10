@@ -19,7 +19,7 @@
                 <a href="/info" 
                    class="mdl-button mdl-button--colored 
                           mdl-js-button mdl-js-ripple-effect">
-                  ВПЕРЕД
+                        <i class="material-icons">forward</i>
                 </a>
               </div>
             </div>
@@ -41,7 +41,7 @@
                 <a href="/getsettings" 
                    class="mdl-button mdl-button--colored 
                           mdl-js-button mdl-js-ripple-effect">
-                  ВПЕРЕД
+                        <i class="material-icons">forward</i>
                 </a>
               </div>
             </div>
@@ -65,7 +65,7 @@
                 <a href="/objects"
                    class="mdl-button mdl-button--colored 
                           mdl-js-button mdl-js-ripple-effect">
-                  ВПЕРЕД
+                        <i class="material-icons">forward</i>
                 </a>
               </div>
             </div>
@@ -85,7 +85,7 @@
                 <a href="/info" 
                    class="mdl-button mdl-button--colored 
                           mdl-js-button mdl-js-ripple-effect">
-                  ВПЕРЕД
+                        <i class="material-icons">forward</i>
                 </a>
               </div>
             </div>
