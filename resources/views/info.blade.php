@@ -2,6 +2,8 @@
 
 @section('title', 'HotLine')
 @section('content')
+
+<!--
     <style type="text/css">
 
         #clientData ul, #objectsData ul{
@@ -92,7 +94,7 @@
   </div>
   <div class="mdl-card__supporting-text">
 
-            <ul>
+            <ul id='info'>
                 <li><span class='SpLeft'>Имя</span>
                     <div class='FlRight'>{{$user->name}}</div>
                 </li>
