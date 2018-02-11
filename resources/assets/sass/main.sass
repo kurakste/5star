@@ -64,10 +64,32 @@ a.mdl-button
   padding-right: 5px
   padding-left: 5px
 
-div.objListCard
-  margin-bottom: 25px
+div#objectListWrapper>div.objListCard
+  padding-top: 55px // не работает нужно искать причину
+  width: 90%
+  margin: 0 auto
+
+/* ===== редактировать объект  === */
 
 #addObjectButton
+  z-index: 100
+  position: fixed
+  right: 10px
+  top: 70px
+
+#backButton
+  z-index: 100
+  position: fixed
+  right: 10px
+  top: 150px
+
+div.editObjectCard 
+  margin-top: 40px
+  width: 90%
+  margin: 0 auto
+
+
+#editObjectButton
   z-index: 100
   position: fixed
   right: 10px
