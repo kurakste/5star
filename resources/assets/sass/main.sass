@@ -1,5 +1,6 @@
 @import "_var.sass"
 
+
 /* оформление главного меню */
 div#my-menu
   ul
@@ -28,11 +29,12 @@ main
 .mdl-card__title.mdl-card--expand
   padding-bottom: 5px
 
-ul#info
+ul#info, ul#objCard
   margin-top: 0px
   padding-left: 3%
   padding-left: 1%
   list-style-type: none
+
 .FlRight  
   width: 60%
   text-align: left
@@ -40,3 +42,19 @@ ul#info
   max-height: 1.4em
   float: right
 
+a.mdl-button
+  display: block
+  width: 20px
+  margin: 0 auto
+
+/* ===== список объектов === */
+#objButtonPanel
+  display: block
+  width: 200px
+  margin: 0 auto
+
+#objButtonPanel>form
+  float: left
+
+#backtohomeObjects
+  clear: all
