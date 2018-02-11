@@ -3,6 +3,7 @@
 @section('title', 'HotLine')
 @section('content')
 
+<div id='objectListWrapper'>
     @foreach ($user->objects as $object)
 
 <div class="demo-card-square mdl-card mdl-shadow--2dp">
@@ -95,6 +96,7 @@
                         <i class="material-icons">backspace</i>
     </a>
   </div>
+</div> <!-- wrapper -->
 @endsection
 
 @section('script')
