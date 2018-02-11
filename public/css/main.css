@@ -82,3 +82,10 @@ div.objListCard {
   margin-bottom: 25px;
 }
 
+#addObjectButton {
+  z-index: 100;
+  position: fixed;
+  right: 10px;
+  top: 70px;
+}
+
