@@ -6,7 +6,7 @@
 <div id='objectListWrapper'>
     @foreach ($user->objects as $object)
 
-<div class="demo-card-square mdl-card mdl-shadow--2dp">
+<div class="demo-card-square mdl-card mdl-shadow--2dp objListCard">
   <div class="mdl-card__title mdl-card--expand">
     <h2 class="mdl-card__title-text">{{$object->nick}}</h2>
   </div>
