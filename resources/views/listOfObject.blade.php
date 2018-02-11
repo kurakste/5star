@@ -10,6 +10,12 @@
       <a href="/object/add"><i class="material-icons">add</i></a> 
     </button>
 
+    <button  
+            class="backButton mdl-button mdl-js-button mdl-button--fab" >
+     <a href="/home"><i class="material-icons">keyboard_arrow_left</i></a> 
+
+    </button>
+
     @foreach ($user->objects as $object)
 
     <div class="mdl-card mdl-shadow--2dp objListCard">
@@ -95,12 +101,8 @@
     </div> <!--demo-card-square -->
     @endforeach
       <div class="mdl-card__actions mdl-card--border" id="backtohomeObjects">
-        <a href ="/home" 
-            class="mdl-button mdl-button--colored 
-                   mdl-js-button mdl-js-ripple-effect">
-                            <i class="material-icons">backspace</i>
-        </a>
       </div>
+
 </div> <!-- wrapper -->
 @endsection
 

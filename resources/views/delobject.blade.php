@@ -1,56 +1,19 @@
 @extends('layouts.master')
 @section('title', 'HotLine')
 @section('content')
-<style type="text/css">
-    .container-fluid {
-    height: 800px;
-    }
-    .wrapper  {
-    font-size: 0.7rem;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: bold;
-    position: relative;
-    margin: 5px;
-    height: 750px;
-    text-transform: uppercase;
-    color: #27282d;
-    background-color: #fbfbfb;
-    }
-    .border {
-    padding-top: 2vh;
-    padding-left: 2vh;
-    padding-right: 2vh;
-    position: absolute;
-    top:1.7vh;
-    left: 2vw;
-    border: solid #aa9e72 1px;
-    height: 730px;
-    width:95%;
-    }
-    .addModule {
-    position: absolute;
-    top: 20px;
-    right : 10px;
-    z-index: 100;
-    }
-    .float-btn {
-    margin:5px;
-    width: 50px;
-    }
-    .header {
-        margin-top: 20px;
-    }
-</style>
-
-<div class="container-fluid">
-    <!--<div class="row" id='clientData'> -->
-    <div class="addModule">
-        <div><a href="/objects" class="btn btn-outline-success float-btn"><i class="fas fa-angle-left"></i></a></div>
-    </div>
 
 
-    <div class="wrapper">
-        <div class="border">
+    <button  
+            class="backButton mdl-button mdl-js-button mdl-button--fab" id="">
+     <a href="/objects"><i class="material-icons">keyboard_arrow_left</i></a> 
+
+    </button>
+
+    <div class="mdl-card mdl-shadow--2dp editObjectCard">
+      <div class="mdl-card__title mdl-card--expand">
+        <h2 class="mdl-card__title-text">Удаляем объект {{$object->nick}}</h2>
+      </div>
+      <div class="mdl-card__supporting-text">
             <form action="/object/finishdel" method="post">
                 {{ csrf_field() }}
                 <h5 class="header text-center">Внимание!</h5>
@@ -60,12 +23,11 @@
                 <input type="hidden" name="fclient_id"  value="{{$object->user_id}}">
 
 
-                <button type="submit" class="btn btn-outline-success btn-block">Удалить</button>
+                <button type="submit" id='subbmitDell'
+                        class="mdl-button mdl-js-button mdl-button--raised
+                         mdl-js-ripple-effect mdl-button--accent">Удалить</button>
             </form>
 
-        </div>
-    </div>
-
-</div> <!--container-fluid -->
-
+  </div>
+</div>
 @endsection

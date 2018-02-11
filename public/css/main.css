@@ -93,8 +93,8 @@ div#objectListWrapper > div.objListCard {
   top: 70px;
 }
 
-#backButton {
-  z-index: 100;
+button.backButton {
+  z-index: 200;
   position: fixed;
   right: 10px;
   top: 150px;
@@ -111,5 +111,12 @@ div.editObjectCard {
   position: fixed;
   right: 10px;
   top: 70px;
+}
+
+/* ===== удалить объект  === */
+
+#subbmitDell {
+  width: 80%;
+  margin: 0 auto;
 }
 

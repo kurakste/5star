@@ -8,7 +8,7 @@
     </button>
 
     <button  
-            class="mdl-button mdl-js-button mdl-button--fab" id="backButton">
+            class="backButton mdl-button mdl-js-button mdl-button--fab" id="">
      <a href="/objects"><i class="material-icons">keyboard_arrow_left</i></a> 
 
     </button>

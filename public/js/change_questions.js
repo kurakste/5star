@@ -1,5 +1,5 @@
 $(document).ready(function () {
-
+    console.log('hi1');
     countOfQuestion = $('#count_of_question').val();
 
     $('#bAddQuestion').click(addNewQuestion);
@@ -31,14 +31,21 @@ $(document).ready(function () {
     }
 
     function addNewQuestion() {
+        console.log('hi2!');
         countOfQuestion++;
         newElement = `
-         <div class="form-group" id="fg-${countOfQuestion}">
-            <label for="question_${countOfQuestion}" id="label-${countOfQuestion}">Вопрос ${countOfQuestion}</label>
-            <input type="text" name="question_${countOfQuestion}" value=""  class="form-control"  placeholder="Введите ваш вопрос.">
-            <a class="btn btn-outline-success  btn-sm btn_del" id="bRemoveQuestion-${countOfQuestion}" data-question="${countOfQuestion}" href="#" role="button">X</a>
-        </div>`;
-        $('div.form-group:last').after(newElement);
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" 
+                    id="fg-${countOfQuestion}">
+                    <label for="question_${countOfQuestion}" id="label-${countOfQuestion}">Вопрос  ${countOfQuestion}</label>
+                    <input type="text" name="question_{{$i}}" 
+                           value=""  
+                           class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" 
+                           placeholder="Введите ваш вопрос.">
+                    
+                    <div id="bRemoveQuestion-${countOfQuestion}" data-question="${countOfQuestion}"
+                         class="icon material-icons btn_del">add</div>
+                </div>  `;
+        $('.mdl-textfield:last').after(newElement);
         $(`#bRemoveQuestion-${countOfQuestion}`).click(removeQuestion);
         $('#count_of_question').val(countOfQuestion);
     }

@@ -4,6 +4,11 @@
 @section('content')
 
 
+    <button  
+            class="backButton mdl-button mdl-js-button mdl-button--fab" id="">
+     <a href="/objects"><i class="material-icons">keyboard_arrow_left</i></a> 
+
+    </button>
 <div class="demo-card-square mdl-card mdl-shadow--2dp">
   <div class="mdl-card__title mdl-card--expand">
     <h2 class="mdl-card__title-text">Информация</h2>
@@ -30,13 +35,6 @@
                     <div class='FlRight'>{{count($user['objects'])}}</div>
                 </li>
             </ul>
-  </div>
-  <div class="mdl-card__actions mdl-card--border">
-    <a href ="/home" 
-        class="mdl-button mdl-button--colored 
-               mdl-js-button mdl-js-ripple-effect">
-                        <i class="material-icons">backspace</i>
-    </a>
   </div>
 </div>
 
