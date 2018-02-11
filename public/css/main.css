@@ -74,5 +74,11 @@ a.mdl-button {
 
 #objectListWrapper {
   overflow-y: scroll;
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
+div.objListCard {
+  margin-bottom: 15px;
 }
 
