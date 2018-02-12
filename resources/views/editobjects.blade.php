@@ -2,17 +2,19 @@
 @section('title', '  HotLine')
 @section('content')
 
+
+    <button  
+            class="backButton mdl-button mdl-js-button mdl-button--fab" >
+     <a href="/objects"><i class="material-icons">keyboard_arrow_left</i></a> 
+    </button>
+
     <button type="submit" form ="mainForm" 
             class="mdl-button mdl-js-button mdl-button--fab" id="editObjectButton">
       <a href="/object/add"><i class="material-icons">save</i></a> 
     </button>
 
-    <button  
-            class="backButton mdl-button mdl-js-button mdl-button--fab" id="">
-     <a href="/objects"><i class="material-icons">keyboard_arrow_left</i></a> 
 
-    </button>
-
+    <div class="buffer"> </div>
     <div class="mdl-card mdl-shadow--2dp editObjectCard">
       <div class="mdl-card__title mdl-card--expand">
         <h2 class="mdl-card__title-text">{{$object->nick}}</h2>

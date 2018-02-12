@@ -28,7 +28,6 @@ class FeedbackController extends Controller
     public function show (Request $request) {
         $object = Object::where('id', $request->input('id')) -> first();
         $fbarray = $object->getFeedBackList();
-        //dd($fbarray);
         return view ('showfb',['object'=>$object,'fbarray'=>$fbarray]);
     }
 

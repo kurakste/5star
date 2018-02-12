@@ -17,7 +17,7 @@ $(document).ready(function () {
 
     function renameQuestionsFields () {
         var counter = 1;
-        $('.form-group').each(function (){
+        $('div.mdl-textfield').each(function (){
             $(this).prop('id',`fg-${counter}`);
             $(this).children('label').prop('for',`question-${counter}`);
             $(this).children('label').prop('id',`label-${counter}`);
@@ -36,19 +36,19 @@ $(document).ready(function () {
         newElement = `
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" 
                     id="fg-${countOfQuestion}">
-                    <label for="question_${countOfQuestion}" id="label-${countOfQuestion}">Вопрос  ${countOfQuestion}</label>
-                    <input type="text" name="question_{{$i}}" 
+                    <label class="mdl_textfield__label" for="question_${countOfQuestion}" id="label-${countOfQuestion}">Вопрос #${countOfQuestion}</label>
+                    <input type="text" name="question_${countOfQuestion}" 
                            value=""  
-                           class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" 
+                           class="mdl-textfield__input" 
                            placeholder="Введите ваш вопрос.">
                     
                     <div id="bRemoveQuestion-${countOfQuestion}" data-question="${countOfQuestion}"
                          class="icon material-icons btn_del">add</div>
                 </div>  `;
-        $('.mdl-textfield:last').after(newElement);
+        $('div.mdl-textfield:last').after(newElement);
         $(`#bRemoveQuestion-${countOfQuestion}`).click(removeQuestion);
         $('#count_of_question').val(countOfQuestion);
     }
-
+    
 
 })

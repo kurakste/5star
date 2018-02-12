@@ -9,7 +9,8 @@
      <a href="/objects"><i class="material-icons">keyboard_arrow_left</i></a> 
 
     </button>
-<div class="demo-card-square mdl-card mdl-shadow--2dp">
+    <div class="buffer"> </div>
+<div class="std-card-square mdl-card mdl-shadow--2dp">
   <div class="mdl-card__title mdl-card--expand">
     <h2 class="mdl-card__title-text">Информация</h2>
   </div>

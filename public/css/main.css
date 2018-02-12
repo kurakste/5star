@@ -1,5 +1,15 @@
 @import url(https://fonts.googleapis.com/icon?family=Material+Icons);@charset "UTF-8";
 
+.std-card-square {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.text-justify {
+  display: block;
+  text-align: justify;
+}
+
 /* оформление главного меню */
 
 div#my-menu ul {
@@ -79,25 +89,25 @@ a.mdl-button {
 }
 
 div#objectListWrapper > div.objListCard {
-  padding-top: 55px;
   width: 90%;
   margin: 0 auto;
 }
 
 /* ===== редактировать объект  === */
 
-#addObjectButton {
+#addObjectButton,
+#bAddQuestion {
   z-index: 100;
   position: fixed;
-  right: 10px;
+  right: 40px;
   top: 70px;
 }
 
 button.backButton {
   z-index: 200;
   position: fixed;
-  right: 10px;
-  top: 150px;
+  right: 40px;
+  top: 140px;
 }
 
 div.editObjectCard {
@@ -109,7 +119,7 @@ div.editObjectCard {
 #editObjectButton {
   z-index: 100;
   position: fixed;
-  right: 10px;
+  right: 40px;
   top: 70px;
 }
 
@@ -118,5 +128,33 @@ div.editObjectCard {
 #subbmitDell {
   width: 80%;
   margin: 0 auto;
+}
+
+button.bSave {
+  color: #FE4382;
+  z-index: 100;
+  position: fixed;
+  right: 40px;
+  top: 210px;
+}
+
+.buffer {
+  height: 20px;
+}
+
+/* ===== fb  === */
+
+.fbRight {
+  padding: 0px;
+  list-style-type: none;
+  width: 40%;
+  float: right;
+}
+
+.fbLeft {
+  float: left;
+  padding-left: 30px;
+  list-style-type: none;
+  width: 40%;
 }
 
