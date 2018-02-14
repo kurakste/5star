@@ -25,7 +25,7 @@
             </ul>
             <ul class='fbRight'>
                 <li>{{Carbon\Carbon::parse($fb['created_at'])->format('d-m-y')}}</li>
-                <li> www{{$fb['name']}}</li>
+                <li> {{$fb['name']}}</li>
                 <li> {{$fb['phone']}}</li>
                 <li> {{$fb->avrgAnswer()}}</li>
                 <li> <a href="/showanswer?fb_id={{$fb['id']}}&obj_id={{$object->id}}">анкета</a></li>

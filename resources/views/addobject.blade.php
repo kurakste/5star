@@ -11,7 +11,6 @@
             class="mdl-button mdl-js-button mdl-button--fab" id="editObjectButton">
             <a href="/object/add"><i class="material-icons">save</i></a> 
     </button>
-        </div>
 
     <div class='buffer'></div>
     <div class="buffer"> </div>
