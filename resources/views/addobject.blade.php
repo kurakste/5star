@@ -57,8 +57,8 @@
 
                     </div>
                 </form>
-            </div> <!-- border -->
-        </div> <!-- wrapper -->
+            </div>
+        </div>
     </div> <!-- add-wrapper -->
 @endsection
 
