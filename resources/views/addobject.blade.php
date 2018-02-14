@@ -11,10 +11,9 @@
             class="mdl-button mdl-js-button mdl-button--fab" id="editObjectButton">
             <a href="/object/add"><i class="material-icons">save</i></a> 
     </button>
-
+    <div class="add-wrapper">
+        
     <div class='buffer'></div>
-    <div class="buffer"> </div>
-    <div class="buffer"> </div>
     <div class="buffer"> </div>
 
     <div class="mdl-card mdl-shadow--2dp editObjectCard">
@@ -60,6 +59,7 @@
                 </form>
             </div> <!-- border -->
         </div> <!-- wrapper -->
+    </div> <!-- add-wrapper -->
 @endsection
 
 

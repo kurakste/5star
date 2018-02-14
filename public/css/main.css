@@ -158,3 +158,9 @@ button.bSave {
   width: 40%;
 }
 
+/* ===== добавить объект  === */
+
+.add-wrapper {
+  overflow-y: scroll;
+}
+
