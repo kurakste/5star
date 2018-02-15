@@ -93,6 +93,10 @@ div#objectListWrapper > div.objListCard {
   margin: 0 auto;
 }
 
+#link-button {
+  margin: 5px;
+}
+
 /* ===== редактировать объект  === */
 
 #addObjectButton,
@@ -169,4 +173,6 @@ button.bSave {
 .post-prev {
   width: 90%;
 }
+
+/* ===== спиcок постеров  === */
 

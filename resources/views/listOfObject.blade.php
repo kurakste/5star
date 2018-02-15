@@ -56,45 +56,54 @@
                             {!! Form::open(['url'=>'object/edit','method'=>'POST'])  !!}
                             <input type="hidden" name="fclient_id" value="{{$user->id}}" >
                             <input type="hidden" name="id" value="{{$object->id}}" >
-                            <button type="subbmit" class="btn btn-outline-success btn-sm btn_obj">
+                            <button type="subbmit"  class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab">
                             <i class="fas fa-edit"></i></button>
                             {!! Form::close() !!}
                             {!! Form::open(['url'=>'object/delete','method'=>'POST'])  !!}
                             <input type="hidden" name="fclient_id" value="{{$user->id}}" >
                             <input type="hidden" name="id" value="{{$object->id}}" >
-                            <button type="subbmit" class="btn btn-outline-success btn-sm btn_obj">
+                            <button type="subbmit"  class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab">
                             <i class="fas fa-trash-alt"></i></button>
 
                             {!! Form::close() !!}
                             {!! Form::open(['url'=>'showfb','method'=>'POST'])  !!}
                             <input type="hidden" name="id" value="{{$object->id}}" >
-                            <button type="subbmit" class="btn btn-outline-success btn-sm btn_obj">
+                            <button type="subbmit"  class="mdl-button mdl-js-button 
+                            mdl-button--fab mdl-button--mini-fab">
                             <i class="fas fa-search"></i></button>
                             {!! Form::close() !!}
                             {!! Form::open(['url'=>'changequestions','method'=>'POST'])  !!}
                             <input type="hidden" name="id" value="{{$object->id}}" >
-                            <button type="subbmit" class="btn btn-outline-success btn-sm btn_obj">
+                            <button type="subbmit"  class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab">
                             <i class="fas fa-list-ul"></i></button>
                             {!! Form::close() !!}
                             {!! Form::open(['url'=>'downloadQR','method'=>'POST'])  !!}
                             <input type="hidden" name="id" value="{{$object->id}}" >
-                            <button type="subbmit" class="btn btn-outline-success btn-sm btn_obj">
+                            <button type="subbmit"  class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab">
                             <i class="fas fa-qrcode"></i></button>
                             {!! Form::close() !!}
                             {!! Form::open(['url'=>'_posters','method'=>'POST'])  !!}
                             <input type="hidden" name="id" value="{{$object->id}}" >
-                            <button type="subbmit" class="btn btn-outline-success btn-sm btn_obj">
+                            <button type="subbmit"  class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab">
                             <i class="far fa-images"></i></button>
                             {!! Form::close() !!}
-
+<!--
                             {!! Form::open(['url'=>'/banner','method'=>'POST'])  !!}
                             <input type="hidden" name="id" value="{{$object->id}}" >
-                            <button type="subbmit" class="btn btn-outline-success btn-sm btn_obj">
+                            <button type="subbmit"  class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab">
                             <i class="far fa-newspaper"></i></button>
-                            <a href="/fb/{{$user->id}}-{{$object->nick}}" 
-                            class="btn btn-outline-success btn-sm btn_obj">
+                            {!! Form::close() !!} -->
+                        
+
+                            <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab">
                             <i class="fa fa-link"></i></a>
-                            {!! Form::close() !!}
+                            </button>
+
+<!--                            <a href="/fb/{{$user->id}}-{{$object->nick}}" 
+                               class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab"
+                               id=link-button>
+                            <i class="fa fa-link"></i></a> -->
+                            
                        </div> 
 
       </div> <!--mdl-card__supporting-text -->

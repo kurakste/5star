@@ -3,75 +3,61 @@
 
 @section('content')
 
-    <style type="text/css">
-        .wrapper  {
-            font-size: 0.7rem;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: bold;
-            position: relative;
-            margin: 5px;
-            height: 75vh;
-            text-transform: uppercase;
-            color: #27282d;
-            background-color: #fbfbfb;
-        }
+    <button  
+            class="backButton mdl-button mdl-js-button mdl-button--fab" >
+     <a href="/home"><i class="material-icons">keyboard_arrow_left</i></a> 
+    </button>
 
-        .border {
-            padding-top: 2vh;
-            padding-left: 1vh;
-            position: absolute;
-            top:1.7vh;
-            left: 2vw;
-            border: solid #aa9e72 1px;
-            height: 90%;
-            width:95%;
-        }
+    <button type="submit" form ="settingForm" 
+            class="mdl-button mdl-js-button mdl-button--fab" id="editObjectButton">
+      <a href="/storesettings"><i class="material-icons">save</i></a> 
+    </button>
 
-        .bPrev, .bNext, .bOk, .bCancel {
-            background-color:#afa376;
-            color:white;
-        }
-        .button-group {
-            position: absolute;
-            bottom:4vh;
-            left:22%;
-        }
-
-        @media (orientation: landscape) {
-
-            .right {
-                width:50%;
-                position: absolute;
-                top: 5px;
-                right: 0px;
-            }
-
-            .left {
-                width:50%;
-                position: absolute;
-                top: 5px;
-                left: 20px;
-            }
-            .wrapper {
-
-                height: 74vh;
-            }
-
-            .border {
-                padding-top: 2vh;
-            }
-        }
-
-    </style>
-
-    <!--<div class="row" id='clientData'> -->
-
-    <div class="wrapper">
-        <div class="border">
+    <div class="buffer"> </div>
+    <div class="mdl-card mdl-shadow--2dp editObjectCard">
+      <div class="mdl-card__title mdl-card--expand">
+        <h2 class="mdl-card__title-text"> Настройки</h2>
+      </div>
+      <div class="mdl-card__supporting-text">
 
             {!! Form::open(['url'=>'/storesettings', 'id'=>'settingForm'])  !!}
             {{ csrf_field() }}
 
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <label for="name">Ползователь:</label>
+                    <input type="text" name="name" value="{{$user->name}}"  
+                    class="mdl-textfield__input" id="fname"  
+                    placeholder="Введите никнейм вашего объекта." 
+                    required pattern="^[A-Za-zа-яА-Я0-9\s]+$">
+                </div>
+
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <label for="city">Город:</label>
+                    <input type="text" name="city" value="{{$user->city}}"  
+                    class="mdl-textfield__input" id="fcity"  
+                    placeholder="Введите название города" 
+                    required pattern="^[A-Za-zа-яА-Я0-9\s]+$">
+                </div>
+
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <label for="fphone">Телефон:</label>
+                    <input type="text" name="phone" value="{{$user->phone}}"  
+                    class="mdl-textfield__input" id="fphone"  
+                    placeholder="Введите телефон" 
+                    required >
+                </div>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <label for="fmail">email:</label>
+                    <input type="text" name="email" value="{{$user->email}}"  
+                    class="mdl-textfield__input" id="fmail"  
+                    placeholder="Введите email" 
+                    required >
+                </div>
+
+        </div>
+    </div>
+
+<!--
             <div id="card_1">
                 <div class="left">
                     <div class="form-group">
@@ -129,8 +115,7 @@
 
     </div>
 
-    </div>
+    </div> -->
 @stop
 @section('script')
-    <script src="/js/setting.js"></script>
 @endsection
