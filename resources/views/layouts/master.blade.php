@@ -24,7 +24,7 @@
                 <ul> 
                   <li> <a href="/home">ГЛАВНАЯ</a> </li>
                   <li> <a href="/object/add">ДОБАВИТЬ ОБЪЕКТ </a> </li>
-                  <li> <a href="/bill/charge">ПОПОЛНИТЬ счет</a> </li>
+                  <li> <a href="/bill/charge">ПОПОЛНИТЬ СЧЕТ</a> </li>
                   <li> <a href="/bill/details">ДЕТАЛИ СЧЕТА</a> </li>
                   <li> <a href="/showtariffs">ТАРИФЫ </a> </li>
                 </ul>
