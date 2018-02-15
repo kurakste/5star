@@ -30,6 +30,10 @@ div#my-menu ul li a {
   text-align: center;
 }
 
+.go-icon {
+  height: 30px;
+}
+
 main {
   background-color: #main-bg;
 }

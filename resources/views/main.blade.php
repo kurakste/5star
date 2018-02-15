@@ -19,7 +19,7 @@
                 <a href="/info" 
                    class="mdl-button mdl-button--colored 
                           mdl-js-button mdl-js-ripple-effect">
-                        <i class="material-icons">forward</i>
+                        <img src = "icon/ok_icon.png" class ="go-icon" alt="" />
                 </a>
               </div>
             </div>
@@ -41,7 +41,7 @@
                 <a href="/getsettings" 
                    class="mdl-button mdl-button--colored 
                           mdl-js-button mdl-js-ripple-effect">
-                        <i class="material-icons">forward</i>
+                        <img src = "icon/ok_icon.png" class ="go-icon" alt="" />
                 </a>
               </div>
             </div>
@@ -63,7 +63,7 @@
                 <a href="/objects"
                    class="mdl-button mdl-button--colored 
                           mdl-js-button mdl-js-ripple-effect">
-                        <i class="material-icons">forward</i>
+                        <img src = "icon/ok_icon.png" class ="go-icon" alt="" />
                 </a>
               </div>
             </div>
@@ -83,7 +83,7 @@
                 <a href="/info" 
                    class="mdl-button mdl-button--colored 
                           mdl-js-button mdl-js-ripple-effect">
-                        <i class="material-icons">forward</i>
+                        <img src = "icon/ok_icon.png" class ="go-icon" alt="" />
                 </a>
               </div>
             </div>
