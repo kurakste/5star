@@ -127,6 +127,11 @@ div.editObjectCard {
   top: 70px;
 }
 
+.swch-in-setting {
+  width: 50%;
+  float: left;
+}
+
 /* ===== удалить объект  === */
 
 #subbmitDell {

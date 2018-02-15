@@ -53,7 +53,43 @@
                     placeholder="Введите email" 
                     required >
                 </div>
+                
+                <p>ОТПРАВЛЯТЬ НА ПОЧТУ:</p>
+                    <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect swch-in-setting" 
+                                for="send_each_fb">
+                      <span class="mdl-switch__label">   КАЖДЫЙ
+                      ОТЗЫВ</span>
+                      <input type="checkbox" id="send_each_fb" class="mdl-switch__input"
+                      name="send_each_fb" 
+                      @if ($user->settings['send_each_fb'])
+                        checked
+                      @endif  
+                        >
+        		    </label>
 
+                    <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect swch-in-setting" 
+                                for="send_daily_report">
+                      <span class="mdl-switch__label">   ЕЖЕДНЕВНЫЙ ОТЧЕТ </span>
+                      <input type="checkbox" id="send_daily_report" class="mdl-switch__input"
+                      name="send_daily_report" 
+                      @if ($user->settings['send_daily_report'])
+                        checked
+                      @endif  
+                        >
+        		    </label>
+
+                    <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect swch-in-setting" 
+                                for="send_weekly_report">
+                      <span class="mdl-switch__label">   ЕЖЕНЕДЕЛЬНЫЙ ОТЧЕТ </span>
+                      <input type="checkbox" id="send_weekly_report" class="mdl-switch__input"
+                      name="send_weekly_report" 
+                      @if ($user->settings['send_weekly_report'])
+                        checked
+                      @endif  
+                        >
+        		    </label>
+
+                {!! Form::close() !!}
         </div>
     </div>
 
