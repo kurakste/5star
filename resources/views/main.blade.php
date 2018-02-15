@@ -13,7 +13,7 @@
                     <img class='center' src="icon/info_icon.png" alt="" />
               </div>
               <div class="mdl-card__supporting-text">
-                НАСТРОЙКА  
+                ИНФОРМАЦИЯ  
               </div>
               <div class="mdl-card__actions mdl-card--border">
                 <a href="/info" 
