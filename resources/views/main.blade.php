@@ -10,7 +10,7 @@
      <!-- =============== nest ========================================= --> 
             <div class="demo-card-square mdl-card mdl-shadow--2dp">
               <div class="mdl-card__title mdl-card--expand">
-                    <img class='center' src="icons/info_icon.png" alt="" />
+                    <img class='center' src="icon/info_icon.png" alt="" />
               </div>
               <div class="mdl-card__supporting-text">
                 НАСТРОЙКА  
@@ -32,7 +32,7 @@
      <!-- =============== nest ========================================= --> 
             <div class="demo-card-square mdl-card mdl-shadow--2dp">
               <div class="mdl-card__title mdl-card--expand">
-                    <img class='center' src="icons/gear_icon.png" alt="" />
+                    <img class='center' src="icon/gear_icon.png" alt="" />
               </div>
               <div class="mdl-card__supporting-text">
                 НАСТРОЙКИ
@@ -56,7 +56,7 @@
      <!-- =============== nest ========================================= --> 
             <div class="demo-card-square mdl-card mdl-shadow--2dp">
               <div class="mdl-card__title mdl-card--expand">
-                <img class='center' src="icons/list_icon.png" alt="" />
+                <img class='center' src="icon/list_icon.png" alt="" />
               </div>
               <div class="mdl-card__supporting-text">ОБЪЕКТЫ</div>
               <div class="mdl-card__actions mdl-card--border">
@@ -74,7 +74,7 @@
      <!-- =============== nest ========================================= --> 
             <div class="demo-card-square mdl-card mdl-shadow--2dp">
               <div class="mdl-card__title mdl-card--expand">
-               <img class='center' src="icons/fb_icon.png" alt="" />
+               <img class='center' src="icon/fb_icon.png" alt="" />
               </div>
               <div class="mdl-card__supporting-text">
                     ОТЗЫВЫ
