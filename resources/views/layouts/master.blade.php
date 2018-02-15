@@ -22,11 +22,11 @@
         <span class="mdl-layout-title">HOTLine</span>
               <div id="my-menu">
                 <ul> 
-                  <li> <a href="/home">Главная</a> </li>
-                  <li> <a href="/object/add">Добавить объект </a> </li>
-                  <li> <a href="/bill/charge">Пополнить счет</a> </li>
-                  <li> <a href="/bill/details">Детали счета</a> </li>
-                  <li> <a href="/showtariffs">Тарифы </a> </li>
+                  <li> <a href="/home">ГЛАВНАЯ</a> </li>
+                  <li> <a href="/object/add">ДОБАВИТЬ ОБЪЕКТ </a> </li>
+                  <li> <a href="/bill/charge">ПОПОЛНИТЬ счет</a> </li>
+                  <li> <a href="/bill/details">ДЕТАЛИ СЧЕТА</a> </li>
+                  <li> <a href="/showtariffs">ТАРИФЫ </a> </li>
                 </ul>
               </div> <!-- my-menu -->
         </div> <!-- drawer -->
