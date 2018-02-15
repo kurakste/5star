@@ -10,10 +10,10 @@
      <!-- =============== nest ========================================= --> 
             <div class="demo-card-square mdl-card mdl-shadow--2dp">
               <div class="mdl-card__title mdl-card--expand">
-                <h2 class="mdl-card__title-text">ИНФО</h2>
+                    <img class='center' src="/icons/info_icon.png" alt="" />
               </div>
               <div class="mdl-card__supporting-text">
-                Вся информация о ваших настройках.  
+                НАСТРОЙКА  
               </div>
               <div class="mdl-card__actions mdl-card--border">
                 <a href="/info" 
@@ -32,10 +32,10 @@
      <!-- =============== nest ========================================= --> 
             <div class="demo-card-square mdl-card mdl-shadow--2dp">
               <div class="mdl-card__title mdl-card--expand">
-                <h6 class="mdl-card__title-text">НАСТРОЙКИ</h6>
+                    <img class='center' src="/icons/gear_icon.png" alt="" />
               </div>
               <div class="mdl-card__supporting-text">
-                Здесь множно изменить ваши настройки.
+                НАСТРОЙКИ
               </div>
               <div class="mdl-card__actions mdl-card--border">
                 <a href="/getsettings" 
@@ -56,11 +56,9 @@
      <!-- =============== nest ========================================= --> 
             <div class="demo-card-square mdl-card mdl-shadow--2dp">
               <div class="mdl-card__title mdl-card--expand">
-                <h6 class="mdl-card__title-text">ОБЪЕКТЫ</h6>
+                <img class='center' src="/icons/list_icon.png" alt="" />
               </div>
-              <div class="mdl-card__supporting-text">
-                     Все операции с объектами здесь.
-              </div>
+              <div class="mdl-card__supporting-text">ОБЪЕКТЫ</div>
               <div class="mdl-card__actions mdl-card--border">
                 <a href="/objects"
                    class="mdl-button mdl-button--colored 
@@ -76,10 +74,10 @@
      <!-- =============== nest ========================================= --> 
             <div class="demo-card-square mdl-card mdl-shadow--2dp">
               <div class="mdl-card__title mdl-card--expand">
-                <h6 class="mdl-card__title-text">ОТЗЫВЫ</h6>
+               <img class='center' src="/icons/fb_icon.png" alt="" />
               </div>
               <div class="mdl-card__supporting-text">
-                    Здесь можно посмотреть все отзывы.
+                    ОТЗЫВЫ
               </div>
               <div class="mdl-card__actions mdl-card--border">
                 <a href="/info" 

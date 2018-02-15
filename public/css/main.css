@@ -22,6 +22,14 @@ div#my-menu ul li a {
 
 /* оформление home-screen */
 
+.center {
+  margin: auto;
+}
+
+.mdl-card__supporting-text {
+  text-align: center;
+}
+
 main {
   background-color: #main-bg;
 }
