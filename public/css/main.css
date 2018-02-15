@@ -164,3 +164,9 @@ button.bSave {
   overflow-y: scroll;
 }
 
+/* ===== спиcок постеров  === */
+
+.post-prev {
+  width: 90%;
+}
+
