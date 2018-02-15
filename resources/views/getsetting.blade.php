@@ -2,6 +2,7 @@
 @extends('layouts.master')
 
 @section('content')
+<div class="overflow-y-scroll">
 
     <button  
             class="backButton mdl-button mdl-js-button mdl-button--fab" >
@@ -12,7 +13,7 @@
             class="mdl-button mdl-js-button mdl-button--fab" id="editObjectButton">
       <a href="/storesettings"><i class="material-icons">save</i></a> 
     </button>
-
+    
     <div class="buffer"> </div>
     <div class="mdl-card mdl-shadow--2dp editObjectCard">
       <div class="mdl-card__title mdl-card--expand">
@@ -92,66 +93,8 @@
                 {!! Form::close() !!}
         </div>
     </div>
+</div>
 
-<!--
-            <div id="card_1">
-                <div class="left">
-                    <div class="form-group">
-                        {!! Form::label('name', 'пользователь') !!}
-                        {!! Form::text('name',$user->name,['class'=>'form-control col-11', 'id'=>'fname']) !!}
-                    </div>
-                    <div class="form-group">
-                        {!! Form::label('city','Город:') !!}
-                        {!! Form::text('city',$user->city,['class'=>'form-control col-11', 'id'=>'fcity']) !!}
-                    </div>
-                </div>
-
-                <div class="right">
-                    <div class="form-group">
-                        {!! Form::label('phone','телефон') !!}
-                        {!! Form::text('phone',$user->phone,['class'=>'form-control col-11', 'id'=>'fphone']) !!}
-                    </div>
-                    <div class="form-group">
-                        {!! Form::label('email','email:') !!}
-                        {!! Form::text('email',$user->email,['class'=>'form-control col-11', 'id'=>'fmail']) !!}
-                    </div>
-                </div>
-                <div class = 'button-group '>
-                    <a href='#' class="btn bPrev"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>
-                    <a href="/home" class="btn bCancel"><i class="fa fa-times" aria-hidden="true"></i></a>
-                    <a href="#" class="btn bOk" ><i class="fa fa-check" aria-hidden="true"></i></a>
-                    <a href='#' class="btn bNext" ><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
-                </div>
-
-            </div> <!-- page-1 -->
-            <div id="card_2" style="display: none;">
-                <p>Отправлять на почту:</p>
-                <div class="form-group">
-                    {!! Form::label('leach_fb_checkbox','каждый отзыв:') !!}
-                    {!! Form::checkbox('send_each_fb','send_each_fb',$user->settings['send_each_fb']) !!}
-                </div>
-                <div class="form-group">
-                    {!! Form::label('lw_checkbox','ежедневный отчет:') !!}
-                    {!! Form::checkbox('send_daily_report','send_daily_report',$user->settings['send_daily_report']) !!}
-                </div>
-
-                <div class="form-group">
-                    {!! Form::label('wrcheckbox','еженедельный отчет:') !!}
-                    {!! Form::checkbox('send_weekly_report','send_weekly_report', $user->settings['send_weekly_report']) !!}
-                </div>
-                <div class = 'button-group'>
-                     <a href='#' class="btn bPrev"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>
-                     <a href="/home" class="btn bCancel" ><i class="fa fa-times" aria-hidden="true"></i></a>
-                     <a href="#" class="btn bOk"><i class="fa fa-check" aria-hidden="true"></i></a>
-                     <a href='#' class="btn bNext"><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
-                </div>
-                {!! Form::close() !!}
-            </div>
-        </div>
-
-    </div>
-
-    </div> -->
 @stop
 @section('script')
 @endsection

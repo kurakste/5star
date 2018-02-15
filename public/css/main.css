@@ -179,5 +179,9 @@ button.bSave {
   width: 90%;
 }
 
-/* ===== спиcок постеров  === */
+/* ===== изменить настройки  === */
+
+.overflow-y-scroll {
+  overflow-y: scroll;
+}
 
