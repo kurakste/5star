@@ -2,7 +2,7 @@
 @extends('layouts.master')
 
 @section('content')
-<div class="overflow-y-scroll">
+<div class="overflow-y-scroll setting-wrapper">
 
     <button  
             class="backButton mdl-button mdl-js-button mdl-button--fab" >

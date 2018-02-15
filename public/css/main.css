@@ -185,3 +185,11 @@ button.bSave {
   overflow-y: scroll;
 }
 
+label.mdl-switch {
+  margin-top: 20px;
+}
+
+.setting-wrapper {
+  margin-bottom: 50px;
+}
+
