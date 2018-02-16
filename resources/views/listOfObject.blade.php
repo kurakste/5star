@@ -10,7 +10,7 @@
       <a href="/object/add"><i class="material-icons">add</i></a> 
     </button>
 
-     <a class='bBack' href="/home"><img src="icon/left-80.png" alt="" /></a> 
+     <a class='bBack' href="/home"><img src="icon/left-80.png" alt="" width='60' /></a>
 
     @foreach ($user->objects as $object)
     <div class="buffer"> </div>
