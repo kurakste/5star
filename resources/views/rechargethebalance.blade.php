@@ -10,7 +10,7 @@
 
 <div id="wrapper-recharge">
     
-    <div class="mdl-card mdl-shadow--2dp objListCard">
+    <div class="mdl-card mdl-shadow--2dp" id='recharge-card'>
       <div class="mdl-card__title mdl-card--expand">
         <h2 class="mdl-card__title-text">Пополнить счет</h2>
       </div>
@@ -30,8 +30,8 @@
         <input type="hidden" name="need-phone" value="false">
         <input type="hidden" name="need-address" value="false">
         <div>
-            <label><input class="mdl-radio__button recharge" type="radio" checked name="paymentType" value="AC">Банковской картой</label>    
-            <label><input class="mdl-radio__button recharge" type="radio" name="paymentType" value="PC">Яндекс.Деньгами</label>    
+            <label><input class="mdl-radio__button recharge" type="radio" checked name="paymentType" value="AC">Банковская карта</label>    
+            <label><input class="mdl-radio__button recharge" type="radio" name="paymentType" value="PC">Яндекс.Деньги</label>    
         </div>
         <input type="submit" id="button-recharge"class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored recharge" value="Пополнить">
     </form>

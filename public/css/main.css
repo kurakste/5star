@@ -12,6 +12,14 @@
 
 /* ------ Блок оплат ---    */
 
+div#wrapper-recharge {
+  padding: 2px;
+}
+
+#recharge-card {
+  width: 99%;
+}
+
 .recharge {
   margin-bottom: 10px;
   margin-top: 10px;
