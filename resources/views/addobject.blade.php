@@ -3,14 +3,12 @@
 @section('content')
 
     <div class="add-wrapper">
-    <button  
-            class="backButton mdl-button mdl-js-button mdl-button--fab" >
-     <a href="/objects"><i class="material-icons">keyboard_arrow_left</i></a> 
-    </button>
-
-            <button type="submit" form ="mainForm" 
-            class="mdl-button mdl-js-button mdl-button--fab" id="editObjectButton">
-            <a href="/object/add"><i class="material-icons">save</i></a> 
+     
+    <a class='bBack' href="/objects"><img src="/icon/left-80.png" alt="" width='60' /></a>
+    
+    <button type="submit" form ="mainForm" 
+         id="editObjectButtonSave">
+      <a href="/object/add"><img src="/icon/save-80.png" alt="" width='45'/></a> 
     </button>
         
     <div class='buffer'></div>

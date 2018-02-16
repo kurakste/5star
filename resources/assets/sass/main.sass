@@ -1,19 +1,24 @@
 @import "_var.sass"
 
 .bBack
-  z-index: 200
+  z-index: 2
   position: fixed
   right: 40px
   top: 140px
   opacity: 0.6 
 
+.bBack:hover
+  opacity: 1 
+
 .bAdd
-  z-index: 200
+  z-index: 2
   position: fixed
   right: 40px
   top: 70px
   opacity: 0.6 
 
+.bAdd:hover
+  opacity: 1
 .std-card-square 
   width: 90%
   margin: 0 auto
@@ -138,12 +143,10 @@ button.obj-button
 /* ===== редактировать объект  === */
 
 #addObjectButton, #bAddQuestion
-  z-index: 100
+  z-index: 2
   position: fixed
   right: 40px
   top: 70px
-
-button.backButton
 
 div.editObjectCard 
   margin-top: 40px
@@ -151,11 +154,24 @@ div.editObjectCard
   margin: 0 auto
 
 
-#editObjectButton
-  z-index: 100
+button#editObjectButtonSave
+  background-color: rgba(1,1,1,0)
+  border-right: none
+  border-bottom: none
+  box-shadow: none  
+  z-index: 2
   position: fixed
   right: 40px
   top: 70px
+  opacity: 0.7
+
+button#editObjectButtonSave:hover
+  opacity: 1
+
+button#editObjectButtonSave:active
+  border-top: none
+  border-left: none
+
 
 .swch-in-setting
   width: 50%

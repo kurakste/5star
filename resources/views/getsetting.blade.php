@@ -5,16 +5,16 @@
 <div class="overflow-y-scroll setting-wrapper">
 
      <a class='bBack' href="/home"><img src="icon/left-80.png" alt="" width='60' /></a>
-
+    
     <button type="submit" form ="settingForm" 
-         id="editObjectButton">
+         id="editObjectButtonSave">
       <a href="/storesettings"><img src="icon/save-80.png" alt="" width='45'/></a> 
     </button>
     
     <div class="buffer"> </div>
     <div class="mdl-card mdl-shadow--2dp editObjectCard">
       <div class="mdl-card__title mdl-card--expand">
-        <h2 class="mdl-card__title-text"> Настройки</h2>
+        <h2 class="mdl-card__title-text">Настройки</h2>
       </div>
       <div class="mdl-card__supporting-text">
 
