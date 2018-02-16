@@ -13,7 +13,6 @@
     <button  
             class="backButton mdl-button mdl-js-button mdl-button--fab" >
      <a href="/home"><i class="material-icons">keyboard_arrow_left</i></a> 
-
     </button>
 
     @foreach ($user->objects as $object)

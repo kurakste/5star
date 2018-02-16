@@ -12,16 +12,12 @@
               <div class="mdl-card__title mdl-card--expand">
                     <img class='center' src="icon/info_icon.png" alt="" />
               </div>
-              <div class="mdl-card__supporting-text">
+              <div class="mdl-card__actions mdl-card--border">
+              <div class="mdl-card__supporting-text menu-card">
                 ИНФОРМАЦИЯ  
               </div>
-              <div class="mdl-card__actions mdl-card--border">
-                <a href="/info" 
-                   class="mdl-button mdl-button--colored 
-                          mdl-js-button mdl-js-ripple-effect">
-                        <img src = "icon/ok_icon.png" class ="go-icon" alt="" />
-                </a>
               </div>
+              <a href="/info" class="main-links"></a>
             </div>
      <!-- =============== nest ========================================= --> 
     </div>
@@ -34,38 +30,29 @@
               <div class="mdl-card__title mdl-card--expand">
                     <img class='center' src="icon/gear_icon.png" alt="" />
               </div>
-              <div class="mdl-card__supporting-text">
-                НАСТРОЙКИ
-              </div>
               <div class="mdl-card__actions mdl-card--border">
-                <a href="/getsettings" 
-                   class="mdl-button mdl-button--colored 
-                          mdl-js-button mdl-js-ripple-effect">
-                        <img src = "icon/ok_icon.png" class ="go-icon" alt="" />
-                </a>
+                  <div class="mdl-card__supporting-text  menu-card" >
+                    НАСТРОЙКИ
+                  </div>
               </div>
+            <a href="/getsettings" class="main-links"></a>
             </div>
-        </div>
      <!-- =============== nest ========================================= --> 
-    </div>
+        </div> <!-- cell -->
+    </div> <!-- greed -->
             
     <div class = "mdl-grid">
         <div class = "mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet
                                              mdl-cell--2-col-phone graybox">
-
      <!-- =============== nest ========================================= --> 
             <div class="demo-card-square mdl-card mdl-shadow--2dp">
               <div class="mdl-card__title mdl-card--expand">
                 <img class='center' src="icon/list_icon.png" alt="" />
               </div>
-              <div class="mdl-card__supporting-text">ОБЪЕКТЫ</div>
               <div class="mdl-card__actions mdl-card--border">
-                <a href="/objects"
-                   class="mdl-button mdl-button--colored 
-                          mdl-js-button mdl-js-ripple-effect">
-                        <img src = "icon/ok_icon.png" class ="go-icon" alt="" />
-                </a>
+              <div class="mdl-card__supporting-text  menu-card">ОБЪЕКТЫ</div>
               </div>
+                <a href="/objects" class="main-links"></a>
             </div>
      <!-- =============== nest ========================================= --> 
         </div>
@@ -74,23 +61,46 @@
      <!-- =============== nest ========================================= --> 
             <div class="demo-card-square mdl-card mdl-shadow--2dp">
               <div class="mdl-card__title mdl-card--expand">
-               <img class='center' src="icon/fb_icon.png" alt="" />
-              </div>
-              <div class="mdl-card__supporting-text">
-                    ОТЗЫВЫ
+                 <img class='center' src="icon/fb_icon.png" alt="" />
               </div>
               <div class="mdl-card__actions mdl-card--border">
-                <a href="/info" 
-                   class="mdl-button mdl-button--colored 
-                          mdl-js-button mdl-js-ripple-effect">
-                        <img src = "icon/ok_icon.png" class ="go-icon" alt="" />
-                </a>
-              </div>
+                <div class="mdl-card__supporting-text  menu-card">ОТЗЫВЫ</div>
+              </div>  
+                <a href="/info" class="main-links"></a>
             </div>
-        </div>
      <!-- =============== nest ========================================= --> 
-    </div>
-         
+        </div>
+    </div> 
+    <div class = "mdl-grid">
+        <div class = "mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet
+                                             mdl-cell--2-col-phone graybox">
+     <!-- =============== nest ========================================= --> 
+            <div class="demo-card-square mdl-card mdl-shadow--2dp">
+              <div class="mdl-card__title mdl-card--expand">
+                <img class='center' src="icon/rur_big_icon.png" alt="" />
+              </div>
+              <div class="mdl-card__actions mdl-card--border">
+              <div class="mdl-card__supporting-text  menu-card">ПОПОЛНИТЬ</div>
+              </div>
+                <a href="/bill/charge" class="main-links"></a>
+            </div>
+     <!-- =============== nest ========================================= --> 
+        </div>
+       <div class = "mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet 
+                                                mdl-cell--2-col-phone graybox">
+     <!-- =============== nest ========================================= --> 
+            <div class="demo-card-square mdl-card mdl-shadow--2dp">
+              <div class="mdl-card__title mdl-card--expand">
+                 <img class='center' src="icon/help_big.png" alt="" />
+              </div>
+              <div class="mdl-card__actions mdl-card--border">
+                <div class="mdl-card__supporting-text  menu-card">ПОМОЩЬ</div>
+              </div>  
+                <a href="/info" class="main-links"></a>
+            </div>
+     <!-- =============== nest ========================================= --> 
+        </div>
+    </div> 
 </main>
 
 
