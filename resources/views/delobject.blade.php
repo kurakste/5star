@@ -3,9 +3,7 @@
 @section('content')
 
 
-    <button  
-            class="backButton mdl-button mdl-js-button mdl-button--fab" id="">
-     <a href="/objects"><i class="material-icons">keyboard_arrow_left</i></a> 
+    <a class='bBack' href="/objects"><img src="/icon/left-80.png" alt="" width='60' /></a>
 
     </button>
     <div class="buffer"> </div>

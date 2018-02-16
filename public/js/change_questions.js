@@ -17,7 +17,7 @@ $(document).ready(function () {
 
     function renameQuestionsFields () {
         var counter = 1;
-        $('div.mdl-textfield').each(function (){
+        $('div.questionBlock').each(function (){
             $(this).prop('id',`fg-${counter}`);
             $(this).children('label').prop('for',`question-${counter}`);
             $(this).children('label').prop('id',`label-${counter}`);

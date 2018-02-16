@@ -2,10 +2,7 @@
 @section('title', 'HotLine')
 @section('content')
 
-    <button  
-            class="backButton mdl-button mdl-js-button mdl-button--fab" >
-     <a href="/objects"><i class="material-icons">keyboard_arrow_left</i></a> 
-    </button>
+    <a class='bBack' href="/objects"><img src="/icon/left-80.png" alt="" width='60' /></a>
 
     <div class="buffer"> </div>
 

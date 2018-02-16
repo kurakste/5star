@@ -3,14 +3,14 @@
 @section('title', '5StarService')
 @section('content')
 
-    <button id="bAddQuestion" class="mdl-button mdl-js-button mdl-button--fab" id="addObjectButton">
-      <a href="#"><i class="material-icons">add</i></a> 
-    </button>
+     <a href="/object/add"><img class=bAdd src="icon/add-80.png" alt="" width='60'/></a> 
 
-    <button  
-            class="backButton mdl-button mdl-js-button mdl-button--fab" id="">
-     <a href="/objects"><i class="material-icons">keyboard_arrow_left</i></a> 
+    <button id="bAddQuestion">
+      <img class=bAdd src="icon/add-80.png" alt="" width='60'/>
     </button>
+<div id="changeQuestionWrapper">
+    
+    <a class='bBack' href="/objects"><img src="/icon/left-80.png" alt="" width='60' /></a>
 
     <div class="buffer"> </div>
     <div class="mdl-card mdl-shadow--2dp editObjectCard">
@@ -27,6 +27,8 @@
             @for ($i=1; $i<count($questions)+1; $i++) 
 
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="fg-{{$i}}">
+                <div>
+                    <div id='questionBlock'>
                     <label for="question_{{$i}}" id="label-{{$i}}"
                            class="mdl_textfield__label"
                             >Вопрос #{{$i}}</label>
@@ -34,16 +36,21 @@
                            value="{{$questions[$i-1]->question}}"  
                            class="mdl-textfield__input" 
                            placeholder="Введите ваш вопрос.">
+                    </div>
                     
-                    <div id="bRemoveQuestion-{{$i}}" data-question="{{$i}}"
-                         class="icon material-icons btn_del">add</div>
-                  </div>
-
+                    <div class="x-icon btn_del" id="bRemoveQuestion-{{$i}}" data-question="{{$i}}">
+                        <img src="/icon/del-30.png" alt="" width='20px'/>
+                    </div>
+                </div>
+             </div>   
             @endfor
 
-            <button type="submit" class="mdl-button mdl-js-button mdl-button--fab bSave"><i class="material-icons">save</i></button>
+    <button type="submit" id="ChangeQuestionButtonSave" >
+      <img src="/icon/save-80.png" alt="" width='45'/>
+    </button>
             </form>
     </div>
+  </div>
 </div>
 
 @endsection
