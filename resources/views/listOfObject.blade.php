@@ -10,10 +10,7 @@
       <a href="/object/add"><i class="material-icons">add</i></a> 
     </button>
 
-    <button  
-            class="backButton mdl-button mdl-js-button mdl-button--fab" >
-     <a href="/home"><i class="material-icons">keyboard_arrow_left</i></a> 
-    </button>
+     <a class='bBack' href="/home"><img src="icon/left-small.png" alt="" /></a> 
 
     @foreach ($user->objects as $object)
     <div class="buffer"> </div>
@@ -42,7 +39,7 @@
                             <li><span class='SpLeft'>Примечания</span>
                                 <div class='FlRight'>{{$object->notes}}</div>
                             </li>
-                            <li><span class='SpLeft'>Отзывов</span>
+                            <li><span class='SpLeft'>Отзыв</span>
                                 <div class='FlRight'>{{$object->countOffeedbacks()}}</div>
                             </li>
                             <li><span class='SpLeft'>Ср. оценка</span>

@@ -1,4 +1,11 @@
-@import url(https://fonts.googleapis.com/icon?family=Material+Icons);@charset "UTF-8";
+@charset "UTF-8";
+
+.bBack {
+  z-index: 200;
+  position: fixed;
+  right: 40px;
+  top: 140px;
+}
 
 .std-card-square {
   width: 90%;
@@ -159,13 +166,6 @@ button.obj-button {
   position: fixed;
   right: 40px;
   top: 70px;
-}
-
-button.backButton {
-  z-index: 200;
-  position: fixed;
-  right: 40px;
-  top: 140px;
 }
 
 div.editObjectCard {
