@@ -6,9 +6,7 @@
 <div id='objectListWrapper'>
 
     <!-- FAB button -->
-    <button class="mdl-button mdl-js-button mdl-button--fab" id="addObjectButton">
-      <a href="/object/add"><i class="material-icons">add</i></a> 
-    </button>
+      <a href="/object/add"><img class=bAdd src="icon/add-80.png" alt="" width='60'/></a> 
 
      <a class='bBack' href="/home"><img src="icon/left-80.png" alt="" width='60' /></a>
 
