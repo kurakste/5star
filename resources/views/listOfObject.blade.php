@@ -42,7 +42,7 @@
                             <li><span class='SpLeft'>Примечания</span>
                                 <div class='FlRight'>{{$object->notes}}</div>
                             </li>
-                            <li><span class='SpLeft'>Кол-во отзывов</span>
+                            <li><span class='SpLeft'>Отзывов</span>
                                 <div class='FlRight'>{{$object->countOffeedbacks()}}</div>
                             </li>
                             <li><span class='SpLeft'>Ср. оценка</span>
@@ -54,15 +54,15 @@
                             {!! Form::open(['url'=>'object/edit','method'=>'POST'])  !!}
                             <input type="hidden" name="fclient_id" value="{{$user->id}}" >
                             <input type="hidden" name="id" value="{{$object->id}}" >
-                            <button type="subbmit"  class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab">
-                            <img src="icon/edit_small.png" alt="" style=""/>
+                            <button type="subbmit"  class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab obj-button">
+                            <img class='obj-icon' src="icon/edit_small.png" alt="" style=""/>
                             </button>
                             {!! Form::close() !!}
                             {!! Form::open(['url'=>'object/delete','method'=>'POST'])  !!}
                             <input type="hidden" name="fclient_id" value="{{$user->id}}" >
                             <input type="hidden" name="id" value="{{$object->id}}" >
-                            <button type="subbmit"  class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab">
-                            <img src="icon/del_small.png" alt="" style=""/>
+                            <button type="subbmit"  class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab obj-button">
+                            <img class='obj-icon' src="icon/del_small.png" alt="" style=""/>
                             </button>
 
                             {!! Form::close() !!}
@@ -70,22 +70,22 @@
                             <input type="hidden" name="id" value="{{$object->id}}" >
                             <button type="subbmit"  class="mdl-button mdl-js-button 
                             mdl-button--fab mdl-button--mini-fab">
-                            <img src="icon/fblist_small.png" alt="" style=""/>
+                            <img class='obj-icon' src="icon/fblist_small.png" alt="" style=""/>
                             {!! Form::close() !!}
                             {!! Form::open(['url'=>'changequestions','method'=>'POST'])  !!}
                             <input type="hidden" name="id" value="{{$object->id}}" >
-                            <button type="subbmit" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab">
+                            <button type="subbmit" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab obj-button">
                             <img src="icon/edit_small.png" alt="" style=""/>
                             {!! Form::close() !!}
                             {!! Form::open(['url'=>'downloadQR','method'=>'POST'])  !!}
                             <input type="hidden" name="id" value="{{$object->id}}" >
-                            <button type="subbmit"  class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab">
-                            <img src="icon/qr_small.png" alt="" style=""/>
+                            <button type="subbmit"  class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab obj-button">
+                            <img class='obj-icon' src="icon/qr_small.png" alt="" style=""/>
                             {!! Form::close() !!}
                             {!! Form::open(['url'=>'_posters','method'=>'POST'])  !!}
                             <input type="hidden" name="id" value="{{$object->id}}" >
-                            <button type="subbmit"  class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab">
-                            <img src="icon/banners_small.png" alt="" style=""/>
+                            <button type="subbmit"  class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab obj-button">
+                            <img class='obj-icon' src="icon/banners_small.png" alt="" style=""/>
                             {!! Form::close() !!}
 <!--
                             {!! Form::open(['url'=>'/banner','method'=>'POST'])  !!}

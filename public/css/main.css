@@ -121,6 +121,7 @@ a.mdl-button {
   display: block;
   width: 200px;
   margin: 0 auto;
+  margin-top: 20px;
 }
 
 #objButtonPanel > form {
@@ -140,6 +141,10 @@ a.mdl-button {
 div#objectListWrapper > div.objListCard {
   width: 90%;
   margin: 0 auto;
+}
+
+button.obj-button {
+  margin: 5px;
 }
 
 #link-button {
