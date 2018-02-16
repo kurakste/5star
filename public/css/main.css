@@ -10,8 +10,24 @@
   text-align: justify;
 }
 
-#PayForm {
-  width: 300px;
+/* ------ Блок оплат ---    */
+
+.recharge {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+label > input.recharge,
+div#wrapper-recharge {
+  margin-top: 20px;
+  margin-left: 10px;
+}
+
+#button-recharge {
+  display: block;
+  width: 80%;
+  margin: auto;
+  margin-top: 20px;
 }
 
 /* оформление главного меню */
