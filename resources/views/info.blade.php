@@ -4,11 +4,8 @@
 @section('content')
 
 
-    <button  
-            class="backButton mdl-button mdl-js-button mdl-button--fab" id="">
-     <a href="/objects"><i class="material-icons">keyboard_arrow_left</i></a> 
+     <a class='bBack' href="/home"><img src="icon/left-80.png" alt="" width='60' /></a>
 
-    </button>
     <div class="buffer"> </div>
 <div class="std-card-square mdl-card mdl-shadow--2dp">
   <div class="mdl-card__title mdl-card--expand">

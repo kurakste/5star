@@ -5,8 +5,7 @@
 
 <div id='objectListWrapper'>
 
-    <!-- FAB button -->
-      <a href="/object/add"><img class=bAdd src="icon/add-80.png" alt="" width='60'/></a> 
+     <a href="/object/add"><img class=bAdd src="icon/add-80.png" alt="" width='60'/></a> 
 
      <a class='bBack' href="/home"><img src="icon/left-80.png" alt="" width='60' /></a>
 

@@ -4,14 +4,11 @@
 @section('content')
 <div class="overflow-y-scroll setting-wrapper">
 
-    <button  
-            class="backButton mdl-button mdl-js-button mdl-button--fab" >
-     <a href="/home"><i class="material-icons">keyboard_arrow_left</i></a> 
-    </button>
+     <a class='bBack' href="/home"><img src="icon/left-80.png" alt="" width='60' /></a>
 
     <button type="submit" form ="settingForm" 
-            class="mdl-button mdl-js-button mdl-button--fab" id="editObjectButton">
-      <a href="/storesettings"><i class="material-icons">save</i></a> 
+         id="editObjectButton">
+      <a href="/storesettings"><img src="icon/save-80.png" alt="" width='45'/></a> 
     </button>
     
     <div class="buffer"> </div>
