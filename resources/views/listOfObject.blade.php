@@ -93,10 +93,8 @@
                             <img src="icon/link_small.png" alt="" style=""/>
                             </button>
 
-<!--                            <a href="/fb/{{$user->id}}-{{$object->nick}}" 
-                               class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab"
-                               id=link-button>
-                            <i class="fa fa-link"></i></a> -->
+                            <a href="/fb/{{$user->id}}-{{$object->nick}}" >
+                            <img src="/icon/check_30.png" alt="" /></a>
                             
                        </div> 
 

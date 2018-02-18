@@ -2,109 +2,49 @@
 @section('title', 'HotLine')
 @section('content')
 
+<div class='AnswerWrapper'>
+     <a class='bBack' href="/showfb"><img src="icon/left-80.png" alt="" width='60' /></a>
 
-    <style type="text/css">
+    <div class="buffer"> </div>
 
-        .container-fluid {
-            min-height: 600px;
-        }
-        .wrapper  {
-
-            font-size: 0.7rem;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: bold;
-            margin: 5px;
-            /* height: 420px; */
-            text-transform: uppercase;
-            color: #27282d;
-            background-color: #fbfbfb;
-            padding-bottom: 20px;
-        }
-        .border {
-            position: relative;
-            padding-top: 2vh;
-            padding-left: 2vh;
-            padding-right: 2vh;
-            top:1.7vh;
-            left: 2vw;
-            border: solid #aa9e72 1px;
-            height: 80%;
-            width:95%;
-        }
-
-
-        ul {
-            list-style-type:none;
-            padding-left:3%;
-            padding-left:1%;
-            width:98%;
-
-        }
-
-        .float-btn {
-        margin:5px;
-        width: 50px;
-        }
-
-        .addModule {
-        position: fixed;
-        top: 70px;
-        right : 10px;
-        z-index: 100;
-        }
-
-        #clientData ul li:last-child, #objectsData ul li:last-child {
-        border-bottom: solid 0px gray;
-
-        }
-        .FlRight  {
-            width:60%;
-            text-align:left;
-            overflow:hidden;
-            max-height:1.4em;
-            float:right;
-        }
-
-    </style>
-
-<div class="container-fluid">
-    <div class="addModule">
-        <button type ='submit' form = 'mainForm' class="btn btn-outline-success float-btn"><i class="fas fa-angle-left"></i></button>
-    </div>
+    <div class="mdl-card mdl-shadow--2dp objListCard">
+      <div class="mdl-card__title mdl-card--expand">
+        <h2 class="mdl-card__title-text">Отзыв от {{$fb->name}}</h2>
+      </div>
 
     {!! Form::open(['url'=>'showfb','method'=>'POST', 'id'=>'mainForm'])  !!}
     <input type="hidden" name="id" value="{{$obj_id}}" >
     {!! Form::close() !!}
+      <div class="mdl-card__supporting-text">
 
-    <div class="wrapper">
-        <div class="border">
 
-                    <ul>
-                        <li><span class='SpLeft'>Дата:</span><div class='FlRight'>{{$fb->created_at}}</div></li>
-                        <li><span class='SpLeft'>Имя:</span><div class='FlRight'>{{$fb->name}}</div></li>
-                        <li><span class='SpLeft'>Телефон:</span><div class='FlRight'>{{$fb->phone}}</div></li>
-                        <li><span class='SpLeft'>Комментарий:</span></li>
-                    </ul>
-            <div>
-                <p>{{$fb->comment}}</p>
-            </div>
+            <ul id='answer'>
+                <li><span class='SpLeft'>Дата:</span><div class='FlRight'>{{$fb->created_at}}</div></li>
+                <li><span class='SpLeft'>Имя:</span><div class='FlRight'>{{$fb->name}}</div></li>
+                <li><span class='SpLeft'>Телефон:</span><div class='FlRight'>{{$fb->phone}}</div></li>
+                <li><span class='SpLeft'>Комментарий:</span></li>
+            </ul>
+        <div>
+            <p>{{$fb->comment}}</p>
+        </div>
 
-                    <table class='table table-sm'>
-                       <thead>
-                           <tr>
-                                <th>Вопрос</th>
-                                <th>Ответ</th>
-                           </tr>
-                       </thead>
-                        @foreach ($data as $out)
-                           <tr>
-                               <td>{{$out['question']}}</td>
-                               <td>{{$out['answer']}}</td>
-                           </tr>
-                        @endforeach
-                    </table>
-        </div> <!--border -->
-    </div>    <!--wrapper -->
-</div> <!-- container-fluid -->
+        <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+           <thead>
+               <tr>
+                    <th class="mdl-data-table__cell--non-numeric">Вопрос</th>
+                    <th>Ответ</th>
+               </tr>
+           </thead>
+            @foreach ($data as $out)
+               <tr>
+                   <td>{{$out['question']}}</td>
+                   <td>{{$out['answer']}}</td>
+               </tr>
+            @endforeach
+        </table>
+
+
+    </div>    <!--mdl-card__supporting-text-->
+</div> <!-- AnswerWrapper-->
  @endsection
 

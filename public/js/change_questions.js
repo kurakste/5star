@@ -1,9 +1,8 @@
 $(document).ready(function () {
-    console.log('hi1');
     countOfQuestion = $('#count_of_question').val();
 
     $('#bAddQuestion').click(addNewQuestion);
-    $('.btn_del').click(removeQuestion);
+    $('.bbtn_del').click(removeQuestion);
 
     function removeQuestion() {
         var questionNumber = $(this).attr('data-question');
@@ -31,22 +30,28 @@ $(document).ready(function () {
     }
 
     function addNewQuestion() {
-        console.log('hi2!');
         countOfQuestion++;
         newElement = `
-                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" 
-                    id="fg-${countOfQuestion}">
-                    <label class="mdl_textfield__label" for="question_${countOfQuestion}" id="label-${countOfQuestion}">Вопрос #${countOfQuestion}</label>
+        
+
+            <div  class='question-group' id='fg-${countOfQuestion}'  data-question="${countOfQuestion}">
+                <div class='questionBlock'>
+                    <label for="question_${countOfQuestion}" id="label-${countOfQuestion}"}
+                           class="mdl_textfield__label"
+                            >Вопрос #${countOfQuestion}</label>
                     <input type="text" name="question_${countOfQuestion}" 
                            value=""  
                            class="mdl-textfield__input" 
                            placeholder="Введите ваш вопрос.">
+                </div>
                     
-                    <div id="bRemoveQuestion-${countOfQuestion}" data-question="${countOfQuestion}"
-                         class="icon material-icons btn_del">add</div>
-                </div>  `;
-        $('div.mdl-textfield:last').after(newElement);
-        $(`#bRemoveQuestion-${countOfQuestion}`).click(removeQuestion);
+                <div class="x-icon btn_del" data-question="${countOfQuestion}">
+                     <img class='bbtn_del'  id="bRemoveQuestion-${countOfQuestion}" src="/icon/del-30.png" alt="" width='20px'/>
+                </div>
+           </div>
+                `;
+        $('div.question-group:last').after(newElement);
+        $(`bRemoveQuestion-${countOfQuestion}`).click(removeQuestion);
         $('#count_of_question').val(countOfQuestion);
     }
     

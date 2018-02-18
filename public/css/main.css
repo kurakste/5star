@@ -118,7 +118,8 @@ main {
 }
 
 ul#info,
-ul#objCard {
+ul#objCard,
+ul#answer {
   margin-top: 0px;
   padding-left: 3%;
   padding-left: 1%;
@@ -182,14 +183,18 @@ button#bAddQuestion {
   border: none;
 }
 
+.questionBlock {
+  margin-left: 30px;
+}
+
 div#changeQuestionWrapper {
   overflow-y: scroll;
 }
 
 div.x-icon {
   position: relative;
-  right: -R70px;
-  bottom: 30px;
+  right: 0px;
+  bottom: 35px;
 }
 
 /* ===== редактировать объект  === */
@@ -318,5 +323,11 @@ label.mdl-switch {
 
 .setting-wrapper {
   margin-bottom: 50px;
+}
+
+/* ===== ответы  === */
+
+.AnswerWrapper {
+  padding-left: 20px;
 }
 

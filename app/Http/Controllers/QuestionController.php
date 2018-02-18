@@ -50,6 +50,6 @@ class QuestionController extends Controller
            $Q->save();
         }
         //Нелья удалять старые вопросы. Это удалит историю ответов. 
-        return redirect('/home');
+        return redirect('/objects');
     }
 }

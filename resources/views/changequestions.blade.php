@@ -1,6 +1,6 @@
 
 @extends('layouts.master')
-@section('title', '5StarService')
+@section('title', 'HotLine')
 @section('content')
 
      <a href="/object/add"><img class=bAdd src="icon/add-80.png" alt="" width='60'/></a> 
@@ -26,9 +26,8 @@
 
             @for ($i=1; $i<count($questions)+1; $i++) 
 
-                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="fg-{{$i}}">
-                <div>
-                    <div id='questionBlock'>
+            <div  class='question-group' id='fg-{{$i}}' data-question="{{$i}}">
+                <div class='questionBlock'>
                     <label for="question_{{$i}}" id="label-{{$i}}"
                            class="mdl_textfield__label"
                             >Вопрос #{{$i}}</label>
@@ -36,13 +35,12 @@
                            value="{{$questions[$i-1]->question}}"  
                            class="mdl-textfield__input" 
                            placeholder="Введите ваш вопрос.">
-                    </div>
-                    
-                    <div class="x-icon btn_del" id="bRemoveQuestion-{{$i}}" data-question="{{$i}}">
-                        <img src="/icon/del-30.png" alt="" width='20px'/>
-                    </div>
                 </div>
-             </div>   
+                    
+                <div class="x-icon btn_del"  data-question="{{$i}}">
+                   <img class='bbtn_del'  id="bRemoveQuestion-{{$i}}" src="/icon/del-30.png" alt="" width='20px'/>
+                </div>
+             </div>
             @endfor
 
     <button type="submit" id="ChangeQuestionButtonSave" >
