@@ -336,7 +336,7 @@ table#answerTab > tbody > tr {
 table#answerTab > tbody > tr > td {
   padding-bottom: 5px;
   padding-top: 5px;
-  padding-right: 5px;
+  padding-right: 10px;
 }
 
 table#answerTab > tbody > tr > td:nth-child(2) {
