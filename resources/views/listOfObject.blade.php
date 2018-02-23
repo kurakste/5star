@@ -58,14 +58,15 @@
                             <button type="subbmit"  class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab obj-button">
                             <img class='obj-icon' src="icon/del_small.png" alt="" style=""/>
                             </button>
-
                             {!! Form::close() !!}
+
                             {!! Form::open(['url'=>'showfb','method'=>'POST'])  !!}
                             <input type="hidden" name="id" value="{{$object->id}}" >
                             <button type="subbmit"  class="mdl-button mdl-js-button 
                             mdl-button--fab mdl-button--mini-fab">
                             <img class='obj-icon' src="icon/fblist_small.png" alt="" style=""/>
                             {!! Form::close() !!}
+
                             {!! Form::open(['url'=>'changequestions','method'=>'POST'])  !!}
                             <input type="hidden" name="id" value="{{$object->id}}" >
                             <button type="subbmit" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab obj-button">

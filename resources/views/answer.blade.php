@@ -3,8 +3,9 @@
 @section('content')
 
 <div class='AnswerWrapper'>
-     <a class='bBack' href="/showfb"><img src="icon/left-80.png" alt="" width='60' /></a>
-
+     <button form="mainForm" type="submit" class="bBack"><img src="icon/left-80.png" alt="" width='60' /></button>
+    <!-- <a class='bBack' href="/showfb"><img src="icon/left-80.png" alt="" width='60' /></a>
+-->
     <div class="buffer"> </div>
 
     <div class="mdl-card mdl-shadow--2dp objListCard">

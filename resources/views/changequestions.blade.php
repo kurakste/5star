@@ -37,8 +37,8 @@
                            placeholder="Введите ваш вопрос.">
                 </div>
                     
-                <div class="x-icon btn_del"  data-question="{{$i}}">
-                   <img class='bbtn_del'  id="bRemoveQuestion-{{$i}}" src="/icon/del-30.png" alt="" width='20px'/>
+                <div class="x-icon btn_del"  ">
+                   <img class='bbtn_del'  data-question="{{$i}}" id="bRemoveQuestion-{{$i}}" src="/icon/del-30.png" alt="" width='20px'/>
                 </div>
              </div>
             @endfor

@@ -1,14 +1,13 @@
 <?php
-Route::get('/gitpull', 'GitController@pull');
 Route::post('/fb/store', 'FeedbackController@store');
 Route::get('/fb/{nickname}', 'FeedbackController@create');
-Route:: get('/startmaster','StartController@start')->middleware('auth');
+Route::get('/startmaster','StartController@start')->middleware('auth');
 Route::post('/showfb', 'FeedbackController@show')->middleware('auth');
 Route::post('/changequestions/store', 'QuestionController@store')->middleware('auth');
 Route::post('/changequestions', 'QuestionController@change')->middleware('auth');
 Route::get('/showanswer', 'AnswerController@show')->middleware('auth');
-Route:: get('/objects','ObjectController@getListOfObject')->middleware('auth');
-Route:: get('/object/add', 'ObjectController@add')->middleware('auth');
+Route::get('/objects','ObjectController@getListOfObject')->middleware('auth');
+Route::get('/object/add', 'ObjectController@add')->middleware('auth');
 Route::post('/object/edit', 'ObjectController@edit')->middleware('auth');
 Route::post('/object/store', 'ObjectController@store')->middleware('auth');
 Route::post('/object/delete', 'ObjectController@del')->middleware('auth');

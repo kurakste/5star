@@ -19,7 +19,7 @@ class FeedbackController extends Controller
         $obj = Object::where([['nick',$splitedNick[1]],['user_id', $splitedNick[0]]])->firstOrFail();
         $Q = Question::where([['object_id',$obj->id],['activ',true]])->get();
 
-//!! Нужно продумть как поступать с клиентами у кого не активный статус.
+//!! Нужно продумать как поступать с клиентами у кого не активный статус.
 //!! Проверку нужно исправить. 
 //
         return view ('feedback',['object_id'=>$obj->id, 'questions'=>$Q]);
