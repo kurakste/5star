@@ -314,6 +314,10 @@ button.bBack {
   background-color: transparent;
 }
 
+#answerTab {
+  width: 95%;
+}
+
 /* ===== добавить объект  === */
 
 .add-wrapper {
