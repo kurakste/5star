@@ -30,7 +30,7 @@
         <table id="answerTab" >
            <thead>
                <tr>
-                    <th class="mdl-data-table__cell--non-numeric">Вопрос</th>
+                    <th>Вопрос</th>
                     <th>Ответ</th>
                </tr>
            </thead>

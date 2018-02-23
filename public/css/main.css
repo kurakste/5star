@@ -316,20 +316,25 @@ button.bBack {
 
 #answerTab {
   width: 95%;
-  text-align: justify;
 }
 
 table#answerTab {
   border-collapse: collapse;
+  text-align: justify;
 }
 
-table#answerTab > thead > tr {
+table#answerTab > thead {
   border-bottom: 1px dotted #808080;
+  text-align: center;
 }
 
 table#answerTab > tbody > tr {
   /* background-color: green */
   border-bottom: 1px dotted #808080;
+}
+
+table#answerTab > tbody > tr > td:nth-child(2) {
+  text-align: center;
 }
 
 /* ===== добавить объект  === */
