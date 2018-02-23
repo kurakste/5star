@@ -316,6 +316,7 @@ button.bBack {
 
 #answerTab {
   width: 95%;
+  text-align: justify;
 }
 
 /* ===== добавить объект  === */

@@ -27,7 +27,7 @@
             <p>{{$fb->comment}}</p>
         </div>
 
-        <table id="answerTab" class="mdl-data-table mdl-js-data-table" -->
+        <table id="answerTab" >
            <thead>
                <tr>
                     <th class="mdl-data-table__cell--non-numeric">Вопрос</th>
