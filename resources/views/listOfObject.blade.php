@@ -45,6 +45,8 @@
                         </ul>
                             
                         <div id='objButtonPanel'>
+
+
                             {!! Form::open(['url'=>'object/edit','method'=>'POST'])  !!}
                             <input type="hidden" name="fclient_id" value="{{$user->id}}" >
                             <input type="hidden" name="id" value="{{$object->id}}" >
@@ -52,6 +54,7 @@
                             <img class='obj-icon' src="icon/edit_small.png" alt="" style=""/>
                             </button>
                             {!! Form::close() !!}
+
                             {!! Form::open(['url'=>'object/delete','method'=>'POST'])  !!}
                             <input type="hidden" name="fclient_id" value="{{$user->id}}" >
                             <input type="hidden" name="id" value="{{$object->id}}" >
@@ -62,8 +65,7 @@
 
                             {!! Form::open(['url'=>'showfb','method'=>'POST'])  !!}
                             <input type="hidden" name="id" value="{{$object->id}}" >
-                            <button type="subbmit"  class="mdl-button mdl-js-button 
-                            mdl-button--fab mdl-button--mini-fab">
+                            <button type="subbmit"  class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab obj-button">
                             <img class='obj-icon' src="icon/fblist_small.png" alt="" style=""/>
                             {!! Form::close() !!}
 
@@ -77,6 +79,7 @@
                             <button type="subbmit"  class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab obj-button">
                             <img class='obj-icon' src="icon/qr_small.png" alt="" style=""/>
                             {!! Form::close() !!}
+
                             {!! Form::open(['url'=>'_posters','method'=>'POST'])  !!}
                             <input type="hidden" name="id" value="{{$object->id}}" >
                             <button type="subbmit"  class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab obj-button">
