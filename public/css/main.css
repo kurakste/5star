@@ -319,6 +319,19 @@ button.bBack {
   text-align: justify;
 }
 
+table#answerTab {
+  border-collapse: collapse;
+}
+
+table#answerTab > thead > tr {
+  border-bottom: 1px dotted #808080;
+}
+
+table#answerTab > tbody > tr {
+  /* background-color: green */
+  border-bottom: 1px dotted #808080;
+}
+
 /* ===== добавить объект  === */
 
 .add-wrapper {
