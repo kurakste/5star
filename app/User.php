@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Auth\Authenticatable as AuthenticableTrait;
 use App\Bill;
+use App\Feedback;
+use App\Object;
 
 
 class User extends Model implements Authenticatable
@@ -26,6 +28,11 @@ class User extends Model implements Authenticatable
     {
         return $this->hasOne('App\Usersetting');
 
+    }
+    
+    public function allFB(){
+
+        return $this->hasManyThrough('App\Feedback', 'App\Object');
     }
     //
 }

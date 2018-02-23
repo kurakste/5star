@@ -66,7 +66,7 @@
               <div class="mdl-card__actions mdl-card--border">
                 <div class="mdl-card__supporting-text  menu-card">ОТЗЫВЫ</div>
               </div>  
-                <a href="/info" class="main-links"></a>
+                <a href="/get-full-fb-list" class="main-links"></a>
             </div>
      <!-- =============== nest ========================================= --> 
         </div>

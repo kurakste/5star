@@ -19,4 +19,5 @@ class Feedback extends Model
         $out = DB::select($query);
         return ($out[0]->av_ans); 
     }
+
 }

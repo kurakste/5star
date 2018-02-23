@@ -1,6 +1,7 @@
 <?php
 Route::post('/fb/store', 'FeedbackController@store');
 Route::get('/fb/{nickname}', 'FeedbackController@create');
+route::get('/get-full-fb-list','FeedbackController@getFullFbList')->middleware('auth');
 Route::get('/startmaster','StartController@start')->middleware('auth');
 Route::post('/showfb', 'FeedbackController@show')->middleware('auth');
 Route::post('/changequestions/store', 'QuestionController@store')->middleware('auth');
