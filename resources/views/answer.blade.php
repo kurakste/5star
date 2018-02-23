@@ -30,8 +30,8 @@
         <table id="answerTab" >
            <thead>
                <tr>
-                    <th>Вопрос</th>
-                    <th>Ответ</th>
+                    <th>ВОПРОС</th>
+                    <th>ОТВЕТ</th>
                </tr>
            </thead>
             @foreach ($data as $out)
