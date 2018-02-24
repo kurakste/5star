@@ -25,7 +25,7 @@
                 <li> {{$fb['name']}}</li>
                 <li> {{$fb['phone']}}</li>
                 <li> {{$fb->avrgAnswer()}}</li>
-            <!--    <li> <a href="/showanswer?fb_id={{$fb['id']}}&obj_id=">анкета</a></li> -->
+                <li> <a href="/showanswer?fb_id={{$fb['id']}}&obj_id={{$fb['object_id']}}">анкета</a></li>
             </ul>
      </div>
         <div class="clearBlock"></div>
