@@ -27,15 +27,15 @@ class FeedbackController extends Controller
 
     public function getFullFbList() {
         $user = Auth::user();
-        $fb = $user->allFB()->get();
-        //dd ($fb);
+        $fb = $user->allFB()->get()->sortByDesc('created_at');
+//        dd ($fb);
         return view ('showfb',['fbarray'=>$fb]);
     }
 
 
     public function show (Request $request) {
         $object = Object::where('id', $request->input('id')) -> first();
-        $fbarray = $object->getFeedBackList();
+        $fbarray = $object->getFeedBackList()->sortByDesc('created_at');
         return view ('showfb',['object'=>$object,'fbarray'=>$fbarray]);
     }
 
