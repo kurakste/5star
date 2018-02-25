@@ -5,8 +5,7 @@
 
     <a class='bBack' href="/objects"><img src="/icon/left-80.png" alt="" width='60' /></a>
 
-    <button type="submit" form ="mainForm" 
-         id="editObjectButtonSave">
+    <button type="submit" form ="mainForm" class="buttonSave">
       <a href="/object/add"><img src="/icon/save-80.png" alt="" width='45'/></a> 
     </button>
 

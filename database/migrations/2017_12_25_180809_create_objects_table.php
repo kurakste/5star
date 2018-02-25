@@ -17,7 +17,7 @@ class CreateObjectsTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->unsignedInteger('user_id');
-            $table->String('nick')->unique();
+            $table->String('nick');
             $table->String('QRfilename');
             $table->String('managername');
             $table->String('managerphone');

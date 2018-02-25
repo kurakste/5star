@@ -5,7 +5,7 @@
 .bBack
   z-index: 13
   position: fixed
-  right: 40px
+  right: 35px
   opacity: 0.6 
   top: 140px
 
@@ -13,10 +13,11 @@
   opacity: 1 
 
 .buttonSave
+  width: 50px
   background-color: rgba(1,1,1,0)
   border: none
   box-shadow: none  
-  z-index: 2
+  z-index: 12
   position: fixed
   right: 40px
   top: 70px
@@ -29,20 +30,20 @@
   border-top: none
   border-left: none
 
-@media screen and (min-width: 600px)
-  .bBack
-    left: 495px
-  button.buttonSave
-    left: 495px
-
-
-
 .bAdd
   z-index: 2
   position: fixed
-  right: 40px
+  right: 35px
   top: 70px
   opacity: 0.6 
+
+@media screen and (min-width: 600px)
+  .bBack
+    left: 495px
+  .buttonSave
+    left: 500px
+  .bAdd
+    left: 495px
 
 .bAdd:hover
   opacity: 1
@@ -238,9 +239,14 @@ button#ChangeQuestionButtonSave
   right: 40px
   top: 210px
   opacity: 0.7
+  width: 50px
 
 button#ChangeQuestionButtonSave:hover
   opacity: 1
+
+@media screen and (min-width: 600px)
+  button#ChangeQuestionButtonSave
+    left: 500px
 
 #questionBlock
   margin-left: 30px
