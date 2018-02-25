@@ -12,7 +12,7 @@
   <body>
 
 <!-- Simple header with fixed tabs. -->
-    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <div id="main-wrapper" class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
       <header class="mdl-layout__header">
         <div class="mdl-layout__header-row">
           <span class="mdl-layout-title">HOTLine</span>
@@ -23,10 +23,10 @@
               <div id="my-menu">
                 <ul> 
                   <li> <a href="/home">ГЛАВНАЯ</a> </li>
-                  <li> <a href="/object/add">ДОБАВИТЬ ОБЪЕКТ </a> </li>
-                  <li> <a href="/bill/charge">ПОПОЛНИТЬ СЧЕТ</a> </li>
-                  <li> <a href="/bill/details">ДЕТАЛИ СЧЕТА</a> </li>
-                  <li> <a href="/showtariffs">ТАРИФЫ </a> </li>
+                  <li> <a href="/info">ИНФОРМАЦИЯ</a> </li>
+                  <li> <a href="/objects">ОБЪЕКТЫ</a> </li>
+                  <li> <a href="/get-full-fb-list">ОТЗЫВЫ</a> </li>
+                  <li> <a href="/bill/charge">ПОПОЛНИТЬ</a> </li>
                   <li> <a href="/logout">ВЫЙТИ</a></li>
                 </ul>
               </div> <!-- my-menu -->

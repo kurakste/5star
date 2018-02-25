@@ -6,8 +6,7 @@
 
      <a class='bBack' href="/home"><img src="icon/left-80.png" alt="" width='60' /></a>
     
-    <button type="submit" form ="settingForm" 
-         id="editObjectButtonSave">
+    <button type="submit" form ="settingForm" class="buttonSave">
       <a href="/storesettings"><img src="icon/save-80.png" alt="" width='45'/></a> 
     </button>
     

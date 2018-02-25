@@ -1,15 +1,50 @@
 @charset "UTF-8";
 
+#main-wrapper {
+  max-width: 600px;
+}
+
 .bBack {
   z-index: 13;
   position: fixed;
   right: 40px;
-  top: 140px;
   opacity: 0.6;
+  top: 140px;
 }
 
 .bBack:hover {
   opacity: 1;
+}
+
+.buttonSave {
+  background-color: rgba(1, 1, 1, 0);
+  border: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  z-index: 2;
+  position: fixed;
+  right: 40px;
+  top: 70px;
+  opacity: 0.7;
+}
+
+.buttonSave:hover {
+  opacity: 1;
+}
+
+.buttonSave:active {
+  border-top: none;
+  border-left: none;
+}
+
+@media screen and (min-width: 600px) {
+  .bBack {
+    left: 495px;
+  }
+
+  button.buttonSave {
+    left: 495px;
+  }
 }
 
 .bAdd {
@@ -243,27 +278,6 @@ div.editObjectCard {
   margin-top: 40px;
   width: 90%;
   margin: 0 auto;
-}
-
-button#editObjectButtonSave {
-  background-color: rgba(1, 1, 1, 0);
-  border: none;
-  -webkit-box-shadow: none;
-          box-shadow: none;
-  z-index: 2;
-  position: fixed;
-  right: 40px;
-  top: 70px;
-  opacity: 0.7;
-}
-
-button#editObjectButtonSave:hover {
-  opacity: 1;
-}
-
-button#editObjectButtonSave:active {
-  border-top: none;
-  border-left: none;
 }
 
 .swch-in-setting {
