@@ -229,12 +229,6 @@ a.mdl-button {
   clear: all;
 }
 
-#objectListWrapper {
-  overflow-y: scroll;
-  padding-right: 5px;
-  padding-left: 5px;
-}
-
 div#objectListWrapper > div.objListCard {
   width: 90%;
   margin: 0 auto;
