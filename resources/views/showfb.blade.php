@@ -1,10 +1,12 @@
 @extends('layouts.master')
+
 @section('title', 'HotLine')
 @section('content')
 
     <a class='bBack' href="/objects"><img src="/icon/left-80.png" alt="" width='60' /></a>
+
     @foreach ($fbarray as $fb)
-      <div class="show-fb-card">
+    <div class="show-fb-card">
         <div class="wrapper">
                 <ul class ='fbLeft'>
                   <li class = 'rw'>дата</li>
@@ -24,7 +26,7 @@
         <div class="clearBlock"></div>
             <p class='p-fb'>Комментарий:</p>
             <p  class='p-fb'>{{$fb['comment']}}</p>
-         </div> <!-- wrapper -->
+        </div> <!-- wrapper -->
 
     </div> <!-- supporting-text -->
   @endforeach

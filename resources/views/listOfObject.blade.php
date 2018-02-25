@@ -17,8 +17,8 @@
       </div>
       <div class="mdl-card__supporting-text">
 
+       <!-- <div class="mdl-card__supporting-text"> -->
                         <ul id='objCard'>
-       <div class="mdl-card__supporting-text">
   
                           <ul id='objCard'>
                              <li><span class='SpLeft'>Никнейм</span>
