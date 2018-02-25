@@ -17,9 +17,6 @@
       </div>
       <div class="mdl-card__supporting-text">
 
-       <!-- <div class="mdl-card__supporting-text"> -->
-                        <ul id='objCard'>
-  
                           <ul id='objCard'>
                              <li><span class='SpLeft'>Никнейм</span>
                                  <div class='FlRight'>{{$object->nick}}</div>
