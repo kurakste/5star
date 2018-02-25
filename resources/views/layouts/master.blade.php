@@ -27,6 +27,7 @@
                   <li> <a href="/bill/charge">ПОПОЛНИТЬ СЧЕТ</a> </li>
                   <li> <a href="/bill/details">ДЕТАЛИ СЧЕТА</a> </li>
                   <li> <a href="/showtariffs">ТАРИФЫ </a> </li>
+                  <li> <a href="/logout">ВЫЙТИ</a></li>
                 </ul>
               </div> <!-- my-menu -->
         </div> <!-- drawer -->
