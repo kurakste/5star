@@ -18,8 +18,36 @@
       <div class="mdl-card__supporting-text">
 
                         <ul id='objCard'>
-
-                        </ul>
+       <div class="mdl-card__supporting-text">
+  
+                          <ul id='objCard'>
+                             <li><span class='SpLeft'>Никнейм</span>
+                                 <div class='FlRight'>{{$object->nick}}</div>
+                             </li>
+                             <li><span class='SpLeft'>Менеджер</span>
+                                 <div class='FlRight'>{{$object->managername}}</div>
+                             </li>
+                             <li><span class='SpLeft'>Телефон</span>
+                                 <div class='FlRight'>{{$object->managerphone}}</div>
+                             </li>
+                             <li><span class='SpLeft'>Город</span>
+                                 <div class='FlRight'>{{$object->city}}</div>
+                             </li>
+                             <li><span class='SpLeft'>Адрес</span>
+                                 <div class='FlRight'>{{$object->addr}}</div>
+                             </li>
+                             <li><span class='SpLeft'>Примечания</span>
+                                 <div class='FlRight'>{{$object->notes}}</div>
+                             </li>
+                             <li><span class='SpLeft'>Отзыв</span>
+                                 <div class='FlRight'>{{$object->countOffeedbacks()}}</div>
+                             </li>
+                             <li><span class='SpLeft'>Ср. оценка</span>
+                                 <div class='FlRight'>{{$object->avrgOffAllAnswer()}}</div>
+                             </li>
+ 
+                          </ul>
+                              
                             
                         <div id='objButtonPanel'>
 
