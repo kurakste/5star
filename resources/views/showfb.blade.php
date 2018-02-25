@@ -3,6 +3,7 @@
 @section('title', 'HotLine')
 @section('content')
 <div id='objectListWrapper'>
+
     <a class='bBack' href="/objects"><img src="/icon/left-80.png" alt="" width='60' /></a>
 
     @foreach ($fbarray as $fb)
@@ -29,8 +30,8 @@
         </div> <!-- wrapper -->
 
     </div> <!-- supporting-text -->
-</div> <!-- wrapper -->
   @endforeach
+</div> <!-- wrapper -->
  @endsection
 
 
