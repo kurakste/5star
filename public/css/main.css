@@ -286,7 +286,7 @@ div.x-icon {
 div.editObjectCard {
   margin-top: 40px;
   width: 90%;
-  margin: 0 auto;
+  margin: 0 auto 10px;
 }
 
 .swch-in-setting {
