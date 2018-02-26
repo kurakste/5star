@@ -9,6 +9,8 @@
       <a href="/object/add"><img src="/icon/save-80.png" alt="" width='45'/></a> 
     </button>
 
+<div id='objectListWrapper'>
+
     <div class="buffer"> </div>
     <div class="mdl-card mdl-shadow--2dp editObjectCard">
       <div class="mdl-card__title mdl-card--expand">
@@ -53,6 +55,6 @@
     </div>
     </div>
 
-
+</div>
 
 @endsection

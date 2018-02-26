@@ -6,8 +6,8 @@
      <a href="/object/add"><img class=bAdd src="icon/add-80.png" alt="" width='60'/></a> 
 
      <a class='bBack' href="/home"><img src="icon/left-80.png" alt="" width='60' /></a>
-<div id='objectListWrapper'>
 
+<div id='objectListWrapper'>
 
     @foreach ($user->objects as $object)
     <div class="buffer"> </div>
