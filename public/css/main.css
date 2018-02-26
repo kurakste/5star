@@ -214,6 +214,10 @@ a.mdl-button {
 
 /* ===== список объектов === */
 
+.object-title > h2 {
+  margin: 0 auto;
+}
+
 #objButtonPanel {
   display: block;
   width: 200px;
@@ -356,7 +360,7 @@ button.bSave {
 }
 
 .show-fb-card {
-  margin: 0 auto;
+  margin: 10px auto 20px;
   color: gray;
   padding: 30px;
   width: 70%;
