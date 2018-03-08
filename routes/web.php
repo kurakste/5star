@@ -1,4 +1,5 @@
 <?php
+Route::get('/botman/tinker', 'BotManController@tinker');
 Route::post('/fb/store', 'FeedbackController@store');
 Route::get('/fb/{nickname}', 'FeedbackController@create');
 route::get('/get-full-fb-list','FeedbackController@getFullFbList')->middleware('auth');
