@@ -4,63 +4,100 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Object;
+use App\Poster;
+use App\Pformat;
+use QrCode;
+
 
 class PosterController extends Controller
 {
+    const _PATH = 'QRCode/';
     // Этот контролер отвечает за обслуживание каталога печатных материалов.
 
     private const PATH_FOR_POSTER_DIR = 'posters/';
 
+    public function scanPosterFolder () {
+        //  Каждый постер лежит в отдельном каталоге. В нем есть prev.jpg (превью постера)
+        //  Если нет первью постера - каталог не обрабатывается. Название файла кодируется 
+        //  следующим образом: А0_200_200_400.tiff
+        //  [формат]_[координата x]_[координата Y]_[размер]
+        //  нужно вернуть массив содержажий пути к постерам, превьюшкам, координаты вклеивания QR и размер кода
 
-     private function getPngFileList ($dirList) {
-         //  задача функции просканировать дирректорию для шаблонов постеров и
-         // вернуть список правильных файлов.
+         $dir = opendir(self::PATH_FOR_POSTER_DIR);
+         Poster::getQuery()->delete(); // очистить базу перед сканированием каталога
 
-        $out = [];
-        foreach ($dirList as $file) {
-            if ( ($file !== '.') and ($file !== '..')) {
+        while ($file = readdir($dir)) {
+            $tmp = []; 
+            if (is_dir(self::PATH_FOR_POSTER_DIR.$file) && $file != '.' && $file != '..') {
 
-            $exts = explode('.',$file);
-                $i = count($exts);
-                $ext = $exts[$i-1];
-                if ($ext== 'png') {
-                    $out[]=self::PATH_FOR_POSTER_DIR.$file;
+                $poster = new Poster;
+                $poster->folder = $file; // сохранил название папки
+                $poster->save();
+                $pid = $poster->id;
+
+                $subdir = opendir(self::PATH_FOR_POSTER_DIR.$file);
+                    while ($ffile = readdir($subdir))  {
+                        if (is_file(self::PATH_FOR_POSTER_DIR.$file.'/'.$ffile) && $ffile != '.DS_Store') {
+                            array_push($tmp, self::PATH_FOR_POSTER_DIR.$file.'/'.$ffile);
+                            $tmp = explode('_', explode('.',$ffile)[0]); //разбираем имя файла на формат, координаты qr кода и его рамер.
+                            if (count($tmp) == 4) { //если имя файла разбилось менее чем на четыре части - файл не правильный, парсить его не нужно
+                                $pformat = new Pformat;
+                                $pformat->format = $tmp[0];
+                                $pformat->xpos = $tmp[1];
+                                $pformat->ypos = $tmp[2];
+                                $pformat->QRsize = $tmp[3];
+                                $pformat->poster_id = $pid;
+                                $pformat->path = self::PATH_FOR_POSTER_DIR.$file.'/'.$ffile; 
+                                $pformat->save();
+                                }
+                        }
+
                     }
-            };
-        };
-        return $out;
+                }
+        }
     }
+    
+     
 
     public function showPostersList (Request $request) {
-        // Считаем кол-во файлов png в каталоге постерз (потом нужно будет разложить по папкам
-        // в зависимости от размера печати и ориентации). Кол-во файлов, это кол-во объектов для
-        // вывода в форму.
         $object_id = $request->input('id');
-        $dirList = scandir(self::PATH_FOR_POSTER_DIR);
-    //    dd($out);
-        $posterList = self::getPngFileList ($dirList);
+        $posters = Poster::all();
 
-        return view('posterList',['postersList'=>$posterList, 'object_id'=>$object_id]);
+//        dd($posters[0]->formats->where('format','prev')->first()->path);
+        return view('posterList',['posters'=>$posters, 'object_id'=>$object_id]);
     }
 
 
     public function getPoster (Request $request) {
-         //  получает в запросе путь к файлу и id объекта.
-         //  должен отдать в представление постер со встроенным QR кодом.
-        $pathToPoster = $request->input('poster');
+         //  в запросе: $poster - id формата постера из таблицы  pformats
+         //             $id - id объекта для того, что бы сформировать  QR Code 
+        $poster_id = $request->input('poster');
         $object_id = $request->input('id');
+        $obj = Object::find($object_id);
         $object = Object::find($object_id);
-        $pathToQRCode = $object->QRfilename;
-        $poster = imagecreatefrompng($pathToPoster);
-        $qrCode = imagecreatefrompng($pathToQRCode);
-
-        $width = imagesx($qrCode);
-        $hight = imagesy($qrCode);
-        imagecopy($poster,$qrCode,50,150,0,0,$width, $hight);
+       // dd($poster_id);
+        $posterInfo = \App\Pformat::findOrFail($poster_id); //$poster_id);
+        $publicNick = $obj->user_id.'-'.$obj->nick;
+        $filename = self::_PATH.$publicNick.'.png';
+        $url = $request->root().'/'.$publicNick;
+        // генерим нужный QR Cod
+//        dd($posterInfo->QRsize);
+        QrCode::format('png')->size($posterInfo->QRsize)->generate($url, $filename);
+            
+        /* $pathToQRCode = $object->QRfilename; */
+        $poster = imagecreatefromjpeg($posterInfo->path);
+        $qrCode = imagecreatefrompng($filename);
+        imagecopy($poster,$qrCode,$posterInfo->xpos, $posterInfo->ypos,0,0, 
+                        $posterInfo->QRsize, $posterInfo->QRsize);
         //dd($poster);
-        $pathToReadyPoster = 'tmp/'.$object_id.'_poster.png';
+        $text = 'text for picture';
+        $fontFile = 'webfonts/ClearSans-Bold.ttf';
+        
 
+        $pathToReadyPoster = 'tmp/'.$object_id.'_poster.png';
+        unlink($pathToReadyPoster);
         imagepng($poster,$pathToReadyPoster);
+//        dd($url);
 
         return response()->file($pathToReadyPoster);
     }

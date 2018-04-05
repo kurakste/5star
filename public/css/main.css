@@ -427,16 +427,42 @@ div.poster-container {
 
 div.poster-fleft {
   float: left;
-  width: 50%;
+  width: 20%;
 }
 
 div.poster-fright {
   float: right;
-  width: 25%;
+  width: 80%;
+}
+
+#p-save-icon {
+  width: 20px;
+  margin: 0;
+  padding: 0;
 }
 
 .post-prev {
-  width: 90%;
+  width: 100%;
+}
+
+.poster-fleft > ul {
+  padding: 5px 0px 5px 0px;
+  margin: 5px 0px 5px 0px;
+}
+
+.poster-fleft > ul li {
+  list-style-type: none;
+}
+
+.poster-fleft > ul li a {
+  margin-left: 20px;
+  text-decoration: none;
+  font-size: 8px;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.poster-fleft > ul > li:hover {
+  background-color: #A7C3ED;
 }
 
 /* ===== добавить объект  === */
