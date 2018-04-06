@@ -95,7 +95,7 @@ class PosterController extends Controller
         
 
         $pathToReadyPoster = 'tmp/'.$object_id.'_poster.png';
-        unlink($pathToReadyPoster);
+        if (file_exists($pathToReadyPoster)) unlink($pathToReadyPoster);
         imagepng($poster,$pathToReadyPoster);
 //        dd($url);
 
