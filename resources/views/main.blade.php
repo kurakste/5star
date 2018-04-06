@@ -96,7 +96,7 @@
               <div class="mdl-card__actions mdl-card--border">
                 <div class="mdl-card__supporting-text  menu-card">ПОМОЩЬ</div>
               </div>  
-                <a href="/info" class="main-links"></a>
+                <a href="/help" class="main-links"></a>
             </div>
      <!-- =============== nest ========================================= --> 
         </div>

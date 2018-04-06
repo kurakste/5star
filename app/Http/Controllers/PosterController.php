@@ -89,7 +89,6 @@ class PosterController extends Controller
         $qrCode = imagecreatefrompng($filename);
         imagecopy($poster,$qrCode,$posterInfo->xpos, $posterInfo->ypos,0,0, 
                         $posterInfo->QRsize, $posterInfo->QRsize);
-        //dd($poster);
         $text = 'text for picture';
         $fontFile = 'webfonts/ClearSans-Bold.ttf';
         
@@ -97,7 +96,6 @@ class PosterController extends Controller
         $pathToReadyPoster = 'tmp/'.$object_id.'_poster.png';
         if (file_exists($pathToReadyPoster)) unlink($pathToReadyPoster);
         imagepng($poster,$pathToReadyPoster);
-//        dd($url);
 
         return response()->file($pathToReadyPoster);
     }

@@ -328,9 +328,22 @@ table#answerTab>tbody>tr>td:nth-child(2)
   text-align: center
 
 /* ===== posters  === */
-div.poster-container
-  width: 100%
+
+.poster-container
+  width: 90%
   overflow: hidden
+  margin: 20px 10px
+  // box-shadow: 10px 10px 10px rgba(20, 20, 20, 0.3)
+
+#offer
+  margin: 10px 15px
+  padding: 10px
+  // box-shadow: 10px 10px 10px rgba(20, 20, 20, 0.3)
+
+.p-in-poster
+  margin: 0
+  padding: 0
+  text-align: justify
 
 div.poster-fleft
   float: left
@@ -341,6 +354,7 @@ div.poster-fright
   width: 80%
 
 #p-save-icon
+  visibility: hidden
   width: 20px
   margin: 0
   padding: 0
@@ -356,13 +370,15 @@ div.poster-fright
     list-style-type: none
 
     a
-      margin-left: 20px
+      margin-left: 10px
       text-decoration: none
       font-size: 8px
       color: rgba(0,0,0, 0.4) 
 
-.poster-fleft>ul>li:hover
-  background-color: #A7C3ED
+.poster-fleft>ul>li:hover #p-save-icon
+  visibility: visible
+  // background-color: #A7C3ED
+
 
 /* ===== добавить объект  === */
 .add-wrapper
@@ -382,3 +398,13 @@ label.mdl-switch
 /* ===== ответы  === */
 .AnswerWrapper
   padding-left: 20px
+
+
+/* ===== изменить настройки  === */
+.help-block
+  margin: 10px 10px
+  p
+    text-align: justify
+
+.ifleft
+  float: left

@@ -28,6 +28,7 @@ Route::post('/banner','BannerController@showBanner')->middleware('auth');
 Route::get('/banner/change','BannerController@changeBanner')->middleware('auth');
 Route::post('/banner/doUpload','BannerController@storeBanner')->middleware('auth');
 route::get('/info','HomeController@getInfo')->middleware('auth');
+route::get('/help','HelpController@showHelp')->middleware('auth');
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 Auth::routes();

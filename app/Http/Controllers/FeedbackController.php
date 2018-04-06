@@ -19,9 +19,9 @@ class FeedbackController extends Controller
         $obj = Object::where([['nick',$splitedNick[1]],['user_id', $splitedNick[0]]])->firstOrFail();
         $Q = Question::where([['object_id',$obj->id],['activ',true]])->get();
 
-//!! Нужно продумать как поступать с клиентами у кого не активный статус.
-//!! Проверку нужно исправить. 
-//
+        //!! Нужно продумать как поступать с клиентами у кого не активный статус.
+        //!! Проверку нужно исправить. 
+        //
         return view ('feedback',['object_id'=>$obj->id, 'questions'=>$Q]);
         } 
 
@@ -29,16 +29,14 @@ class FeedbackController extends Controller
         $user = Auth::user();
         $fb = $user->allFB()->get()->sortByDesc('created_at');
 //        dd ($fb);
-        return view ('showfb',['fbarray'=>$fb]);
+        return view ('showfb',['object'=>null, 'fbarray'=>$fb]);
     }
-
 
     public function show (Request $request) {
         $object = Object::where('id', $request->input('id')) -> first();
         $fbarray = $object->getFeedBackList()->sortByDesc('created_at');
         return view ('showfb',['object'=>$object,'fbarray'=>$fbarray]);
     }
-
 
     public function store(Request $request) {
         // Проверка данных, пришедших из формы.
@@ -50,16 +48,15 @@ class FeedbackController extends Controller
            $nanswer="fanswer_".$i;
            $rules[$nanswer]=array('required', 'integer', 'min:0', 'max:5');
        };
-       //dd($request);
-
         $validateDate = $request->validate($rules);
 
-        $fb = new Feedback;
+       $fb = new Feedback;
        $fb->object_id = $request->input('id');
        $fb->name = $request->input('fname');
        $fb->phone = $request->input('fphone');
        $fb->comment = $request->input('fnotes');
        $fb->save();
+
        for ($i=0; $i<$request->input('countOfQuestions'); $i++) {
            $nanswer="fanswer_".$i;
            $question_id="question_id_".$i;

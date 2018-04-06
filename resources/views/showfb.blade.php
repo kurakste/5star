@@ -3,8 +3,11 @@
 @section('title', 'HotLine')
 @section('content')
 <div id='objectListWrapper'>
-
-    <a class='bBack' href="/objects"><img src="/icon/left-80.png" alt="" width='60' /></a>
+    @if ($object)
+        <a class='bBack' href="/objects"><img src="/icon/left-80.png" alt="" width='60' /></a>
+    @else
+        <a class='bBack' href="/home"><img src="/icon/left-80.png" alt="" width='60' /></a>
+    @endif
 
     @foreach ($fbarray as $fb)
     <div class="show-fb-card">
