@@ -47,4 +47,10 @@ class HomeController extends Controller
 
         return view('info', ['user' => $user]);
     }
+
+    public function infoInfo() 
+    {
+        phpinfo();
+        
+        }
 }
