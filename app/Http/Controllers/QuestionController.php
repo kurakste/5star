@@ -10,8 +10,7 @@ class QuestionController extends Controller
 {
     //
     public function change(Request $request) {
-
-         $questions = Question::where('object_id' ,($request->input('id')))
+         $questions = Question::where('oobject_id' ,($request->input('id')))
              ->where('activ',true)
              ->get();
         return view('changequestions',['questions'=> $questions]);
@@ -19,9 +18,8 @@ class QuestionController extends Controller
 
 
     public function store(Request $request) {
-
         $count = $request->input('count');
-        $object_id = $request->input('object_id');
+        $object_id = $request->input('oobject_id');
         $rules=[];
         //Валидация данных.
         for ($i=0; $i<$count; $i++) {
@@ -36,7 +34,7 @@ class QuestionController extends Controller
         // !!! При попытке вернуться на прежнюю страницу возникет ошибка!
 
         //находим активные для данного объекта вопросы и переводим их в пассивные.
-        $tmpQ = Question::where('object_id',$object_id)->get();
+        $tmpQ = Question::where('oobject_id',$object_id)->get();
             foreach ($tmpQ as $tmp) {
                 $tmp->activ = false;
                 $tmp->save();
@@ -44,7 +42,7 @@ class QuestionController extends Controller
         // Создаем новые вопросы. Они становятся активными по умолчанию. 
         for ($i=1;$i<$count+1;$i++) {
            $Q=new Question;
-           $Q->object_id = $object_id;
+           $Q->oobject_id = $object_id;
            $name='question_'.$i;
            $Q->Question = $request->input($name); 
            $Q->save();
