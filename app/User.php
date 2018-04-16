@@ -5,12 +5,12 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Auth\Authenticatable as AuthenticableTrait;
-use App\Bill;
-use App\Feedback;
-use App\Object;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Notifications\Notifiable;
+use App\Bill;
+use App\Feedback;
+use App\Oobject;
 
 
 class User extends Model implements Authenticatable, CanResetPasswordContract
@@ -21,7 +21,7 @@ class User extends Model implements Authenticatable, CanResetPasswordContract
     use Notifiable;
 
     public function objects() {
-    return $this->hasMany('App\Object');
+    return $this->hasMany('App\Oobject');
 
 }
     public function balance() {
@@ -37,7 +37,7 @@ class User extends Model implements Authenticatable, CanResetPasswordContract
     
     public function allFB(){
 
-        return $this->hasManyThrough('App\Feedback', 'App\Object');
+        return $this->hasManyThrough('App\Feedback', 'App\Oobject');
     }
     //
 }

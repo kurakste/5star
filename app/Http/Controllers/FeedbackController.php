@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Feedback;
-use App\Object;
+use App\Oobject;
 use App\Question;
 use App\Answer;
 use Auth;
@@ -16,13 +16,13 @@ class FeedbackController extends Controller
         //Никнейм придет в формате: user_id-nickname;
         $splitedNick = explode('-', $nickname);
 
-        $obj = Object::where([['nick',$splitedNick[1]],['user_id', $splitedNick[0]]])->firstOrFail();
-        $Q = Question::where([['object_id',$obj->id],['activ',true]])->get();
+        $obj = Oobject::where([['nick',$splitedNick[1]],['user_id', $splitedNick[0]]])->firstOrFail();
+        $Q = Question::where([['oobject_id',$obj->id],['activ',true]])->get();
 
         //!! Нужно продумать как поступать с клиентами у кого не активный статус.
         //!! Проверку нужно исправить. 
         //
-        return view ('feedback',['object_id'=>$obj->id, 'questions'=>$Q]);
+        return view ('feedback',['oobject_id'=>$obj->id, 'questions'=>$Q]);
         } 
 
     public function getFullFbList() {
@@ -33,7 +33,7 @@ class FeedbackController extends Controller
     }
 
     public function show (Request $request) {
-        $object = Object::where('id', $request->input('id')) -> first();
+        $object = Oobject::where('id', $request->input('id')) -> first();
         $fbarray = $object->getFeedBackList()->sortByDesc('created_at');
         return view ('showfb',['object'=>$object,'fbarray'=>$fbarray]);
     }
@@ -51,7 +51,7 @@ class FeedbackController extends Controller
         $validateDate = $request->validate($rules);
 
        $fb = new Feedback;
-       $fb->object_id = $request->input('id');
+       $fb->oobject_id = $request->input('id');
        $fb->name = $request->input('fname');
        $fb->phone = $request->input('fphone');
        $fb->comment = $request->input('fnotes');

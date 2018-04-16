@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Object;
+use App\Oobject;
 use App\Poster;
 use App\Pformat;
 use QrCode;
@@ -16,90 +16,100 @@ class PosterController extends Controller
 
     private const PATH_FOR_POSTER_DIR = 'posters/';
 
-    public function scanPosterFolder () {
-        //  Каждый постер лежит в отдельном каталоге. В нем есть prev.jpg (превью постера)
-        //  Если нет первью постера - каталог не обрабатывается. Название файла кодируется 
-        //  следующим образом: А0_200_200_400.tiff
-        //  [формат]_[координата x]_[координата Y]_[размер]
-        //  нужно вернуть массив содержажий пути к постерам, превьюшкам, координаты вклеивания QR и размер кода
-
-         $dir = opendir(self::PATH_FOR_POSTER_DIR);
-         Poster::getQuery()->delete(); // очистить базу перед сканированием каталога
-
-        while ($file = readdir($dir)) {
-            $tmp = []; 
-            if (is_dir(self::PATH_FOR_POSTER_DIR.$file) && $file != '.' && $file != '..') {
-
-                $poster = new Poster;
-                $poster->folder = $file; // сохранил название папки
-                $poster->save();
-                $pid = $poster->id;
-
-                $subdir = opendir(self::PATH_FOR_POSTER_DIR.$file);
-                    while ($ffile = readdir($subdir))  {
-                        if (is_file(self::PATH_FOR_POSTER_DIR.$file.'/'.$ffile) && $ffile != '.DS_Store') {
-                            array_push($tmp, self::PATH_FOR_POSTER_DIR.$file.'/'.$ffile);
-                            $tmp = explode('_', explode('.',$ffile)[0]); //разбираем имя файла на формат, координаты qr кода и его рамер.
-                            if (count($tmp) == 4) { //если имя файла разбилось менее чем на четыре части - файл не правильный, парсить его не нужно
-                                $pformat = new Pformat;
-                                $pformat->format = $tmp[0];
-                                $pformat->xpos = $tmp[1];
-                                $pformat->ypos = $tmp[2];
-                                $pformat->QRsize = $tmp[3];
-                                $pformat->poster_id = $pid;
-                                $pformat->path = self::PATH_FOR_POSTER_DIR.$file.'/'.$ffile; 
-                                $pformat->save();
-                                }
-                        }
-
-                    }
-                }
-        }
-    }
-    
-     
 
     public function showPostersList (Request $request) {
         $object_id = $request->input('id');
-        $posters = Poster::all();
+        $posters = $this->getPosters();
 
-//        dd($posters[0]->formats->where('format','prev')->first()->path);
         return view('posterList',['posters'=>$posters, 'object_id'=>$object_id]);
     }
 
 
     public function getPoster (Request $request) {
-         //  в запросе: $poster - id формата постера из таблицы  pformats
-         //             $id - id объекта для того, что бы сформировать  QR Code 
-        $poster_id = $request->input('poster');
-        $object_id = $request->input('id');
-        $obj = Object::find($object_id);
-        $object = Object::find($object_id);
-       // dd($poster_id);
-        $posterInfo = \App\Pformat::findOrFail($poster_id); //$poster_id);
+        //  в запросе:  $poster - название постера.
+        //              $format - формат постера.
+        //             $obj_id - id объекта для того, что бы сформировать  QR Code 
+        $poster = $request->input('poster');
+        $format = $request->input('format');
+        $object_id = $request->input('obj_id');
+
+        
+        $obj = Oobject::find($object_id);
+        $posters = $this->getPosters();
+        $tmp = array_filter ($posters, function($arr) use ($poster) {
+            return ($arr['name'] == $poster);
+        });
+        $poster = array_pop($tmp);
+        $format = $poster['formats'][$format];
+    
         $publicNick = $obj->user_id.'-'.$obj->nick;
         $filename = self::_PATH.$publicNick.'.png';
         $url = $request->root().'/'.$publicNick;
-        // генерим нужный QR Cod
-//        dd($posterInfo->QRsize);
-        QrCode::format('png')->size($posterInfo->QRsize)->generate($url, $filename);
+        QrCode::format('png')->size($format['qsize'])->generate($url, $filename);
             
-        /* $pathToQRCode = $object->QRfilename; */
-        $poster = imagecreatefromjpeg($posterInfo->path);
-        $qrCode = imagecreatefrompng($filename);
-        imagecopy($poster,$qrCode,$posterInfo->xpos, $posterInfo->ypos,0,0, 
-                        $posterInfo->QRsize, $posterInfo->QRsize);
-        $text = 'text for picture';
-        $fontFile = 'webfonts/ClearSans-Bold.ttf';
-        
+        $poster = imagecreatefromjpeg($format['path']);
 
-        $pathToReadyPoster = 'tmp/'.$object_id.'_poster.png';
+        $qrCode = imagecreatefrompng($filename);
+        imagecopy($poster, $qrCode, $format['qxpos'], $format['qypos'], 0, 0, 
+                        $format['qsize'], $format['qsize']);
+        $font = 'webfonts/ClearSans-Bold.ttf';
+        $tx = $format['txpos'];
+        $ty = $format['typos'];
+        $rcolor = $format['rcolor'];
+        $gcolor = $format['gcolor'];
+        $bcolor = $format['bcolor'];
+        $fontSize = $format['fsize'];
+
+        $color = imagecolorallocate($poster, $rcolor, $gcolor, $bcolor);
+        imagettftext($poster, $fontSize, 0, $tx, $ty, $color, $font, $url); 
+
+        $pathToReadyPoster = 'tmp/'.$object_id.'_poster.jpg';
         if (file_exists($pathToReadyPoster)) unlink($pathToReadyPoster);
-        imagepng($poster,$pathToReadyPoster);
+
+        imagejpeg($poster, $pathToReadyPoster, 75);
+        $this->setJpegDPI($pathToReadyPoster, 300);
 
         return response()->file($pathToReadyPoster);
     }
-    // Добавляем QR код в заданное место. и выводим картинку на скачивание.
+
+    private function setJpegDPI($jpg, $dpi)
+        /* set_dpi('sample.jpg',72); */
+    {
+        //GD создает по умолчанию jpg в котором DPI = 72, что не подходит для
+        //печати. Эта функция исправляет в файле значение на необходимое. 
+        $hi = $dpi >> 8;
+        $low = $dpi & 0xFF;
+        $fr = fopen($jpg, 'rb');
+        $fw = fopen("$jpg.temp", 'wb');
+        stream_set_write_buffer($fw, 0);
+        fwrite($fw, fread($fr, 13) . chr(1) . chr($hi) . chr($low) . chr($hi) . chr($low));
+        fseek($fr, 18);
+        stream_copy_to_stream($fr, $fw);
+        fclose($fr);
+        fclose($fw);
+        unlink($jpg);
+        rename("$jpg.temp", $jpg);
+    }
+
+    private function getPosters () {
+        //Функция возвращает массив со всеми настройками постеров.
+
+        $tmpPosters = parse_ini_file('posters/poster.ini', true); // читаем список доступных постеров
+        $count = 0;
+
+        foreach ($tmpPosters as $poster) 
+        {
+            if (file_exists($poster['setting']))
+            {
+                $posters[$count] = $poster;
+                $formats = parse_ini_file($poster['setting'], true);
+                $posters[$count]['formats'] = $formats;
+                $count++;
+            }
+        }
+
+        return $posters;
+    } 
 }
 
 

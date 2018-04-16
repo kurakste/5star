@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Object;
 use Auth;
 use App\Question;
+use App\Oobject;
 use Illuminate\Http\Request;
 use QrCode;
 
@@ -14,7 +14,7 @@ class ObjectController extends Controller
 
     public function del (Request $request) {
 
-        $obj = Object::where('id',$request->input('id'))->firstorFail();
+        $obj = Oobject::where('id',$request->input('id'))->firstorFail();
         return view ('delobject',['object' => $obj]);
     }
 
@@ -23,7 +23,7 @@ class ObjectController extends Controller
         // Получив доступ к этой ссылке злодей может удалить все объекты
         // перебирая числа. Нужно подумать над защитой.
 
-        $obj = Object::where('id',$request->input('id'))->firstorFail();
+        $obj = Oobject::where('id',$request->input('id'))->firstorFail();
 
         //сначала удаляем QR код из папки  _PATH
         $name = $obj->QRfilename;
@@ -35,7 +35,7 @@ class ObjectController extends Controller
 
     public function updateQRCode ($request, $obj_id) {
 
-        $object = Object::where('id', $obj_id)->firstorFail();
+        $object = Oobject::where('id', $obj_id)->firstorFail();
         $publicNick = $object->user_id.'-'.$object->nick;
         $filename = self::_PATH.$publicNick.'.png';
         $url = $request->root();
@@ -46,9 +46,9 @@ class ObjectController extends Controller
 
     public function store (Request $request) {
         if ($request->input('id')==null) {
-            $object = new Object;}
+            $object = new Oobject;}
             else {
-                $object = Object::where('id', $request->input('id'))->firstorFail();
+                $object = Oobject::where('id', $request->input('id'))->firstorFail();
             }
         $object->user_id = $request->input('fuser_id');
 
@@ -95,7 +95,7 @@ class ObjectController extends Controller
     public function downloadQR (Request $request) {
         // Находит QRCode объекта и отдает его на скачивание.
 
-        $object = Object::where('id',$request->input('id'))->firstorFail();
+        $object = Oobject::where('id',$request->input('id'))->firstorFail();
 
         return response()->file($object->QRfilename);
     }
@@ -107,14 +107,13 @@ class ObjectController extends Controller
     }
 
     public function edit (Request $request) {
-        $obj = Object::where('id',$request->input('id'))->firstorFail();
+        $obj = Oobject::where('id',$request->input('id'))->firstorFail();
         
         return view ('editobjects',['object' => $obj]);
     }
 
     public function getListOfObject() {
         $user = Auth::user();
-
         return view('listOfObject',['user'=>$user]);
 
     }

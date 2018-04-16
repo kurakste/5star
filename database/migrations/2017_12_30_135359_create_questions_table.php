@@ -16,10 +16,10 @@ class CreateQuestionsTable extends Migration
         Schema::create('questions', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
-            $table->unsignedInteger('object_id');
+            $table->unsignedInteger('oobject_id');
             $table->String('question');
             $table->boolean('activ')->default(true);
-            $table->foreign('object_id')->references('id')->on('objects')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('oobject_id')->references('id')->on('objects')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

@@ -17,9 +17,9 @@ class CreateActiveservicesTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->unsignedInteger('service_id');
-            $table->unsignedInteger('object_id');
+            $table->unsignedInteger('oobject_id');
             $table->foreign('service_id')->references('id')->on('services')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('object_id')->references('id')->on('objects')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('oobject_id')->references('id')->on('objects')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

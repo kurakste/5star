@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Object;
+use App\Oobject;
 use Illuminate\Http\Request;
 use App\Question;
 

@@ -143,7 +143,7 @@
     <form action="/fb/store" method="post" id="qForm">
      {{ csrf_field() }}
 
-        <input type="hidden" name="id"  value="{{$object_id}}"> <!--передаем id ОБЪЕКТА для которого составлен отзыв. -->
+        <input type="hidden" name="id"  value="{{$oobject_id}}"> <!--передаем id ОБЪЕКТА для которого составлен отзыв. -->
         <input type="hidden" id ="countOfQuestions" name="countOfQuestions" value="{{count($questions)}}"> <!--передаем кол-во вопросов в анкете. -->
 
         <div class="card active" id="card_{{$page}}">

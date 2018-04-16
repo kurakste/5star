@@ -17,35 +17,28 @@
 
 
 @foreach ($posters as $poster)
-    @if ($poster->formats->where('format','prev')->first())   
-    <!-- Если в папке нет привьюшки - обробатавать не будет.  -->
 
          <!-- =============== nest ========================================= --> 
                 <div class="poster-container">
                   <div class="poster-fright">
                       <div class="">
-                        <img class='post-prev' src="{{$poster->formats->where('format','prev')->first()->path}}" alt=""> 
+                        <img class='post-prev' src="{{$poster['prev']}}" alt=""> 
                       </div>
                   </div>
                   <div class="poster-fleft">
                     <ul>
-                        @foreach ($poster->formats as $format)
-                            @if ($format->format != 'prev')
-                            <!-- Усли это привьюшка в список не выводим -->
+                        @foreach ($poster['formats'] as $format)
                                 <li>
-                                    <a href="getposter?poster={{$format->id}}&id={{$object_id}}">
+                                    <a href="getposter?poster={{$poster['name']}}&format={{$format['id']}}&obj_id={{$object_id}}">
                                         
                                         <img id='p-save-icon' src="icon/download.png" alt="" />
-                                        {{$format->format}}</a>
+                                        {{$format['id']}}</a>
                                 </li>
-                            @endif
                         @endforeach
                     </ul>
                 </div>
             </div> <!-- Poster container -->
          <!-- =============== nest ========================================= --> 
-    @endif
-
 @endforeach
 
 </div>

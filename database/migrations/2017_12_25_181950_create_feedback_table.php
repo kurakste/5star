@@ -16,11 +16,11 @@ class CreateFeedbackTable extends Migration
         Schema::create('feedbacks', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
-            $table->unsignedInteger('object_id');
+            $table->unsignedInteger('oobject_id');
             $table->String('phone');
             $table->String('name');
             $table->String('comment')->nullable();;
-            $table->foreign('object_id')->references('id')->on('objects')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('oobject_id')->references('id')->on('objects')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
