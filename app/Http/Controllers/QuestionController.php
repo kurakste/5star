@@ -16,7 +16,6 @@ class QuestionController extends Controller
         return view('changequestions',['questions'=> $questions]);
     }
 
-
     public function store(Request $request) {
         $count = $request->input('count');
         $object_id = $request->input('oobject_id');
