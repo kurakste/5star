@@ -45,13 +45,16 @@ class ObjectController extends Controller
     }
 
     public function store (Request $request) {
+        
+        $user = Auth::user();
+        
         if ($request->input('id')==null) {
             $object = new Oobject;}
             else {
                 $object = Oobject::where('id', $request->input('id'))->firstorFail();
             }
-        $object->user_id = $request->input('fuser_id');
-
+        $object->user_id = $user->id;
+        
         // Нужно проверить изменил ли пользователь никнейм объекта. Если да,
         // то мы должны удалить файл со QR кодом.
         if ($object->nick != $request->input('fnicknаme')) {
@@ -83,7 +86,7 @@ class ObjectController extends Controller
                 "Оцените пожалуйста по пятибальной шкале качество обслуживания в нашем заведении."];
             foreach ($Q as $question) {
                 $questions=new Question;
-                $questions->object_id=$object->id;
+                $questions->oobject_id=$object->id;
                 $questions->question = $question;
                 $questions->save();
                 }
