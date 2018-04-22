@@ -6,6 +6,7 @@ use App\Events\NewFeedback;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Mail;
+use Log;
 
 class NewFeedbackHandler
 {
@@ -28,12 +29,14 @@ class NewFeedbackHandler
     public function handle(NewFeedback $event)
     {
         //
-        //
+        /* $fb = $event->feedback; */
+        /* Log::info($fb); */
         $usr = $event->user;
         if ($usr->settings->send_each_fb) 
+        
         {
             $data = array('name'=>$usr->name, 'feedback' => $event->feedback,
-                'answer'=>$event->answer);
+                'answer'=>$event->answer, 'obj'=>$event->obj);
 
             Mail::send('emails.newFeedback', $data, function($message) use ($usr)
             {

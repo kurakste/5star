@@ -74,7 +74,7 @@ class FeedbackController extends Controller
             $answers->Answer = $request->input($nanswer);
             $answers->save();
        }
-        event(new NewFeedback($user, $fb, $answers));
+        event(new NewFeedback($user, $fb, $answers, $obj));
 
 
        return view ('thanks');

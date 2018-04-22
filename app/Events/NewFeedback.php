@@ -16,17 +16,19 @@ class NewFeedback
     public $user;
     public $feedback;
     public $answer;
+    public $obj;
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct($user, $feedback, $answer)
+    public function __construct($user, $feedback, $answer, $obj)
     {
         $this->user = $user;
         $this->feedback = $feedback;
         $this->answer = $answer;
+        $this->obj = $obj;
     }
 
     /**
