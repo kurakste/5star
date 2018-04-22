@@ -14,7 +14,6 @@
              <th>Сумма</th>
              <th>Тип</th>
              <th>Примечание</th>
-
         </tr>
     </thead>
      @foreach ($bills as $bill) 
