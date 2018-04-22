@@ -8,6 +8,7 @@ use App\Oobject;
 use App\Question;
 use App\Answer;
 use Auth;
+use App\Events\NewFeedback;
 
 class FeedbackController extends Controller
 {
@@ -44,29 +45,36 @@ class FeedbackController extends Controller
             'fname'=>array('required', 'regex:/[a-zA-ZА-Яа-яЁё\s]/u'),
             'fphone'=>array('required','regex:/^\+7[0-9]{10}$/u'),
             'fnotes'=>array('regex:/[0-9a-zA-Zа-яА-Я\s.,:;!?№]*/u')];
-       for ($i= 0; $i<$request->input('countOfQuestions'); $i++) {
-           $nanswer="fanswer_".$i;
-           $rules[$nanswer]=array('required', 'integer', 'min:0', 'max:5');
-       };
-        $validateDate = $request->validate($rules);
 
-       $fb = new Feedback;
-       $fb->oobject_id = $request->input('id');
-       $fb->name = $request->input('fname');
-       $fb->phone = $request->input('fphone');
-       $fb->comment = $request->input('fnotes');
-       $fb->save();
+        //Подготовка правила для валидации ответов на вопросы.
+        for ($i= 0; $i<$request->input('countOfQuestions'); $i++) 
+        {
+            $nanswer="fanswer_".$i;
+            $rules[$nanswer]=array('required', 'integer', 'min:0', 'max:5');
+        };
 
-       for ($i=0; $i<$request->input('countOfQuestions'); $i++) {
-           $nanswer="fanswer_".$i;
-           $question_id="question_id_".$i;
-           $answers= new Answer;
-           $answers->feedback_id = $fb->id;
-           $answers->question_id = $request->input($question_id);
-           $answers->Answer = $request->input($nanswer);
-           //dd($fb);
-           $answers->save();
+        $validateDate = $request->validate($rules); 
+
+        $fb = new Feedback;
+        $fb->oobject_id = $request->input('id');
+        $fb->name = $request->input('fname');
+        $fb->phone = $request->input('fphone');
+        $fb->comment = $request->input('fnotes');
+        $fb->save();
+
+        for ($i=0; $i<$request->input('countOfQuestions'); $i++) 
+        {
+            $nanswer="fanswer_".$i;
+            $question_id="question_id_".$i;
+            $answers= new Answer;
+            $answers->feedback_id = $fb->id;
+            $answers->question_id = $request->input($question_id);
+            $answers->Answer = $request->input($nanswer);
+            $answers->save();
        }
+        event(new NewFeedback);
+
+
        return view ('thanks');
     }
 }
