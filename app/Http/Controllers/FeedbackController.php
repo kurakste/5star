@@ -16,8 +16,7 @@ class FeedbackController extends Controller
     public function create($nickname) {
         //Никнейм придет в формате: user_id-nickname;
         $splitedNick = explode('-', $nickname);
-
-        $obj = Oobject::where([['nick',$splitedNick[1]],['user_id', $splitedNick[0]]])->firstOrFail();
+        $obj = Oobject::where([['nick', $splitedNick[1]], ['user_id', $splitedNick[0]]])->firstOrFail();
         $Q = Question::where([['oobject_id',$obj->id],['activ',true]])->get();
 
         //!! Нужно продумать как поступать с клиентами у кого не активный статус.
@@ -55,6 +54,9 @@ class FeedbackController extends Controller
 
         $validateDate = $request->validate($rules); 
 
+        $obj = Oobject::find($request->input('id'));
+        $user = $obj->user;
+
         $fb = new Feedback;
         $fb->oobject_id = $request->input('id');
         $fb->name = $request->input('fname');
@@ -72,7 +74,7 @@ class FeedbackController extends Controller
             $answers->Answer = $request->input($nanswer);
             $answers->save();
        }
-        event(new NewFeedback);
+        event(new NewFeedback($user, $fb, $answers));
 
 
        return view ('thanks');
