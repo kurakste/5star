@@ -1,5 +1,7 @@
 /node_modules
 /public/QRCode
+/public/tmp
+/public/banners
 /public/hot
 /public/QRCode
 /public/storage
