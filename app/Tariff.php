@@ -18,6 +18,7 @@ class Tariff extends Model
         // Возвращает брекпоинты с которых меняются тарифы. 
         $out = DB::table('tariffs')->select('max_object', 'sum')
                         ->orderBy('max_object','asc')->get();  
+        $out = $out->toArray();
         return $out;
     }
 }

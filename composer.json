@@ -26,8 +26,7 @@
         ],
         "psr-4": {
             "App\\": "app/",
-            "Logic\\": "app/Logic",
-            "pChart\\": "app/lib/pChart"
+            "Logic\\": "app/Logic"
         }
     },
     "autoload-dev": {

@@ -3,10 +3,10 @@
 @section('title', 'HotLine')
 @section('content')
 
+<a class='bBack' href="/home"><img src="icon/left-80.png" alt="" width='60' /></a>
 
-     <a class='bBack' href="/home"><img src="icon/left-80.png" alt="" width='60' /></a>
+<div class="buffer"> </div>
 
-    <div class="buffer"> </div>
 <div class="std-card-square mdl-card mdl-shadow--2dp">
   <div class="mdl-card__title mdl-card--expand">
     <h2 class="mdl-card__title-text">Информация</h2>
@@ -27,12 +27,15 @@
                     <div class='FlRight'>{{$user['city']}}</div>
                 </li>
                 <li><span class='SpLeft'>Баланс</span>
-                    <div class='FlRight'>{{$user->balance()}}</div>
+                    <div class='FlRight'>{{round ($user->balance(),2)}}</div>
                 </li>
                 <li><span class='SpLeft'>Объектов</span>
                     <div class='FlRight'>{{count($user['objects'])}}</div>
                 </li>
             </ul>
+    <div id=billingButtonWrapper>
+        <a id='billingButton' href="/bill/details">БИЛЛИНГ</a >
+    </div>
   </div>
 </div>
 

@@ -20,7 +20,6 @@ Route::get('/bill/details', 'BillController@billDetails')->middleware('auth');
 Route::post('/downloadQR', 'ObjectController@downloadQR')->middleware('auth');
 Route::get('/showtariffs','TariffController@showTariffs')->middleware('auth');
 Route::post('/_posters', 'PosterController@showPostersList')->middleware('auth');
-Route::get('/scan-poster-folder', 'PosterController@scanPosterFolder')->middleware('auth');
 Route::get('/getposter', 'PosterController@getPoster')->middleware('auth');
 Route::get('/getsettings','SettingController@getSettings')->middleware('auth');
 Route::post('/storesettings','SettingController@storeSettings')->middleware('auth');

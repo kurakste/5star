@@ -5,6 +5,7 @@ namespace App\Console;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 use Logic\BillingMachine;
+use Illuminate\Support\Facades\Log;
 
 class Kernel extends ConsoleKernel
 {
@@ -25,13 +26,17 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
-        $schedule->call(function () {
+        Log::info('Hi from scheduler!');
+        
+        $schedule->call(function () 
+            {
+                Log::info('hi from every day');
+                $billing = new BillingMachine;
+                $billing->MakeBilling();
+        });
+        //->everyMinute();
 
-        $billing = new BillingMachine;
-        $billing->MakeBilling();
-    })->hourly();
+
     }
     /**
      * Register the commands for the application.
