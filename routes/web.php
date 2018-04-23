@@ -1,4 +1,5 @@
 <?php
+Route::get('/proof', 'GetPaymentController@getIncomingPayment');
 Route::get('/botman/tinker', 'BotManController@tinker');
 Route::post('/fb/store', 'FeedbackController@store');
 Route::get('/fb/{nickname}', 'FeedbackController@create');
