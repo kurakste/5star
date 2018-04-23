@@ -7,6 +7,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Mail;
 use Log;
+use App\Question;
 
 class NewFeedbackHandler
 {
@@ -29,14 +30,19 @@ class NewFeedbackHandler
     public function handle(NewFeedback $event)
     {
         //
-        /* $fb = $event->feedback; */
-        /* Log::info($fb); */
         $usr = $event->user;
         if ($usr->settings->send_each_fb) 
-        
         {
+            $questions = Question::where('oobject_id', $event->obj->id)->get();
+            $q = [];
+            foreach ($questions as $quest) 
+            {
+                $q[$quest->id] = $quest->question;
+            }
+//            Log::info($event->answer);
+        
             $data = array('name'=>$usr->name, 'feedback' => $event->feedback,
-                'answer'=>$event->answer, 'obj'=>$event->obj);
+                'answers'=>$event->answer, 'obj'=>$event->obj, 'questions'=>$q);
 
             Mail::send('emails.newFeedback', $data, function($message) use ($usr)
             {

@@ -74,7 +74,8 @@ class FeedbackController extends Controller
             $answers->Answer = $request->input($nanswer);
             $answers->save();
        }
-        event(new NewFeedback($user, $fb, $answers, $obj));
+        $ans = Answer::where('feedback_id', $fb->id)->get();
+        event(new NewFeedback($user, $fb, $ans, $obj));
 
 
        return view ('thanks');
