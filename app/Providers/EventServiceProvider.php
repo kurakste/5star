@@ -19,6 +19,9 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\BalanceZeroLevel' => [
             'App\Listeners\BalanceZeroLevelHandler@handle',
         ],
+        'App\Events\NewFeedback' => [
+            'App\Listeners\NewFeedbackHandler@handle',
+        ],
     ];
 
     /**
