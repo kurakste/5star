@@ -9,7 +9,8 @@ class GetPaymentController extends Controller
 {
     //
     public function getIncomingPayment (Request $request) {
-        
+
+        Log::info('incoming..');
         Log::info ($request);
     }
 }
