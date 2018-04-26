@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
+use App\Usersetting;
+use App\User;
 
 class HomeController extends Controller
 {
@@ -48,9 +50,22 @@ class HomeController extends Controller
         return view('info', ['user' => $user]);
     }
 
-    public function infoInfo() 
+    public function test() 
     {
-        phpinfo();
-        
+        $weeklyusers = Usersetting::where('send_daily_report', 1)->get();
+        /* dd($weeklyusers); */
+        $actusr=[];
+        foreach ($weeklyusers as $wuser) {
+            $tmp = User::find($wuser->user_id)->first();
+            if ($tmp->active) {
+                $actusr[]=$tmp;
+            }
         }
+        dd($actusr);
+        
+    }
+
+    private function getWeeklyRepport (User $user) {
+    
+    }
 }
