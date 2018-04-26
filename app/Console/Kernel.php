@@ -27,14 +27,24 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         Log::info('Hi from scheduler!');
-        
+         
         $schedule->call(function () 
             {
                 Log::info('hi from every day');
-                $billing = new BillingMachine;
-                $billing->MakeBilling();
-        });
-        //->everyMinute();
+
+        })->dailyAt('0:00');
+        
+        $schedule->call(function () 
+            {
+                Log::info('hi from every week');
+
+        })->weekly()->mondays()->at('23:00');
+        
+        $schedule->call(function () 
+            {
+                Log::info('hi from every month.');
+
+        })->monthlyOn(1, '23:00');
 
 
     }
