@@ -14,6 +14,9 @@ class HomeController extends Controller
      *
      * @return void
      */
+    private $secret = 'mhfVcZ3uvkZ0rtXWyP59v+zj';
+
+
     public function __construct()
     {
         $this->middleware('auth');
@@ -49,19 +52,27 @@ class HomeController extends Controller
 
         return view('info', ['user' => $user]);
     }
+    
+    private function checkSecretString(Array $data) {
+        $str = $data['notification_type'].'&'.$data['operation_id'].'&'.
+            $data['amount'].'&'.$data['currency'].'&'.$data['datetime'].'&'.
+            $data['sender'].'&'.$data['codepro'].'&'.$this->secret.'&'.$data['label'];
+        return ($data['sha1_hash'] == sha1($str));
+    }
 
-    public function test() 
-    {
-        $weeklyusers = Usersetting::where('send_daily_report', 1)->get();
-        /* dd($weeklyusers); */
-        $actusr=[];
-        foreach ($weeklyusers as $wuser) {
-            $tmp = User::find($wuser->user_id)->first();
-            if ($tmp->active) {
-                $actusr[]=$tmp;
-            }
-        }
-        dd($actusr);
+        public function test() 
+        {
+        
+        /* $weeklyusers = Usersetting::where('send_daily_report', 1)->get(); */
+        /* /1* dd($weeklyusers); *1/ */
+        /* $actusr=[]; */
+        /* foreach ($weeklyusers as $wuser) { */
+        /*     $tmp = User::find($wuser->user_id)->first(); */
+        /*     if ($tmp->active) { */
+        /*         $actusr[]=$tmp; */
+        /*     } */
+        /* } */
+        /* dd($actusr); */
         
     }
 
