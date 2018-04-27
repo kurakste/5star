@@ -41,7 +41,7 @@ class GetPaymentController extends Controller
 
         $data = $request->all();
         
-        Log::info ($request->fullUrl);
+        Log::info ($request->fullUrl());
 
          if (!$this->validIncomingData($data)) { 
 
