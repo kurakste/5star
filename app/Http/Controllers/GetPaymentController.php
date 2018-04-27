@@ -42,6 +42,7 @@ class GetPaymentController extends Controller
         $data = $request->all();
         
         Log::info ($request->all());
+        Log::info ('hi!');
 
          if (!$this->validIncomingData($data)) { 
 
