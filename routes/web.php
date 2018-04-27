@@ -1,5 +1,5 @@
 <?php
-Route::post('/proof', 'GetPaymentController@getIncomingPayment');
+Route::any('/proof', 'GetPaymentController@getIncomingPayment');
 Route::get('/test', 'HomeController@test')->name('home');
 Route::get('/botman/tinker', 'BotManController@tinker');
 Route::post('/fb/store', 'FeedbackController@store');
