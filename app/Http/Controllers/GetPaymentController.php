@@ -8,7 +8,7 @@ use Log;
 class GetPaymentController extends Controller
 {
     //
-    private $secret = 'mhfVcZ3uvkZ0rtXWyP59v+zj';
+    private $secret ='cjYlQQNm7++dM31KLLZrPC7K';
 
     private function checkSecretString(Array $data) {
         // This will check is the signature valid or not. 
