@@ -17,7 +17,7 @@
         <input type="hidden" name="receiver" value="410015977582606">    
         <input type="hidden" name="formcomment" value="Оплата сервиса Hlines.ru">    
         <input type="hidden" name="short-dest" value="Оплата сервиса Hlines.ru">    
-        <input type="hidden" name="label" value="$order_id">    
+        <input type="hidden" name="label" value="{{ $user_id}}">    
         <input type="hidden" name="quickpay-form" value="donate">    
         <input type="hidden" name="targets" value="транзакция {order_id}">    
         <input class="mdl-textfield__input recharge" name="sum" value="500" data-type="number">    
