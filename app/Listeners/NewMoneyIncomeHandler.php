@@ -28,7 +28,7 @@ class NewMoneyIncomeHandler
     public function handle(NewMoneyIncome $event)
     {
         //
-        $data = $this->data;
+        $data = $event->data;
         Log::info("I'm in NewMoneyIncomeHandler");
         Log::info($data);
     }
