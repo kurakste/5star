@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Events\NewMoneyIncome;
 use Log;
 
 class GetPaymentController extends Controller
