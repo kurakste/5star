@@ -12,32 +12,44 @@ class GetPaymentController extends Controller
 
     private function checkSecretString(Array $data) {
         // This will check is the signature valid or not. 
-        // Return bool.
+        // Return boolean.
 
         $str = $data['notification_type'].'&'.$data['operation_id'].'&'.
             $data['amount'].'&'.$data['currency'].'&'.$data['datetime'].'&'.
             $data['sender'].'&'.$data['codepro'].'&'.$this->secret.'&'.$data['label'];
+        $out = ($data['sha1_hash'] == sha1($str));
+        
+         if ($out) {
+             Log::info('The secret string is correct.');
+         } else {
+             Log::info('The secret string is not correct.');
+         }
 
-        return ($data['sha1_hash'] == sha1($str));
+        return $out; 
     }
 
     private function validIncomingData($data) {
-        // This will check has input array all requierd data or not.
-        // Return bool.
-    
+        // This will check has input array all required data or not.
+        // Return boolean.
          $requierd_keys = ['notification_type', 'operation_id', 'amount', 'currency', 'datetime',
              'sender', 'codepro', 'label'];
-         $out = true;
+         $out = true; //you are innocent until proven guilty 
          foreach ($requierd_keys as $requierd_key) {
              $out = $out && array_key_exists($requierd_key, $data);
          } 
+
+         if ($out) {
+             Log::info('The data structure is correct.');
+         } else {
+             Log::info('The data structure is not correct.');
+         }
 
          return $out;
     }
 
     public function getIncomingPayment (Request $request) {
         // This will get feedback from payment system and if all is ok,
-        // make all necessary records in database and fire requierd event.
+        // make all necessary records in database and fire required event.
 
         $data = $request->all();
         
@@ -45,16 +57,18 @@ class GetPaymentController extends Controller
         Log::info ('hi!');
 
          if (!$this->validIncomingData($data)) { 
-
              return 'Bad request. <br>';
          } 
 
         if (!$this->checkSecretString($data)){
-            Log::info('Payment access denied due to incorect hash.');
+            Log::info('Payment access denied due to incorrect hash.');
             Log::info($request);
             Log::info('--------------------------------------------');
-            return '';
+            return 'Bad secret string';
         }
+
+        event (new NewMoneyIncome($data));
+
         return 'ok<br>';
 
     }

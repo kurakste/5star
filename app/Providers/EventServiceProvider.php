@@ -22,6 +22,9 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\NewFeedback' => [
             'App\Listeners\NewFeedbackHandler@handle',
         ],
+        'App\Events\NewMoneyIncome' => [
+            'App\Listeners\NewMoneyIncomeHandler@handle',
+        ],
     ];
 
     /**
