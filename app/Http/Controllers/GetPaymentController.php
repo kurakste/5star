@@ -9,15 +9,15 @@ use Log;
 class GetPaymentController extends Controller
 {
     //
-    private $secret ='cjYlQQNm7++dM31KLLZrPC7K';
+    /* private $secret = env('BANK_SEC_KEY',''); */
 
     private function checkSecretString(Array $data) {
         // This will check is the signature valid or not. 
         // Return boolean.
-
+        $secret = env('BANK_SEC_KEY','');
         $str = $data['notification_type'].'&'.$data['operation_id'].'&'.
             $data['amount'].'&'.$data['currency'].'&'.$data['datetime'].'&'.
-            $data['sender'].'&'.$data['codepro'].'&'.$this->secret.'&'.$data['label'];
+            $data['sender'].'&'.$data['codepro'].'&'.$secret.'&'.$data['label'];
         $out = ($data['sha1_hash'] == sha1($str));
         
          if ($out) {
