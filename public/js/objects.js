@@ -11,7 +11,8 @@ window.onload = function () {
         // range.selectNode(lf); 
         // window.getSelection().addRange(range); 
         
-        lf.select();
+        // lf.select();
+        lf.setSelectionRange(0,9999);
         //пытаемся скопировать текст в буфер обмена
         try { 
         document.execCommand('copy'); 
@@ -20,8 +21,6 @@ window.onload = function () {
         } 
 
         //очистим выделение текста, чтобы пользователь "не парился"
-        window.getSelection().removeAllRanges();
-        alert(lf);
     }
 
 

@@ -108,6 +108,6 @@
 @endsection
 
 @section('script')
-<script src= "js/objects.js"><script>
+<script src= "js/objects.js"></script>
 
 @endsection
