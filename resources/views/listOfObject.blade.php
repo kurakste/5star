@@ -85,7 +85,9 @@
                 <img class='obj-icon' src="icon/banners_small.png" alt="" style=""/>
                 {!! Form::close() !!}
 
-                <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab" id = 'btnGetLinkForFB'>
+                <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab btnGetLinkForFB"
+                data-id = '{{ $object->id }}'>
+
                 <img src="icon/link_small.png" alt="" style=""/>
                 </button>
 
@@ -94,7 +96,7 @@
                             
                 <input  type='text' size = '30' 
                         value = "{{ url('/')}}/fb/{{$user->id}}-{{$object->nick}}"
-                        id = 'linkField'>
+                        id = 'linkField-{{ $object->id }}'>
                 </input>
                        </div> 
 

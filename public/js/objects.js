@@ -1,27 +1,29 @@
 window.onload = function () {
-    console.log('We are in onload function.');
-    var but = document.getElementById('btnGetLinkForFB');
-    console.log(but);
-    
-    but.onclick = function () {
+    var buttons = document.getElementsByClassName('btnGetLinkForFB');
+    var countOfObjects = buttons.length-1;
+    var i;
 
-        var lf = document.getElementById('linkField');
-        //производим его выделение
-        // var range = document.createRange();
-        // range.selectNode(lf); 
-        // window.getSelection().addRange(range); 
+    for (i=0; i<=countOfObjects; i++) {
+    
+        console.log(buttons[i]);
+        buttons[i].onclick = onButtonCopyLinkClick; 
+    }; 
         
-        // lf.select();
-        lf.setSelectionRange(0,9999);
+}
+    function onButtonCopyLinkClick() {
+        console.log(this);
+        var currentObjectId = this.getAttribute('data-id');
+        var linkFieldName = 'linkField-' + currentObjectId;
+        var field = document.getElementById(linkFieldName);
+
+        field.setSelectionRange(0,60);
+
         //пытаемся скопировать текст в буфер обмена
         try { 
         document.execCommand('copy'); 
         } catch(err) { 
-        console.log('Can`t copy, boss'); 
-        } 
-
-        //очистим выделение текста, чтобы пользователь "не парился"
-    }
-
+        console.log('Can`t copy.'); 
+    } 
+        window.getSelection().removeAllRanges();
 
 }
