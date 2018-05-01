@@ -84,21 +84,18 @@
                 <button type="subbmit"  class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab obj-button">
                 <img class='obj-icon' src="icon/banners_small.png" alt="" style=""/>
                 {!! Form::close() !!}
-<!--
-                {!! Form::open(['url'=>'/banner','method'=>'POST'])  !!}
-                <input type="hidden" name="id" value="{{$object->id}}" >
-                <button type="subbmit"  class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab">
-                <i class="far fa-newspaper"></i></button>
-                {!! Form::close() !!} -->
-                        
 
-                <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab">
+                <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab" id = 'btnGetLinkForFB'>
                 <img src="icon/link_small.png" alt="" style=""/>
                 </button>
 
                 <a href="/fb/{{$user->id}}-{{$object->nick}}" >
                 <img src="/icon/check_30.png" alt="" /></a>
                             
+                <input  type='text' size = '30' 
+                        value = "{{ url('/')}}/fb/{{$user->id}}-{{$object->nick}}"
+                        id = 'linkField'>
+                </input>
                        </div> 
 
       </div> <!--mdl-card__supporting-text -->
@@ -111,6 +108,6 @@
 @endsection
 
 @section('script')
-
+<script src= "js/objects.js"><script>
 
 @endsection
