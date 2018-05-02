@@ -276,6 +276,10 @@ button.obj-button {
   margin: 5px;
 }
 
+.fbLinkField {
+  opacity: 0;
+}
+
 /* ===== добавить вопрос === */
 
 button#bAddQuestion {

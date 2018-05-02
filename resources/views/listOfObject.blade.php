@@ -95,6 +95,7 @@
                 <img src="/icon/check_30.png" alt="" /></a>
                             
                 <input  type='text' size = '30' 
+                        class ='fbLinkField'
                         value = "{{ url('/')}}/fb/{{$user->id}}-{{$object->nick}}"
                         id = 'linkField-{{ $object->id }}'>
                 </input>
