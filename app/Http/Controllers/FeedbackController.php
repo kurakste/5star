@@ -1,5 +1,8 @@
 <?php
-
+/**
+ * This is the FeedbackController class
+ *
+ */
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -10,11 +13,21 @@ use App\Answer;
 use Auth;
 use App\Events\NewFeedback;
 
+/**
+ * This is the FeedbackController class
+ *
+ */
 class FeedbackController extends Controller
 {
-    //
-    public function create($nickname) {
-        //Никнейм придет в формате: user_id-nickname;
+    /**
+     * Create new feedback request, gets relevant questions and 
+     * show view for user 
+     * 
+     * @return view feedback
+     */
+    public function create($nickname)
+    {
+        //This is the expected forms of nickname: user_id-nickname;
         $splitedNick = explode('-', $nickname);
         $obj = Oobject::where([['nick', $splitedNick[1]], ['user_id', $splitedNick[0]]])->firstOrFail();
         $Q = Question::where([['oobject_id',$obj->id],['activ',true]])->get();
@@ -22,23 +35,41 @@ class FeedbackController extends Controller
         //!! Нужно продумать как поступать с клиентами у кого не активный статус.
         //!! Проверку нужно исправить. 
         //
-        return view ('feedback',['oobject_id'=>$obj->id, 'questions'=>$Q]);
-        } 
+        return view('feedback', ['oobject_id'=>$obj->id, 'questions'=>$Q]);
+    } 
 
-    public function getFullFbList() {
+    /**
+     * This method create full list of feedback for the User. 
+     * 
+     * @return view showfb
+     */
+    public function getFullFbList() 
+    {
         $user = Auth::user();
         $fb = $user->allFB()->get()->sortByDesc('created_at');
     
-        return view ('showfb',['object'=>null, 'fbarray'=>$fb]);
+        return view ('showfb', ['object'=>null, 'fbarray'=>$fb]);
     }
 
-    public function show (Request $request) {
+    /**
+     * This method create list of feedback for specific object. 
+     * 
+     * @return view showfb
+     */
+    public function show(Request $request) 
+    {
         $object = Oobject::where('id', $request->input('id')) -> first();
         $fbarray = $object->getFeedBackList()->sortByDesc('created_at');
-        return view ('showfb',['object'=>$object,'fbarray'=>$fbarray]);
+        return view ('showfb', ['object'=>$object,'fbarray'=>$fbarray]);
     }
 
-    public function store(Request $request) {
+    /**
+     * This method chek data and store new feedback in base. 
+     * 
+     * @return view thanks
+     */
+    public function store(Request $request)
+    {
         // Проверка данных, пришедших из формы.
         $rules = [
             'fname'=>array('required', 'regex:/[a-zA-ZА-Яа-яЁё\s]/u'),
@@ -46,8 +77,8 @@ class FeedbackController extends Controller
             'fnotes'=>array('regex:/[0-9a-zA-Zа-яА-Я\s.,:;!?№]*/u')];
 
         //Подготовка правила для валидации ответов на вопросы.
-        for ($i= 0; $i<$request->input('countOfQuestions'); $i++) 
-        {
+        $max = $request->input('countOfQuestions');
+        for ($i= 0; $i<$max; $i++) {
             $nanswer="fanswer_".$i;
             $rules[$nanswer]=array('required', 'integer', 'min:0', 'max:5');
         };
@@ -64,8 +95,8 @@ class FeedbackController extends Controller
         $fb->comment = $request->input('fnotes');
         $fb->save();
 
-        for ($i=0; $i<$request->input('countOfQuestions'); $i++) 
-        {
+        $max = $request->input('countOfQuestions');
+        for ($i=0; $i<$max; $i++) {
             $nanswer="fanswer_".$i;
             $question_id="question_id_".$i;
             $answers= new Answer;
@@ -73,11 +104,10 @@ class FeedbackController extends Controller
             $answers->question_id = $request->input($question_id);
             $answers->Answer = $request->input($nanswer);
             $answers->save();
-       }
+        }
         $ans = Answer::where('feedback_id', $fb->id)->get();
+
         event(new NewFeedback($user, $fb, $ans, $obj));
-
-
-       return view ('thanks');
+        return view('thanks');
     }
 }

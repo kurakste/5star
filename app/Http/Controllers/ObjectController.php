@@ -12,18 +12,20 @@ class ObjectController extends Controller
 {
     const _PATH = 'QRCode/';
 
-    public function del (Request $request) {
+    public function del(Request $request) 
+    {
 
-        $obj = Oobject::where('id',$request->input('id'))->firstorFail();
-        return view ('delobject',['object' => $obj]);
+        $obj = Oobject::where('id', $request->input('id'))->firstorFail();
+        return view('delobject', ['object' => $obj]);
     }
 
-    public function finishdel (Request $request) {
+    public function finishdel(Request $request) 
+    {
 
         // Получив доступ к этой ссылке злодей может удалить все объекты
         // перебирая числа. Нужно подумать над защитой.
 
-        $obj = Oobject::where('id',$request->input('id'))->firstorFail();
+        $obj = Oobject::where('id', $request->input('id'))->firstorFail();
 
         //сначала удаляем QR код из папки  _PATH
         $name = $obj->QRfilename;
@@ -33,37 +35,40 @@ class ObjectController extends Controller
         return redirect("/objects");
     }
 
-    public function updateQRCode ($request, $obj_id) {
+    public function updateQRCode($request, $obj_id) 
+    {
 
         $object = Oobject::where('id', $obj_id)->firstorFail();
         $publicNick = $object->user_id.'-'.$object->nick;
         $filename = self::_PATH.$publicNick.'.png';
         $url = $request->root();
-        QrCode::format('png')->size(400)->generate($url.'/fb/'.$publicNick,$filename);
+        QrCode::format('png')->size(400)->generate($url.'/fb/'.$publicNick, $filename);
         $object->QRfilename = $filename;
         $object->save();
     }
 
-    public function store (Request $request) {
+    public function store(Request $request) 
+    {
         
         $user = Auth::user();
         
         if ($request->input('id')==null) {
-            $object = new Oobject;}
-            else {
-                $object = Oobject::where('id', $request->input('id'))->firstorFail();
-            }
+            $object = new Oobject;
+        } else {
+            $object = Oobject::where('id', $request->input('id'))->firstorFail();
+        }
+
         $object->user_id = $user->id;
         
         // Нужно проверить изменил ли пользователь никнейм объекта. Если да,
         // то мы должны удалить файл со QR кодом.
         if ($object->nick != $request->input('fnicknаme')) {
-                $publicNick = $object->id.'-'.$object->nick;
-                $filename = self::_PATH.$publicNick.'.png';
-                if (file_exists($filename)) {
-                    unlink($filename);
-                    }
-                }
+            $publicNick = $object->id.'-'.$object->nick;
+            $filename = self::_PATH.$publicNick.'.png';
+            if (file_exists($filename)) {
+                unlink($filename);
+            }
+        }
 
         $object->nick = $request->input('fnickname');
         $object->managername = $request->input('fmanager');
@@ -71,6 +76,7 @@ class ObjectController extends Controller
         $object->notes = $request->input('fnotes');
         $object->city = $request->input('fcity');
         $object->addr = $request->input('faddr');
+
         // Сейчас нельзя создавать QR код. Для нового объкте не известен id;
         // id юзера используется для уникальности кодов среди всех клиентов;
         $object->QRfilename = '';
@@ -84,40 +90,43 @@ class ObjectController extends Controller
             $Q =[
                 "Оцените пожалуйста по пятибальной шкале качество услуги нашего заведения.",
                 "Оцените пожалуйста по пятибальной шкале качество обслуживания в нашем заведении."];
+
             foreach ($Q as $question) {
                 $questions=new Question;
                 $questions->oobject_id=$object->id;
                 $questions->question = $question;
                 $questions->save();
-                }
+            }
         }
         
         return redirect("/objects");
     }
 
-    public function downloadQR (Request $request) {
+    public function downloadQR(Request $request) 
+    {
         // Находит QRCode объекта и отдает его на скачивание.
-
-        $object = Oobject::where('id',$request->input('id'))->firstorFail();
+        $object = Oobject::where('id', $request->input('id'))->firstorFail();
 
         return response()->file($object->QRfilename);
     }
 
-    public function add (Request $request) {
+    public function add(Request $request) 
+    {
         $user_id=$request->session()->get('user_id');
 
-        return view ('addobject',['user_id'=>$user_id]);
+        return view ('addobject', ['user_id'=>$user_id]);
     }
 
-    public function edit (Request $request) {
-        $obj = Oobject::where('id',$request->input('id'))->firstorFail();
+    public function edit(Request $request) 
+    {
+        $obj = Oobject::where('id', $request->input('id'))->firstorFail();
         
-        return view ('editobjects',['object' => $obj]);
+        return view ('editobjects', ['object' => $obj]);
     }
 
-    public function getListOfObject() {
+    public function getListOfObject() 
+    {
         $user = Auth::user();
-        return view('listOfObject',['user'=>$user]);
-
+        return view('listOfObject', ['user'=>$user]);
     }
 }

@@ -24,30 +24,30 @@ class BannerController extends Controller
     //руководству, а я опубликую их в этом параграфе.
     //
 
-    public function showBanner (Request $request) {
-        $user_id = $request->session()->get('user_id');
-        $object_id =$request->input('id');
-        $banerFilename = $user_id.'_'.$object_id.'_banner.jpg';
+    /* public function showBanner (Request $request) { */
+    /*     $user_id = $request->session()->get('user_id'); */
+    /*     $object_id =$request->input('id'); */
+    /*     $banerFilename = $user_id.'_'.$object_id.'_banner.jpg'; */
 
-        return view('showBanner', ['bannerFilename'=>$banerFilename, 'obj_id'=>$object_id]);
-    }
-    public function changeBanner (Request $request){
-        $object_id =$request->input('obj_id');
+    /*     return view('showBanner', ['bannerFilename'=>$banerFilename, 'obj_id'=>$object_id]); */
+    /* } */
+    /* public function changeBanner (Request $request){ */
+    /*     $object_id =$request->input('obj_id'); */
 
-        return view ('uploadBanner',['object_id'=>$object_id]);
-    }
+    /*     return view ('uploadBanner',['object_id'=>$object_id]); */
+    /* } */
 
-    public function storeBanner(Request $request){
-        $user_id = $request->session()->get('user_id');
-        $object_id = $request->input('object_id');
-        $uploaddir = 'banners/';
-        $file_name = $user_id.'_'.$object_id.'_banner.jpg';
-        $fullpath = $uploaddir.$file_name;
-        move_uploaded_file($_FILES['bannerFile']['tmp_name'], $fullpath);
-       // dd($_FILES['bannerFile']['tmp_name']);
+    /* public function storeBanner(Request $request){ */
+    /*     $user_id = $request->session()->get('user_id'); */
+    /*     $object_id = $request->input('object_id'); */
+    /*     $uploaddir = 'banners/'; */
+    /*     $file_name = $user_id.'_'.$object_id.'_banner.jpg'; */
+    /*     $fullpath = $uploaddir.$file_name; */
+    /*     move_uploaded_file($_FILES['bannerFile']['tmp_name'], $fullpath); */
+    /*    // dd($_FILES['bannerFile']['tmp_name']); */
 
 
-        return redirect('/home');
-    }
+    /*     return redirect('/home'); */
+    /* } */
 
 }

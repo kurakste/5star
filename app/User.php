@@ -1,5 +1,8 @@
 <?php
-
+/**
+ * File with User class
+ *
+ */
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
@@ -13,6 +16,10 @@ use App\Feedback;
 use App\Oobject;
 
 
+/**
+ * User class
+ *
+ */
 class User extends Model implements Authenticatable, CanResetPasswordContract
 {
     protected $fillable =['name','email', 'password'];
@@ -20,23 +27,45 @@ class User extends Model implements Authenticatable, CanResetPasswordContract
     use CanResetPassword;
     use Notifiable;
 
-    public function objects() {
-    return $this->hasMany('App\Oobject');
+    /**
+     * Function returns all objects for this user. 
+     *
+     * @return App\Oobject
+     */
+    public function objects() 
+    {
+        return $this->hasMany('App\Oobject');
+    }
 
-}
-    public function balance() {
-        $sum=Bill::where('user_id',$this->id)->sum('sum');
+    /**
+     * Function returns current balance. 
+     *
+     * @return float
+     */
+    public function balance() 
+    {
+        $sum=Bill::where('user_id', $this->id)->sum('sum');
         return $sum;
     }
 
-    public function settings ()
+    /**
+     * Function returns settings for current user.
+     *
+     * @return App\Ussersetting
+     */
+    public function settings()
     {
         return $this->hasOne('App\Usersetting');
 
     }
     
-    public function allFB(){
-
+    /**
+     * Function returns all feedbacks for this user. 
+     *
+     * @return App\Ussersetting
+     */
+    public function allFB()
+    {
         return $this->hasManyThrough('App\Feedback', 'App\Oobject');
     }
     //
