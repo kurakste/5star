@@ -1,58 +1,83 @@
 <?php
-
+/**
+ *
+ * @package Rdefault
+ * @author Kurakste <kurakste@gmail.com>
+ * @copyright Kurakste, 08 мая, 2018
+ * @version $Id$
+ */
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Bill;
 use App\User;
+use Carbon\Carbon;
+use Auth;
 
 class BillController extends Controller
 {
-    //
-    public function rechargeTheBalance(Request $request) {
-        $user_id=session('user_id');
-
-       return view ('rechargethebalance',['user_id'=>$user_id]);
+    /**
+     * The function gets view where user will recharge balance.
+     * The bill will be changed when bank's server system hint the webhook  
+     * '/proof 
+     *  
+     * @param Request $request We get user id there.
+     *
+     * @return view rechargeTheBalancw
+     */ 
+    public function rechargeTheBalance(Request $request) 
+    {
+        $user_id = Auth::user()->id;
+        return view('rechargethebalance', ['user_id'=>$user_id]);
     }
 
-    public function checkPositiveBalance($user_id) {
+    public function checkPositiveBalance($user_id) 
+    {
         //Проверяем баланс клиента. Если баланс меньше 0 то переводим 
         //
         $user_ = User::find($user_id);
         if ($user_->balance()>0) {
             $user_->active = true;
             $user_->save();
-            }
+        }
     }
 
-    public function store(Request $request) {
-        //!! Здесь сначало должна идти проверка поступления денег
-        //за тем пополнение баланса.
-        // object_id в этой таблице не испрользуется!!!
+    public function billDetails(Request $request) 
+    {
+        if ($request->input('startDate') && ($request->input('endDate'))) {
+            $endDate = $request->input('endDate'); 
+            $startDate = $request->input('startDate');
+        } else {
+            $endDate = Carbon::now()->format('Y-m-d'); 
+            $startDate = Carbon::now()->addMonth(-2)->format('Y-m-d');
+        } 
 
-        $validateDate = $request->validate([
-           'sum'=>'integer|min:0|max:10000'
-        ]);
-        $user_id=$request->session()->get('user_id');
+        $user_id = Auth::user()->id;
+        $incomingBallance = Bill::where('user_id', $user_id)
+            ->where('created_at', '<', $startDate)
+            ->sum('sum');
 
-        $bill= new Bill;
-        $bill->type = 'recharge';
-        $bill->sum = $request->input('sum');
-        $bill->user_id = $user_id;
-        $bill->comment='Пополнение счета клиентом.';
-        $bill->save(); 
-        //теперь нужно проверить баланc и выставить флаг актив в true
-        //если баланс больше нуля.
-        $this->checkPositiveBalance($user_id);
+        $bills= Bill::where('user_id', $user_id)
+            ->where('created_at', '>=', $startDate)
+            ->where('created_at', '<=', $endDate)
+            ->orderByRaw('created_at')->get();
         
-        return redirect("/home");
+        $arrBills = $bills->toArray();
+        array_unshift(
+            $arrBills, [
+                'created_at'=>'','updated_at'=>'',
+                'user_id'=>$user_id, 
+                'sum'=>$incomingBallance,
+                'type'=>'incoming', 
+                'comment'=>'Переходяший баланс с прошлого периода.' 
+            ]
+        );
+        return view(
+            'billdetails', [
+                'bills' => $arrBills,
+                'startDate'=>$startDate,
+                'endDate'=>$endDate
+            ]
+        );  
     }
-
-    public function billDetails (Request $request) {
-
-        $user_id = $request->session()->get('user_id');
-        $bills= Bill::where('user_id',$user_id)->get();
-        return view ('billdetails', ['bills' => $bills]);  
-    }
-
 }
