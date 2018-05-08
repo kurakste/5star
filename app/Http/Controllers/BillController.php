@@ -69,7 +69,7 @@ class BillController extends Controller
                 'user_id'=>$user_id, 
                 'sum'=>$incomingBallance,
                 'type'=>'incoming', 
-                'comment'=>'Переходяший баланс с прошлого периода.' 
+                'comment'=>'Переходящий баланс с прошлого периода.' 
             ]
         );
         return view(
