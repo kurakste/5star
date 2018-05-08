@@ -50,9 +50,18 @@ class GetPaymentController extends Controller
     {
         // This will check has input array all required data or not.
         // Return boolean.
-        $requierd_keys = ['notification_type', 'operation_id', 'amount', 'currency', 'datetime',
-             'sender', 'codepro', 'label'];
+        $requierd_keys = [
+            'notification_type', 
+            'operation_id', 
+            'amount', 
+            'currency', 
+            'datetime',
+            'sender', 
+            'codepro', 
+            'label'
+        ];
         $out = true; //you are innocent until proven guilty 
+
         foreach ($requierd_keys as $requierd_key) {
              $out = $out && array_key_exists($requierd_key, $data);
         } 
