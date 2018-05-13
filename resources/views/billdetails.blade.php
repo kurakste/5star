@@ -1,34 +1,34 @@
 @extends('layouts.master')
-@section('title', '5StarService')
+@section('title', '5starservice')
 @section('content')
 
-<a class='bBack' href="/info">
+<a class='bback' href="/info">
     <img src="/icon/left-80.png" alt="" width='60' />
 </a>
 
 <div class="buffer"> </div>
 <div id='bill-table-wrapper'>
 
-<form id="fSetBillingPeriod" action="/bill/details" method="get">
+<form id="fsetbillingperiod" action="/bill/details" method="get">
     <fieldset>
-        <legend><b>ВЫБЕРЕТЕ ПЕРИОД:</b></legend>
-        <label for="startDate">c </label>
-        <input type="date" name="startDate" id="startDate" 
-               value="{{ $startDate }}" />
-        <label for="endDate"> по </label>
-        <input type="date" name="endDate" id="endDate" 
-               value="{{ $endDate }}" />
-        <p><input id="bSetBillPeriodSubmit" type="submit" value="Обновить"></p>
+        <legend><b>выберете период:</b></legend>
+        <label for="startdate">c </label>
+        <input type="date" name="startdate" id="startdate" 
+               value="{{ $startdate }}" />
+        <label for="enddate"> по </label>
+        <input type="date" name="enddate" id="enddate" 
+               value="{{ $enddate }}" />
+        <p><input id="bsetbillperiodsubmit" type="submit" value="обновить"></p>
     </fieldset>
 </form>
 
     <table class='mdl-data-table'>
     <thead>
         <tr>
-             <th>Дата</th>
-             <th>Сумма</th>
-             <th>Тип</th>
-             <th>Примечание</th>
+             <th>дата</th>
+             <th>сумма</th>
+             <th>тип</th>
+             <th>примечание</th>
         </tr>
     </thead>
      @foreach ($bills as $bill) 
