@@ -14,8 +14,8 @@
 <!-- Simple header with fixed tabs. -->
     <div id="main-wrapper" class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
       <header class="mdl-layout__header">
-        <div class="mdl-layout__header-row">
-          <span class="mdl-layout-title">HOTLine</span>
+        <div class="mdl-layout__header-row" id='mainMenuRow'>
+          <img src="logo.png" id='mainLogo' alt="hlines.ru" />
         </div>
       </header>
       <div class="mdl-layout__drawer">
