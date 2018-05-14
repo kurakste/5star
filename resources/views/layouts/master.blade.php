@@ -2,12 +2,12 @@
 <html lang="en">
   <head>
     <!-- Required meta tags -->
-        <title>@yield('title')</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, shrink-to-fit=no">
-
-      <link rel="stylesheet" href="/css/main.css">
-      <link rel="stylesheet" href="/css/master.css">
+    <title>@yield('title')</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="/css/fontawesome-all.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/master.css">
   </head>
   <body>
 
@@ -19,7 +19,7 @@
         </div>
       </header>
       <div class="mdl-layout__drawer">
-        <span class="mdl-layout-title">HOTLine</span>
+        <span class="mdl-layout-title">HLines.ru</span>
               <div id="my-menu">
                 <ul> 
                   <li> <a href="/home">ГЛАВНАЯ</a> </li>
@@ -37,10 +37,9 @@
       </div>
 
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
-    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <script src="js/jquery-3.2.1.slim.min.js"></script>
+     <script src="js/tether.min.js"></script>
+    <script defer src="js/material.min.js"></script>
     @yield('script')
     </body>
 </html>
