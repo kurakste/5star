@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', '5starservice')
+@section('title', 'HLines.ru')
 @section('content')
 
 <a class='bBack' href="/info">
