@@ -17,16 +17,21 @@
           <img src="/logo.png" id='mainLogo' alt="hlines.ru" />
         </div>
       </header>
-      <div class="mdl-layout__drawer">
-        <span class="mdl-layout-title">HLines.ru</span>
+      <div id="menuWrapper" class="mdl-layout__drawer">
+        <div id="logoWrapper">
+            <span class="mdl-layout-title"><img id='logoInMenu'
+                                                src="/logo.png" 
+    `                                           alt="" />
+            </span>
+        </div>
               <div id="my-menu">
                 <ul> 
-                  <li> <a href="/home">ГЛАВНАЯ</a> </li>
-                  <li> <a href="/info">ИНФОРМАЦИЯ</a> </li>
-                  <li> <a href="/objects">ОБЪЕКТЫ</a> </li>
-                  <li> <a href="/get-full-fb-list">ОТЗЫВЫ</a> </li>
-                  <li> <a href="/bill/charge">ПОПОЛНИТЬ</a> </li>
-                  <li> <a href="/logout">ВЫЙТИ</a></li>
+                  <li> <a class='menuItem' href="/home"><b>ГЛАВНАЯ</b></a> </li>
+                  <li> <a class='menuItem' href="/info">ИНФОРМАЦИЯ</a> </li>
+                  <li> <a class='menuItem' href="/objects">ОБЪЕКТЫ</a> </li>
+                  <li> <a class='menuItem' href="/get-full-fb-list">ОТЗЫВЫ</a> </li>
+                  <li> <a class='menuItem' href="/bill/charge">ПОПОЛНИТЬ</a> </li>
+                  <li> <a class='menuItem' href="/logout">ВЫЙТИ</a></li>
                 </ul>
               </div> <!-- my-menu -->
         </div> <!-- drawer -->
