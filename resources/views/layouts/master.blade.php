@@ -14,7 +14,7 @@
     <div id="main-wrapper" class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
       <header class="mdl-layout__header">
         <div class="mdl-layout__header-row" id='mainMenuRow'>
-          <img src="logo.png" id='mainLogo' alt="hlines.ru" />
+          <img src="/logo.png" id='mainLogo' alt="hlines.ru" />
         </div>
       </header>
       <div class="mdl-layout__drawer">
@@ -37,7 +37,7 @@
 
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
     <script src="js/jquery-3.2.1.slim.min.js"></script>
-     <script src="js/tether.min.js"></script>
+    <script src="js/tether.min.js"></script>
     <script defer src="js/material.min.js"></script>
     @yield('script')
     </body>

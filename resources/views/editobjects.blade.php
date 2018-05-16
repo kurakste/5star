@@ -11,7 +11,7 @@
 
 <div id='objectListWrapper'>
 
-    <div class="buffer"> </div>
+ <div class="buffer"> </div>
     <div class="mdl-card mdl-shadow--2dp editObjectCard">
       <div class="mdl-card__title mdl-card--expand object-title">
         <h2 class="mdl-card__title-text">{{$object->nick}}</h2>
@@ -33,7 +33,12 @@
                 </div>
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                     <label for="FNotes">Город:</label>
-                    <input type="text" class="mdl-textfield__input form-control" name="fcity" value="{{$object->city}}" id="FCity" aria-describedby="HNotes" placeholder="Введите город." pattern="^[0-9a-zA-Zа-яА-Я\s.,:!?-]+$">
+                    <input type="text" 
+                           class="mdl-textfield__input form-control" 
+                           name="fcity" 
+                           value="{{$object->city}}" 
+                           id="FCity" aria-describedby="HNotes" 
+                           placeholder="Введите город." pattern="^[0-9a-zA-Zа-яА-Я\s.,:!?-]+$">
                 </div>
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                     <label for="FAddr">Адрес:</label>
@@ -53,7 +58,7 @@
                 </div>
             </form>
     </div>
-    </div>
+  </div>
 
 </div>
 

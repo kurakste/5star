@@ -21,7 +21,6 @@ class ObjectController extends Controller
 
     public function finishdel(Request $request) 
     {
-
         // Получив доступ к этой ссылке злодей может удалить все объекты
         // перебирая числа. Нужно подумать над защитой.
 
