@@ -36,9 +36,9 @@
       </div>
 
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
-    <script src="js/jquery-3.2.1.slim.min.js"></script>
-    <script src="js/tether.min.js"></script>
-    <script defer src="js/material.min.js"></script>
+    <script src="/js/jquery-3.2.1.slim.min.js"></script>
+    <script src="/js/tether.min.js"></script>
+    <script defer src="/js/material.min.js"></script>
     @yield('script')
     </body>
 </html>
